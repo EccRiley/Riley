@@ -1,8 +1,8 @@
 # README
 
-_<span style = "font-variant:small-caps">Riley Smith</span>_
+_Riley Smith_
 
-_12 October 2014 _
+_12 October 2014_
 
 -----
 
