@@ -14,9 +14,9 @@ Currently, the functions and objects available in **`Riley/R/`** are those that 
 
 -----
 
-# Installation {#install}
+# [Installation](#install)
 
-Because the collective contents of this `R-package` remains a fledgling work in progess, installation of `Riley` is not currently recommended unless you are working with the primary author (@EccRiley) or are in need of one or more of `Riley`'s currently available functions and do not wish to re-write them yourself at the moment. 
+Because the collective contents of this `R-package` remains a fledgling work in progess, _installation of `Riley` is not currently recommended_ unless you are working with the primary author (@EccRiley) or are in need of one or more of `Riley`'s currently available functions and do not wish to re-write them yourself at the moment. 
 
 ```{r eval=FALSE}
 if (!require('devtools')) install.packages('devtools'); require('devtools')
@@ -25,14 +25,14 @@ devtools::install_github('EccRiley/Riley')
 
 -----
 
-## Package Updates and News {#updates}
+## [Package Updates and News](#updates)
 
 Any major updates to the package (i.e., changes that would prompt a revision to the [above](#install) anti-installation warning) will be immediately reflected in this _`README.md`_ document. However, in anticipation of frequent and abundant changes to the `Riley` in the near future, smaller updates will be recorded in [_`NEWS.md`_](NEWS.md).
 
 
 -----
 
-# `To-Do` {#todo}
+# [`To-Do`](#todo)
 
 - [x] Initial package build
 - [ ] `LICENSE` file
