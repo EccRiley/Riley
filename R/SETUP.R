@@ -1653,6 +1653,37 @@ origin <- "1899-12-30"
 #'
 #' ... And now my alternative implementation (including import (`:::`) of two helper functions from `{knitr}` ("`is_html_output`" \& "`is_latex_output`", see [{`pkg:tufte`} source-code on github](https://github.com/rstudio/tufte/blob/master/R/utils.R)):
 #'
+#' -----
+#' 
+#' ## **`R.regTEX()`**
+#'
+#' Another little function for making life easier between HTML and \latex
+#'
+#'
+R.regTEX <- function(txt, op = 1) { ## '`op`' = The output format for which
+    ## the text should be re-decorated
+    ## before being sent to `pandoc`.
+    ## Input for `op` can be one of:
+    ## `1 [DEFAULT] (LaTeX)` or
+    ## `2 (HTML)` ##
+    if (op == 1) {
+        TX <- gsub("\\*\\*(.*?)\\*\\*", "\\\\textbf\\{\\1\\}", txt, perl = TRUE)
+        TX <- gsub("_(.*?)_", "\\\\textit\\{\\1\\}", TX, perl = TRUE)
+        TX <- gsub("\`(.*?)\`", "\\\\texttt\\{\\1\\}", TX, perl = TRUE)
+        TX <- gsub("LaTeX", "\\\\latex", TX, perl = TRUE)
+        TX <- gsub("\\[(.*?)]\\((.*?)\\)", "\\\\rhref\\{\\2\\}\\{\\1\\}", TX, perl = TRUE)
+    }
+    else {
+        TX <- gsub("\\\\textbf\\{(.*?)\\}", "\\*\\*\\1\\*\\*", txt, perl = TRUE)
+        TX <- gsub("\\\\textit\\{(.*?)\\}", "_\\1_", TX, perl = TRUE)
+        TX <- gsub("\\\\texttt\\{(.*?)\\}", "\`\\1\`", TX, perl = TRUE)
+        TX <- gsub("\\\\latex", "LaTeX", TX, perl = TRUE)
+    }
+    return(TX)
+}
+#'
+#' -----
+#'
 #+
 
 ## Knitr Helpers ##
