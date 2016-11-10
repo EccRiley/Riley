@@ -35,7 +35,7 @@ Any major updates to the package (i.e., changes that would prompt a revision to 
 # [`To-Do`](#todo)
 
 - [x] Initial package build
-- [ ] `LICENSE` file
-- [ ] `DESCRIPTION` file
+- [x] `LICENSE` file
+- [x] `DESCRIPTION` file
 - [ ] Complete `RDocumentation` of package contents
     - [ ] With source credits where appropriate
