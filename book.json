@@ -11,7 +11,8 @@
         "chart",
         "code-editor",
         "code-highlighter",
-        "codeblock"
+        "codeblock",
+        "codeex"
     ],
     "pluginsConfig": {}
 }
