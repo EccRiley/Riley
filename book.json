@@ -33,7 +33,8 @@
         "github",
         "hidden",
         "hide-element",
-        "image-captions"
+        "image-captions",
+        "include"
     ],
     "pluginsConfig": {}
 }
