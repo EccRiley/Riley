@@ -40,7 +40,8 @@
         "mathjax-full",
         "multipart",
         "outline",
-        "pandoc"
+        "pandoc",
+        "page-toc"
     ],
     "pluginsConfig": {}
 }
