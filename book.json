@@ -6,7 +6,8 @@
         "bibtex-citations-and-references",
         "block-align",
         "blog",
-        "bootstrap-callout"
+        "bootstrap-callout",
+        "catalog"
     ],
     "pluginsConfig": {}
 }
