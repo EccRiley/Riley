@@ -32,7 +32,8 @@
         "footnote-string-to-number",
         "github",
         "hidden",
-        "hide-element"
+        "hide-element",
+        "image-captions"
     ],
     "pluginsConfig": {}
 }
