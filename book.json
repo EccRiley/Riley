@@ -25,7 +25,8 @@
         "downloadpdf",
         "emphasize",
         "expandable-chapters",
-        "exercises-quote-fix"
+        "exercises-quote-fix",
+        "extend-default-theme"
     ],
     "pluginsConfig": {}
 }
