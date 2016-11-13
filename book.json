@@ -48,7 +48,8 @@
         "sequence-diagrams",
         "tasklist",
         "thumbnail",
-        "tocstyles"
+        "tocstyles",
+        "toolbar"
     ],
     "pluginsConfig": {}
 }
