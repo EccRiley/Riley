@@ -5,7 +5,8 @@
         "betterpagetitles",
         "bibtex-citations-and-references",
         "block-align",
-        "blog"
+        "blog",
+        "bootstrap-callout"
     ],
     "pluginsConfig": {}
 }
