@@ -9,7 +9,8 @@
         "bootstrap-callout",
         "catalog",
         "chart",
-        "code-editor"
+        "code-editor",
+        "code-highlighter"
     ],
     "pluginsConfig": {}
 }
