@@ -1,7 +1,8 @@
 {
     "plugins": [
         "autocover",
-        "bibtex"
+        "bibtex",
+        "betterpagetitles"
     ],
     "pluginsConfig": {}
 }
