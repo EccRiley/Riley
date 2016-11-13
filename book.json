@@ -36,7 +36,8 @@
         "image-captions",
         "include",
         "marginal",
-        "mathjax"
+        "mathjax",
+        "mathjax-full"
     ],
     "pluginsConfig": {}
 }
