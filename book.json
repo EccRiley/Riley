@@ -17,7 +17,8 @@
         "colorbrewer-picker",
         "codetabs",
         "codepen",
-        "comment"
+        "comment",
+        "copy-code-button"
     ],
     "pluginsConfig": {}
 }
