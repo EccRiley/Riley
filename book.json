@@ -38,7 +38,8 @@
         "marginal",
         "mathjax",
         "mathjax-full",
-        "multipart"
+        "multipart",
+        "outline"
     ],
     "pluginsConfig": {}
 }
