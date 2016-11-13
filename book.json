@@ -29,7 +29,8 @@
         "extend-default-theme",
         "flowchart",
         "fontsettings",
-        "footnote-string-to-number"
+        "footnote-string-to-number",
+        "footer"
     ],
     "pluginsConfig": {}
 }
