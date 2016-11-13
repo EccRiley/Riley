@@ -34,7 +34,8 @@
         "hidden",
         "hide-element",
         "image-captions",
-        "include"
+        "include",
+        "marginal"
     ],
     "pluginsConfig": {}
 }
