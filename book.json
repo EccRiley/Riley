@@ -51,7 +51,8 @@
         "tocstyles",
         "toolbar",
         "tufte",
-        "typekit"
+        "typekit",
+        "toolbar-button"
     ],
     "pluginsConfig": {}
 }
