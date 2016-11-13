@@ -7,7 +7,8 @@
         "block-align",
         "blog",
         "bootstrap-callout",
-        "catalog"
+        "catalog",
+        "chart"
     ],
     "pluginsConfig": {}
 }
