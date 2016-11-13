@@ -42,7 +42,8 @@
         "outline",
         "pandoc",
         "page-toc",
-        "page-treeview"
+        "page-treeview",
+        "presentation"
     ],
     "pluginsConfig": {}
 }
