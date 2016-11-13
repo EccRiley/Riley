@@ -2,7 +2,8 @@
     "plugins": [
         "autocover",
         "bibtex",
-        "betterpagetitles"
+        "betterpagetitles",
+        "bibtex-citations-and-references"
     ],
     "pluginsConfig": {}
 }
