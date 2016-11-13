@@ -13,7 +13,8 @@
         "code-highlighter",
         "codeblock",
         "codeex",
-        "collapsible-chapters"
+        "collapsible-chapters",
+        "colorbrewer-picker"
     ],
     "pluginsConfig": {}
 }
