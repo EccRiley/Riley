@@ -52,7 +52,8 @@
         "toolbar",
         "tufte",
         "typekit",
-        "toolbar-button"
+        "toolbar-button",
+        "versioning"
     ],
     "pluginsConfig": {}
 }
