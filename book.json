@@ -47,7 +47,8 @@
         "sequence",
         "sequence-diagrams",
         "tasklist",
-        "thumbnail"
+        "thumbnail",
+        "tocstyles"
     ],
     "pluginsConfig": {}
 }
