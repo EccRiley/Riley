@@ -14,7 +14,8 @@
         "codeblock",
         "codeex",
         "collapsible-chapters",
-        "collapsible-menu"
+        "colorbrewer-picker",
+        "codetabs"
     ],
     "pluginsConfig": {}
 }
