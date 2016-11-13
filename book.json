@@ -31,7 +31,8 @@
         "fontsettings",
         "footnote-string-to-number",
         "github",
-        "hidden"
+        "hidden",
+        "hide-element"
     ],
     "pluginsConfig": {}
 }
