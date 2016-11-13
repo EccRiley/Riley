@@ -28,7 +28,8 @@
         "exercises-quote-fix",
         "extend-default-theme",
         "flowchart",
-        "fontsettings"
+        "fontsettings",
+        "footnote-string-to-number"
     ],
     "pluginsConfig": {}
 }
