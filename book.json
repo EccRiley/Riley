@@ -12,7 +12,8 @@
         "code-editor",
         "code-highlighter",
         "codeblock",
-        "codeex"
+        "codeex",
+        "collapsible-chapters"
     ],
     "pluginsConfig": {}
 }
