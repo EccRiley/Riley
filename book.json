@@ -4,7 +4,8 @@
         "bibtex",
         "betterpagetitles",
         "bibtex-citations-and-references",
-        "block-align"
+        "block-align",
+        "blog"
     ],
     "pluginsConfig": {}
 }
