@@ -53,7 +53,8 @@
         "tufte",
         "typekit",
         "toolbar-button",
-        "versioning"
+        "versioning",
+        "word-count"
     ],
     "pluginsConfig": {}
 }
