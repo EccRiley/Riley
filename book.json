@@ -3,7 +3,8 @@
         "autocover",
         "bibtex",
         "betterpagetitles",
-        "bibtex-citations-and-references"
+        "bibtex-citations-and-references",
+        "block-align"
     ],
     "pluginsConfig": {}
 }
