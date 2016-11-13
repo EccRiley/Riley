@@ -20,7 +20,8 @@
         "comment",
         "copy-code-button",
         "customheader",
-        "creativecommons"
+        "creativecommons",
+        "customtheme"
     ],
     "pluginsConfig": {}
 }
