@@ -23,7 +23,8 @@
         "creativecommons",
         "customtheme",
         "downloadpdf",
-        "emphasize"
+        "emphasize",
+        "expandable-chapters"
     ],
     "pluginsConfig": {}
 }
