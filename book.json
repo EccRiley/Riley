@@ -45,7 +45,8 @@
         "page-treeview",
         "presentation",
         "sequence",
-        "sequence-diagrams"
+        "sequence-diagrams",
+        "tasklist"
     ],
     "pluginsConfig": {}
 }
