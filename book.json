@@ -37,7 +37,8 @@
         "include",
         "marginal",
         "mathjax",
-        "mathjax-full"
+        "mathjax-full",
+        "multipart"
     ],
     "pluginsConfig": {}
 }
