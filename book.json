@@ -27,7 +27,8 @@
         "expandable-chapters",
         "exercises-quote-fix",
         "extend-default-theme",
-        "flowchart"
+        "flowchart",
+        "fontsettings"
     ],
     "pluginsConfig": {}
 }
