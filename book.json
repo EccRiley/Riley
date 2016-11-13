@@ -21,7 +21,8 @@
         "copy-code-button",
         "customheader",
         "creativecommons",
-        "customtheme"
+        "customtheme",
+        "downloadpdf"
     ],
     "pluginsConfig": {}
 }
