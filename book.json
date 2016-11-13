@@ -46,7 +46,8 @@
         "presentation",
         "sequence",
         "sequence-diagrams",
-        "tasklist"
+        "tasklist",
+        "thumbnail"
     ],
     "pluginsConfig": {}
 }
