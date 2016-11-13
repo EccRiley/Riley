@@ -16,7 +16,8 @@
         "collapsible-chapters",
         "colorbrewer-picker",
         "codetabs",
-        "codepen"
+        "codepen",
+        "comment"
     ],
     "pluginsConfig": {}
 }
