@@ -30,7 +30,8 @@
         "flowchart",
         "fontsettings",
         "footnote-string-to-number",
-        "github"
+        "github",
+        "hidden"
     ],
     "pluginsConfig": {}
 }
