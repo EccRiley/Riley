@@ -41,7 +41,8 @@
         "multipart",
         "outline",
         "pandoc",
-        "page-toc"
+        "page-toc",
+        "page-treeview"
     ],
     "pluginsConfig": {}
 }
