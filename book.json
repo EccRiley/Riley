@@ -10,7 +10,8 @@
         "catalog",
         "chart",
         "code-editor",
-        "code-highlighter"
+        "code-highlighter",
+        "codeblock"
     ],
     "pluginsConfig": {}
 }
