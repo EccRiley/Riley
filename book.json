@@ -22,7 +22,8 @@
         "customheader",
         "creativecommons",
         "customtheme",
-        "downloadpdf"
+        "downloadpdf",
+        "emphasize"
     ],
     "pluginsConfig": {}
 }
