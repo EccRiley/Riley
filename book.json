@@ -18,7 +18,8 @@
         "codetabs",
         "codepen",
         "comment",
-        "copy-code-button"
+        "copy-code-button",
+        "customheader"
     ],
     "pluginsConfig": {}
 }
