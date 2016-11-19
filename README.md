@@ -35,7 +35,14 @@ Any major updates to the package (i.e., changes that would prompt a revision to 
 # [`To-Do`](#todo)
 
 - [x] Initial package build
-- [x] `LICENSE` file
-- [x] `DESCRIPTION` file
-- [ ] Complete `RDocumentation` of package contents
+- [x] `LICENSE` file (create)
+    - [x] Add license to `LICENSE` file
+- [x] `DESCRIPTION` file (create)
+    - [ ] Add more descriptive description
+- [ ] Complete `RDocumentation` of package contents _[In progress]_
     - [ ] With source credits where appropriate
+- [ ] Organize package contents _[In progress]_
+    - [ ] Pare-down to only include functions related to the package purpose
+    - [ ] Vectorization
+- [ ] Package name (actual - not the "Riley" placeholder)
+- [ ] Package Vignette/Tutorial(s)
