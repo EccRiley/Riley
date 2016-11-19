@@ -6,7 +6,7 @@ _18 November 2016_
 
 -----
 
-## `{Riley}` A Fledgling `R-Package` in Progress
+## `{Riley}` A Fledgling `R-Package`
 
 This is primarily an `R-package` built for personal reasons and is in the very early stages in terms of package development. I am primarily building this package as my personal starting point for learning the ins-and-outs of `R-package` development and version control with `Git`. However, in the interest of code-sharing and knowledge generation, I am making the development process public via this `Github` repository.
 
