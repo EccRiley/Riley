@@ -2,7 +2,6 @@
 
 -----
 
-
 ## _12 October 2016_
 
 - Successfully completed initial package build process.
