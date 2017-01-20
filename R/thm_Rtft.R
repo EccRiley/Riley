@@ -27,7 +27,7 @@ thm_Rtft <-
                     colour = mypal[19]
                 ),
                 plot.margin = unit(rep(0.15, 4), "cm"),
-                panel.margin = unit(0.15, "cm"),
+                panel.spacing = unit(0.15, "cm"),
                 panel.background = element_blank(),
                 panel.border = element_blank(),
                 strip.text = element_text(size = rel(0.7), colour = mypal[20]),

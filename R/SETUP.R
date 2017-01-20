@@ -393,7 +393,7 @@ Rx <- rnorm(1000)
 #                     colour = mypal[19]
 #                 ),
 #                 plot.margin = unit(rep(0.15, 4), "cm"),
-#                 panel.margin = unit(0.15, "cm"),
+#                 panel.spacing = unit(0.15, "cm"),
 #                 panel.background = element_blank(),
 #                 panel.border = element_blank(),
 #                 strip.text = element_text(size = rel(0.7), colour = mypal[20]),
@@ -538,7 +538,7 @@ Rx <- rnorm(1000)
 #             legend.key.size = unit(0.35, "cm"),
 #             strip.text = element_text(colour = "#3d3d3d", size = rel(.85)),
 #             strip.background = element_rect(colour = "#708090", fill = "#ffffff"),
-#             panel.margin = unit(0.2, "lines"),
+#             panel.spacing = unit(0.2, "lines"),
 #             plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "lines"),
 #             complete = TRUE
 #         )
@@ -582,7 +582,7 @@ Rx <- rnorm(1000)
 #         panel.border = element_rect(fill = NA, colour = mypal[20]),
 #         #   panel.grid.major = element_line(colour = "grey20", size = 0.2),
 #         #   panel.grid.minor = element_line(colour = "grey5", size = 0.5),
-#         #   panel.margin = unit(0.25, "lines"),
+#         #   panel.spacing = unit(0.25, "lines"),
 #         strip.background = element_rect(fill = mypal[20], colour = mypal[20]),
 #         strip.text = element_text(size = rel(0.8), colour = 'white'),
 #         strip.text.y = element_text(angle = -90, colour = 'white'),
@@ -646,7 +646,7 @@ Rx <- rnorm(1000)
 #                 margin = margin(1, 0, 1, 0),
 #                 face = 'bold'
 #             ),
-#             panel.margin = unit(0.2, "lines"),
+#             panel.spacing = unit(0.2, "lines"),
 #             plot.margin = unit(c(0.75, 0.5, 0, 0.5), "lines"),
 #             #top, right, bottom, left
 #             plot.title = element_text(
@@ -1869,4 +1869,12 @@ R.sig <- function(p) { ## "p" = a vector of p-values from a fitted model ##
 	# }
 	# v <- ifelse(is.na(v), mu.v, v)
 	# return(v)
+# }
+#'
+#' ## **`tdf()`**
+#'
+#' This is a simple convenience wrapper function to print or store `table`-class objects as `dataframes`.
+#'
+# tdf <- function(x) {
+	# as.data.frame(table(x))
 # }

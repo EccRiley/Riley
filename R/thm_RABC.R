@@ -54,7 +54,7 @@ thm_RABC <- function(base_size = 12,
                 margin = margin(1, 0, 1, 0),
                 face = 'bold'
             ),
-            panel.margin = unit(0.2, "lines"),
+            panel.spacing = unit(0.2, "lines"),
             plot.margin = unit(c(0.75, 0.5, 0, 0.5), "lines"),
             #top, right, bottom, left
             plot.title = element_text(

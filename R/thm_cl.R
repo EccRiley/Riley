@@ -21,7 +21,7 @@ thm_cl <- function(base_size = 12,
             legend.key.size = unit(0.35, "cm"),
             strip.text = element_text(colour = "#3d3d3d", size = rel(.85)),
             strip.background = element_rect(colour = "#708090", fill = "#ffffff"),
-            panel.margin = unit(0.2, "lines"),
+            panel.spacing = unit(0.2, "lines"),
             plot.margin = unit(c(0.2, 0.2, 0.2, 0.2), "lines"),
             complete = TRUE
         )
