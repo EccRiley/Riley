@@ -6,8 +6,7 @@ Rdich <- function(x,
                    min = 0,
                    values = c(0, 1)) {
     if (is.numeric(x)) {
-        x[x > min] <- values[2]
-        x[x <= min] <- values[1]
+        x <- ifelse(x <= min, values[1], values[2])
     }
     else
         stop('x must be numeric')
