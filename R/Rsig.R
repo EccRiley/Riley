@@ -1,4 +1,4 @@
-Rsig <- function(p) { ## "p" = a vector of p-values from a fitted model ##
+R.sig <- function(p) { ## "p" = a vector of p-values from a fitted model ##
     stars <- list(
         s1 = "$*$",
         s2 = "$**$",
