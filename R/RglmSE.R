@@ -3,7 +3,6 @@
 #'
 #' A function for restructuring output from "summary.glm()" as a dataframe
 #'
-x <- summary(lrm)
 Rglmdf <- function(x){ ## "x" must be an object of class "summary.glm"...
                             ## ... currently only works for simple logistic
                             ## regression (i.e., only one predictor) ##
