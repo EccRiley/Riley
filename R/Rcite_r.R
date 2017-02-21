@@ -26,7 +26,7 @@ Rcite_r <-
             s <- gsub("package:", "", s)
             return(s)
         }
-        pkgs <- R.search()
+        pkgs <- Riley::Rsearch()
         r_bib <- readLines(file)
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
