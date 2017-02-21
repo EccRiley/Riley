@@ -1,7 +1,7 @@
 Package: Riley
 Type: Package
 Title: A Variety of Riley's Things
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: person("Riley", "Smith", email = "rms7@pdx.edu",
   role = c("aut", "cre"))
 Maintainer: https://github.com/EccRiley
