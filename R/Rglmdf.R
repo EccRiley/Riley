@@ -24,4 +24,3 @@ Rglmdf <- function(x){ ## "x" must be an object of class "summary.glm"...
                        p.value = p.x)
     return(x.df)
 }
-x.summ <- R.glmdf(x)
