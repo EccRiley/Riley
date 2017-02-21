@@ -4,7 +4,6 @@ Title: A Variety of Riley's Things
 Version: 0.1.1.9000
 Authors@R: person("Riley", "Smith", email = "rms7@pdx.edu",
   role = c("aut", "cre"))
-Maintainer: Riley Smith <https://github.com/EccRiley>
 Description: This is primarily an R-package built for personal reasons and is in the very early stages in terms of package development. I am primarily building this package as my personal starting point for learning the ins-and-outs of R-package development.
 License: file LICENSE
 Encoding: UTF-8
