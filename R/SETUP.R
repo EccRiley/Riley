@@ -8,34 +8,34 @@
 #'
 #'
 #+ autoLoads
-auto.loads <-
-    c(
-        "base",
-        "utils",
-        "methods",
-        "datasets",
-        "grDevices",
-        "plyr",
-        "dplyr",
-        "tidyr",
-        "ggplot2",
-        "rmarkdown",
-        "bibtex",
-        "knitr",
-        "knitcitations",
-        "ggthemes",
-        "scales",
-        "kableExtra",
-        "devtools",
-        "pander",
-        "sysfonts",
-        "papaja",
-        "DT",
-        "highlight",
-        "bib2df",
-        "tufte",
-        "formatR"
-    )
+# auto.loads <-
+    # c(
+        # "base",
+        # "utils",
+        # "methods",
+        # "datasets",
+        # "grDevices",
+        # "plyr",
+        # "dplyr",
+        # "tidyr",
+        # "ggplot2",
+        # "rmarkdown",
+        # "bibtex",
+        # "knitr",
+        # "knitcitations",
+        # "ggthemes",
+        # "scales",
+        # "kableExtra",
+        # "devtools",
+        # "pander",
+        # "sysfonts",
+        # "papaja",
+        # "DT",
+        # "highlight",
+        # "bib2df",
+        # "tufte",
+        # "formatR"
+    # )
 #'
 #' ## **`sshhh()`**
 #'
