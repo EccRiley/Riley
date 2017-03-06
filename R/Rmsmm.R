@@ -6,6 +6,7 @@
 #' ## **`R.msmm()`**
 #'
 Rmsmm <- function(x, d = 2) {
+	require(dplyr)
     if (is.null(ncol(x))) {
         xM <- mean(x, na.rm = TRUE)
         xSD <- sd(x, na.rm = TRUE)
@@ -23,7 +24,7 @@ Rmsmm <- function(x, d = 2) {
         xSD <- dplyr::summarise_each(xn, funs(sd(., na.rm = TRUE)))
         xMIN <- dplyr::summarise_each(xn, funs(min(., na.rm = TRUE)))
         xMAX <- dplyr::summarise_each(xn, funs(max(., na.rm = TRUE)))
-        xNA <- sapply(x, R.isna)
+        xNA <- sapply(x, Risna)
         summ <- rbind(xM, xSD, xMIN, xMAX, xNA)
         row.names(summ) <- c("M", "SD", "Min", "Max", "NAs")
         summ <- as.data.frame(t(summ))
