@@ -218,19 +218,19 @@
 #'
 mypal <-
     c(
-        "#ffffff",
+        "#eef0f2",
         "#d1d6dc",
         "#da00d1",
         "#a700a0",
         "#74006f",
-        "#f5ff02",
         "#dee800",
-        "#08ff8f",
+        "#adb500",
         "#00f485",
         "#00b965",
-        "#35f8fe",
+        "#006d3b",
         "#00d8d8",
         "#008b8b",
+        "#003f3f",
         "#053efa",
         "#0434d4",
         "#021860",
@@ -1846,13 +1846,13 @@ R.sig <- function(p) { ## "p" = a vector of p-values from a fitted model ##
 		# ncol <- round(nvar/nrow, 0)
 		# par(mfrow = c(nrow, ncol))
 	# }
-	# p <- x[, -g]; 
+	# p <- x[, -g];
 	# p <- cbind(p, x[, g]) %>% as.data.frame() ## ensure the final column is the grouping var (for the next step) ##
 	# d <- 1:(ncol(p)-1) ## i.e., "columns in 'p' except the last" ##
 	# labs <- colnames(p)
 	# library(psych) ## for "bi.bars()" ##
 	# for (i in d) {
-		# bi.bars(p[, g], p[, i], main = paste0(labs[i]), ylab = "Cluster", xlab = substitute(lbl1 %<-% bold(n[x]) %->% lbl2, list(x = labs[i], lbl1 = lbl[1], lbl2 = lbl[2])), color = clr) 
+		# bi.bars(p[, g], p[, i], main = paste0(labs[i]), ylab = "Cluster", xlab = substitute(lbl1 %<-% bold(n[x]) %->% lbl2, list(x = labs[i], lbl1 = lbl[1], lbl2 = lbl[2])), color = clr)
 	# }
 	# on.exit(par(op))
 # }

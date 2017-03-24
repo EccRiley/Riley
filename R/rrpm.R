@@ -2,5 +2,5 @@ rrpm <- function() { ## Re-Replace pander printing methods with default print me
     l <- ls()
     l.gr <- grepl("print\\..*?", l, perl = TRUE)
     l.rm <- as.character(l[l.gr == 1])
-    rm(list = l.rm)
+    on.exit(rm(list = l.rm))
 }
