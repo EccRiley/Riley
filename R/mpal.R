@@ -9,6 +9,5 @@ mpal <- function(x, p = colsHC, a = 1, ...) {
         l <- length(x)
     s <- sample(p(l), l, replace = F)
     adjustcolor(s, alpha.f = a)
-    return(s)
 }
 #'
