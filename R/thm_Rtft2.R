@@ -1,15 +1,12 @@
 #' ## **`thm_Rtft2()`**
 #'
-library(ggplot2)
-library(ggthemes)
-
 thm_Rtft2 <-
     function(base_size = 12,
-             base_family = "ETBembo",
+             base_family = "serif",
              lpos = "right",
              ldir = "vertical",
              ltitle = element_blank()) {
-        require(grid)
+        require(grid); require(ggplot2); require(ggthemes)
         theme_tufte(base_size, base_family) %+replace%
             theme(
                 plot.background = element_rect(colour = mypal[19], fill = 'transparent'),

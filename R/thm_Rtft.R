@@ -1,11 +1,8 @@
 #' ## **`thm_Rftf()`**
 #'
-library(ggplot2)
-library(ggthemes)
-
 thm_Rtft <-
     function(base_size = 12,
-             base_family = "ETBembo",
+             base_family = "serif",
              lpos = "right",
              ldir = "vertical",
              ticks = TRUE,
@@ -17,7 +14,7 @@ thm_Rtft <-
              xtitle = FALSE,
              ytitle = TRUE,
              ptitle = FALSE) {
-        require(grid)
+        require(grid); require(ggplot2); require(ggthemes)
         thm <- theme_grey(base_size, base_family) %+replace%
             theme(
                 plot.background = element_rect(colour = "transparent", fill = 'transparent'),
