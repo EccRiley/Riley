@@ -8,5 +8,5 @@ Rbibkeys <- function(bib) {
 }
 
 # EXAMPLE USAGE ----
-bib <- readLines("MAP.bib")
-bibkey <- Rbibkeys(bib)
+# bib <- readLines("myBib.bib")
+# bibkey <- Rbibkeys(bib)
