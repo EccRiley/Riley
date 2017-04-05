@@ -1,4 +1,4 @@
-RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, clr = c("#7a8998", "#74006f")) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
+RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", "#74006f")) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
 	## multi-plot setup ##
 	op <- par(no.readonly = TRUE)
 	if (grid) {
@@ -13,7 +13,7 @@ RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, clr = c("#7a8998", 
 	labs <- colnames(p)
 	library(psych) ## for "bi.bars()" ##
 	for (i in d) {
-		bi.bars(p[, g], p[, i], main = paste0(labs[i]), ylab = "Cluster", xlab = substitute(lbl1 %<-% bold(n[x]) %->% lbl2, list(x = labs[i], lbl1 = lbl[1], lbl2 = lbl[2])), color = clr) 
+		bi.bars(p[, g], p[, i], main = paste0(labs[i]), ylab = "Cluster", xlab = substitute(lbl1 %<-% bold(n[x]) %->% lbl2, list(x = labs[i], lbl1 = lbl[1], lbl2 = lbl[2])), color = sci) 
 	}
 	on.exit(par(op))
 }
