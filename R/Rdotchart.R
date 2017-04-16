@@ -76,8 +76,8 @@ Rdotchart <- function (x, labels = NULL, groups = NULL, gdata = NULL, gfont = pa
         mtext(labs, side = 2, line = loffset, at = y, adj = 0,
               col = color, las = 2, cex = cex, font = lfont, ...)
     }
-    abline(h = y, lty = "dotted", col = lcolor)
-    points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex)
+    abline(h = y, lty = "dotted", col = lcolor, ...)
+    points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex, ...)
     if (!is.null(groups)) {
         gpos <- rev(cumsum(rev(tapply(groups, groups, length)) +
                                2) - 1)
@@ -86,13 +86,13 @@ Rdotchart <- function (x, labels = NULL, groups = NULL, gdata = NULL, gfont = pa
         mtext(glabels, side = 2, line = goffset, at = gpos, adj = 0,
               col = gcolor, las = 2, cex = gcex, font = gfont, ...)
         if (!is.null(gdata)) {
-            abline(h = gpos, lty = "dotted")
+            abline(h = gpos, lty = "dotted", ...)
             points(gdata, gpos, pch = gpch, col = gcolor, bg = bg,
                    cex = pt.cex/cex, ...)
         }
     }
-    axis(1)
-    box()
+    axis(1, ...)
+    box(...)
     title(main = main, xlab = xlab, ylab = ylab, ...)
     invisible()
 }
