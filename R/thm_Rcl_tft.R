@@ -1,19 +1,16 @@
-#' ## thm_Rcl_tft() 
-#' 
+#' ## thm_Rcl_tft()
+#'
 #' A ggtheme useful for plots involving geographic maps, or any other data visualization situation requiring a minimal, "clean" [@winston2012rgraphics], theme. **`Rthm_cl_tft()`** combines @chang2012rgraphics's "clean" `ggtheme` (see **`thm_cl()`** with my implementation of the "`tufte`" theme available in the `{ggthemes}` package [@R-ggthemes; @R-ggplot2].
 #'
-#' 
-library(ggplot2)
-library(ggthemes)
-
-thm_cl_tft <-
+#'
+thm_Rcl_tft <-
     function(base_size = 11,
              base_family = "ETBembo",
              lpos = "right",
              ldir = "vertical",
              ltitle = FALSE,
              ptitle = FALSE) {
-        require(grid)
+        require(grid); require(ggthemes)
         thm <- theme_tufte(base_size, base_family) %+replace%
             theme(
                 plot.background = element_rect(colour = "transparent", fill = 'transparent'),
