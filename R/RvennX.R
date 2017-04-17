@@ -7,7 +7,7 @@ library(venneuler)
 
 REvennA <-
     function(x,
-             ffamily = "ETBembo",
+             ffamily = "serif",
              vcol = mypal1[c(21, 22)],
              labs = rev(names(x)),
              al = 0.5,

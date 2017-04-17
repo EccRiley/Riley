@@ -5,7 +5,7 @@
 #'
 thm_Rcl_tft <-
     function(base_size = 11,
-             base_family = "ETBembo",
+             base_family = "serif",
              lpos = "right",
              ldir = "vertical",
              ltitle = FALSE,

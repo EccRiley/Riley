@@ -5,8 +5,8 @@
 library(ggplot2)
 library(ggthemes)
 
-thm_cl <- function(base_size = 12,
-                   base_family = "ETBembo") {
+thm_Rcl <- function(base_size = 12,
+                   base_family = "serif") {
     require(grid) # Needed for unit() function
     theme_grey(base_size) %+replace%
         theme(

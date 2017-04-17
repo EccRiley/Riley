@@ -8,7 +8,7 @@ knitr::knit_hooks$set(
             palette(mypal)
             par(bg = "transparent",
                 font.main = 3,
-                family = "ETBembo")
+                family = "serif")
         }
     }
 )
