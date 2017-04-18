@@ -42,3 +42,4 @@ Rachel M. Smith
 \examples{
 x <- data.frame(y = seq(1:26), z = letters)
 Rdt(x)
+}
