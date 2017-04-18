@@ -6,6 +6,8 @@ thm_Rtft <-
              lpos = "right",
              ldir = "vertical",
              ticks = TRUE,
+             xticks = ticks,
+             yticks = ticks,
              ltitle = FALSE,
              xline = FALSE,
              yline = FALSE,
@@ -62,7 +64,13 @@ thm_Rtft <-
                 complete = TRUE
             )
         if (!ticks) {
+            thm <- thm + theme(axis.ticks = element_blank())
+        }
+        if (!xticks) {
             thm <- thm + theme(axis.ticks.x = element_blank())
+        }
+        if (!yticks) {
+            thm <- thm + theme(axis.ticks.y = element_blank())
         }
         if (!xtext) {
             thm <- thm + theme(axis.text.x = element_blank())
