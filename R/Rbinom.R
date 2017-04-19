@@ -1,4 +1,4 @@
-#' # `Rbinom_test()`
+#' # `Rbinomt()`
 #'
 #' ## A convenience function for the binomial test.
 #'
@@ -7,10 +7,10 @@
 #' ## Arguments
 #'
 #' `p`.
-#' :   The target proportion to be tested against the null hypothesis ($H_{0}$; $\pi_{0}$; see `pi0` below). _Synonymous Arguments:_ `x` in `prop.test()` \& `binom.test()`.
+#' :   Either a 1-x-n (i.e., one-dimensional vector of "n" counts) or a `1-x-2` or `2-x-1` `table` or `matrix` containing the counts for two groups (e.g., successes vs. failures, yes vs. no, monkeys vs. pandas, etc.). The target proportions to be tested against the null hypothesis ($H_{0}$; $\pi_{0}$; see `pi0` below). _Synonymous Arguments:_ `x` in \link{\code{prop.test()}} \& \link{\code{binom.test()}}.
 #'
 #' `N`.
-#' :   The size of the sample from which $`p`$ is taken. _Synonymous Arguments:_ `n` in `prop.test()` \& `binom.test()`. _Synonymous Arguments:_ `n` in `prop.test()` \& `binom.test()`.
+#' :   The size of the sample from which $`p`$ is taken. _Synonymous Arguments:_ `n` in `prop.test()` \& `binom.test()`. _Synonymous Arguments:_ `n` in `prop.test()` \& `binom.test()`. Defaults to the sum of the values provided in `p`.
 #'
 #' `pi0`.
 #' :   [Default = `0.5`]. A vector of probabilities of success corresponding to the value(s) in `p`. These probabilities represent the null hypothesis value ($H_{0}$; $\pi_{0}$) against which `p` is to be tested. _Synonymous Arguments:_ `p` \& `conf.level` (inverse) in `prop.test()` \& `binom.test()`.
@@ -31,7 +31,7 @@
 #'
 
 
-Rbinom_test <- function(p, N, pi0 = 0.5, exact = FALSE, correct = FALSE,
+Rbinom <- function(p, N = sum(p), pi0 = 0.5, exact = FALSE, correct = FALSE,
                          digits = 2, ...){
     if (exact) { ## Hypothesis Testing
         BT <- stats::binom.test(x = p, n = N, p = pi0, ...)
