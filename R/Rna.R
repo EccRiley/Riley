@@ -1,8 +1,7 @@
 #' ## **`Rna()`**
 #'
-Rna <-
-    function(x) {
-        ## SURELY THIS ALREADY EXISTS SOMEWHERE, RIGHT??? ###
-        x <- ifelse(is.na(x), 0, x)
-        return(x)
-    }
+#' SURELY THIS ALREADY EXISTS SOMEWHERE, RIGHT???
+Rna <- function(x, v = 0) {
+    x <- ifelse(is.na(x), v, x)
+    x
+}
