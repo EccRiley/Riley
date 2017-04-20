@@ -7,3 +7,18 @@ Rabbr <- function(x) {
     s <- toupper(s)
     return(s)
 }
+
+#' Examples
+
+x <- c("Journal of Interpersonal Violence",
+         "Violence Against Women",
+         "Violence and Victims",
+         "Journal of Family Violence")
+sapply(x, Rabbr)
+sapply(x, Rabbr, USE.NAMES = FALSE)
+
+xlow <- sapply(x, tolower, USE.NAMES = FALSE)
+xlow
+
+sapply(xlow, Rabbr)
+sapply(xlow, Rabbr, USE.NAMES = FALSE)
