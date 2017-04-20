@@ -56,6 +56,7 @@ Rbinom <- function(p, N = sum(p), pi0 = 0.5, exact = FALSE, correct = FALSE,
                                    "statistic",
                                    "p.value")],
                               BTCI))
+        names(BT.df)[ncol(BT.df)] <- "CI"
         row.names(BT.df) <- NULL
         return(BT.df)
 }
