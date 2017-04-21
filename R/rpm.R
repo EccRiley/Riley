@@ -22,3 +22,7 @@ rpm <-
             assign(print_methods[i], f, ".GlobalEnv")
         }
     }
+
+Rls <- function(env = .GlobalEnv) { ## the print functions resulting from rpm() can be distracting when looking for other things in the global env.
+    ls(envir = env)[!grepl("print\\..*?", ls(envir = env))]
+}
