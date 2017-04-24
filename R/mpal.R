@@ -7,7 +7,7 @@ mpal <- function(x, p = sci, a = 1, ...) {
         l <- nrow(x)
     else
         l <- length(x)
-    s <- sample.int(p(l), l, replace = F)
+    s <- sample(p(l), l, replace = F)
     adjustcolor(s, alpha.f = a)
 }
 #'
