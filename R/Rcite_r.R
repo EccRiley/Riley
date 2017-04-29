@@ -7,7 +7,17 @@ Rcite_r <-
              prefix = "R-",
              tex = FALSE,
              footnote = TRUE,
+             Rnote = "This document was created using",
+             pkgnote = "and the following _**R**-packages_:",
              ...) {
+        if (!require(tufte)) {
+            stop("The 'tufte' package (https://cran.rstudio.com/web/packages/tufte/index.html) is required for LaTeX output")
+        }
+        Rsearch <- function() {
+            s <- search()
+            s <- gsub("package:", "", s)
+            return(s)
+        }
         if (!is.null(file))
             r_version <- as.character(packageVersion("base"))
         cite_just_r <-
@@ -20,11 +30,6 @@ Rcite_r <-
                     " not found. Cannot cite R-packages. If knitting again does not solve the problem, please check file path."
                 )
             return(cite_just_r)
-        }
-        Rsearch <- function() {
-            s <- search()
-            s <- gsub("package:", "", s)
-            return(s)
         }
         pkgs <- Riley::Rsearch()
         r_bib <- readLines(file)
@@ -76,11 +81,11 @@ Rcite_r <-
         if (footnote) {
             res <-
                 paste0(
-                    "^[**Note:** This document was created using _**R**-v",
+                    "^[**Note:** ", Rnote, " _**R**-v",
                     r_version,
                     "_ [@",
                     bib$base,
-                    "], and the following _**R**-packages_:",
+                    "], ", pkgnote,
                     " ",
                     pkg_info,
                     "]"
@@ -91,24 +96,25 @@ Rcite_r <-
                 res <-
                     paste0(
                         "\n",
-                        newthought("This document was created using "),
-                        "_**R**-v",
+                        tufte::newthought(Rnote),
+                        " _**R**-v",
                         r_version,
                         "_ [@",
                         bib$base,
-                        "], and the following _**R**-packages_:",
+                        "], ", pkgnote,
                         "\n\n\\medskip\n\n",
                         pkg_info
                     )
-            }
-            else {
+            } else {
                 res <-
                     paste0(
-                        "\nThis document was created using _**R**-v",
+                        "\n",
+                        tufte::newthought(Rnote),
+                        " _**R**-v",
                         r_version,
                         "_ [@",
                         bib$base,
-                        "], and the following _**R**-packages_:",
+                        "], ", pkgnote,
                         "\n\n",
                         pkg_info
                     )
