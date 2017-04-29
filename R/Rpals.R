@@ -20,7 +20,12 @@ pal_bmonX <- pal_my[c(17, 16)]
 pal_bstdsX <- pal_my[c(17, 5)]
 pal_HC <- c("#7cb5ec", "#434348", "#90ed7d", "#f7a35c", "#8085e9", "#f15c80", "#e4d354", "#8085e8", "#8d4653", "#91e8e1") ## 'High Color' Color palette from `{ggthemes}` ##
 pal_HCd <- c("#2b908f", "#90ee7e", "#f45b5b", "#7798BF", "#aaeeee", "#ff0066", "#eeaaee", "#55BF3B", "#DF5353", "#7798BF", "#aaeeee") ## 'High Color - Dark' color palette
-
+pal_nord <- list( ## arctic palette based on the [Nord color palette](https://github.com/arcticicestudio/nord) ##
+    polar = c("#2e343f", "#3b4251", "#434c5c", "#4c5668", "#7c889f", "#8b95aa", "#9ba5b6", "#b8c0cc"),
+    snow = c("#d8dee8", "#e5e9ef", "#eceff4", "#ffffff"),
+    frost = c("#8fbcbb", "#88c0ce", "#81a1be", "#5e81a8"),
+    aurora = c("#bf606b", "#d08674", "#ebca93", "#a3be91", "#b48eab")
+)
 
 # BASE PALETTES - ggsci ----------------------------------------------
 
@@ -56,3 +61,7 @@ cols4 <- colorRampPalette(pal_my[c(3:5, 10, 12:16)], alpha = T)
 pdxcols <- colorRampPalette(pal_pdx[c(3, 1)], alpha = T)
 sci <- colorRampPalette(pal_sci, alpha = T)
 lancet <- colorRampPalette(pal_lancet, alpha = T)
+nord_polar <- colorRampPalette(c(pal_nord$polar, pal_nord$snow), alpha = TRUE)
+nord_snow <- colorRampPalette(pal_nord$snow, alpha = TRUE)
+nord_frost <- colorRampPalette(pal_nord$frost, alpha = TRUE)
+nord_aurora <- colorRampPalette(pal_nord$aurora, alpha = TRUE)
