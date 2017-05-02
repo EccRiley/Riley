@@ -22,15 +22,15 @@ Rretex <- function(txt, op = 1) { ## '`op`' = The output format for which
 
 txt <- c("**Bold**", "Plain", "_Italic_", "\`Code\`")
 
-TX <- R.regTEX(txt)
+TX <- Rretex(txt)
 TX
-sapply(txt, R.regTEX)
-sapply(TX, R.regTEX, op = 2)
+sapply(txt, Rretex)
+sapply(TX, Rretex, op = 2)
 
 ht <- c("\\textbf{Bold}", "Plain", "\\textit{Italic}", "\\texttt{Code}")
-sapply(ht, R.regTEX, op = 2)
+sapply(ht, Rretex, op = 2)
 
-b <- c("**bold**, Donec id elit non mi porta gravida at eget metus. _italic_.", 
+b <- c("**bold**, Donec id elit non mi porta gravida at eget metus. _italic_.",
 		"Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
 
 a <- c("`Code`", "_**Bold-Italic**_")
