@@ -38,6 +38,7 @@ a <- c("`Code`", "_**Bold-Italic**_")
 df <- data.frame(a = a, b = b)
 df.names <- c("_**Bold-Italic Heading**_", "_**`Bold-Italic-Code Heading`**_")
 
+library(dplyr)
 df <- sapply(df, Rretex) %>% data.frame()
 
 knitr::kable(df, format = 'latex', booktabs = TRUE, escape = FALSE, col.names = sapply(df.names, Rretex))
