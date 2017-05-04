@@ -20,29 +20,29 @@ Rretex <- function(txt, op = 1) { ## '`op`' = The output format for which
 #'
 #' ## Examples
 
-txt <- c("**Bold**", "Plain", "_Italic_", "\`Code\`")
-
-TX <- Rretex(txt)
-TX
-sapply(txt, Rretex)
-sapply(TX, Rretex, op = 2)
-
-ht <- c("\\textbf{Bold}", "Plain", "\\textit{Italic}", "\\texttt{Code}")
-sapply(ht, Rretex, op = 2)
-
-b <- c("**bold**, Donec id elit non mi porta gravida at eget metus. _italic_.",
-		"Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
-
-a <- c("`Code`", "_**Bold-Italic**_")
-
-df <- data.frame(a = a, b = b)
-df.names <- c("_**Bold-Italic Heading**_", "_**`Bold-Italic-Code Heading`**_")
-
-library(dplyr)
-df <- sapply(df, Rretex) %>% data.frame()
-
-knitr::kable(df, format = 'latex', booktabs = TRUE, escape = FALSE, col.names = sapply(df.names, Rretex))
-
-colnames(df) <- df.names
-df <- sapply(df, Rretex, op = 2) %>% data.frame()
-pander::pandoc.table(df)
+# txt <- c("**Bold**", "Plain", "_Italic_", "\`Code\`")
+#
+# TX <- Rretex(txt)
+# TX
+# sapply(txt, Rretex)
+# sapply(TX, Rretex, op = 2)
+#
+# ht <- c("\\textbf{Bold}", "Plain", "\\textit{Italic}", "\\texttt{Code}")
+# sapply(ht, Rretex, op = 2)
+#
+# b <- c("**bold**, Donec id elit non mi porta gravida at eget metus. _italic_.",
+# 		"Morbi leo risus, porta ac consectetur ac, vestibulum at eros.")
+#
+# a <- c("`Code`", "_**Bold-Italic**_")
+#
+# df <- data.frame(a = a, b = b)
+# df.names <- c("_**Bold-Italic Heading**_", "_**`Bold-Italic-Code Heading`**_")
+#
+# library(dplyr)
+# df <- sapply(df, Rretex) %>% data.frame()
+#
+# knitr::kable(df, format = 'latex', booktabs = TRUE, escape = FALSE, col.names = sapply(df.names, Rretex))
+#
+# colnames(df) <- df.names
+# df <- sapply(df, Rretex, op = 2) %>% data.frame()
+# pander::pandoc.table(df)
