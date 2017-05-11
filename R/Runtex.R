@@ -31,13 +31,14 @@ Runtex <- function(file, addlexpr = NULL, cat = TRUE, catFile = NULL, ...) {
 	xnew <- gsub("\\\\LARGE\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
 	xnew <- gsub("\\\\huge\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
 	xnew <- gsub("\\\\Huge\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\\\HUGE\\{(.*?)\\}", "\\1", xnew, per = TRUE)
+	xnew <- gsub("\\\\HUGE\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
 	if (!is.null(addlexpr))
 		for (i in 1:nrow(addlexpr)) {
-			xnew <- gsub(addlexpr[i, 1], addlexpr[i, 2], xnew, perl = TRUE)}
+			xnew <- gsub(addlexpr[i, 1], addlexpr[i, 2], xnew, perl = F)
+		    }
 	if (cat && !is.null(catFile))
 		cat(xnew, file = catFile, sep = "\n", ...)
 	else return(xnew)
 }
 
-# Runtex(file = file, addlexpr = ex, cat = TRUE, catFile = "MAP-v6-untex.Rmd")
+# Runtex(file = file, addlexpr = ex, cat = TRUE, catFile = "test-untex.txt")
