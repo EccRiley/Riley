@@ -31,32 +31,57 @@
 #'
 
 
-Rbinom <- function(p, N = sum(p), pi0 = 0.5, exact = FALSE, correct = FALSE,
+Rbinom <- function(x, N = sum(x), pi0 = NULL, exact = FALSE, correct = FALSE,
                          digits = 2, ...){
+    if (class(x) == "table" | class(x) == "matrix") {
+        l <- length(x)
+    } else{
+        l <- nrow(x)
+    }
+    if (class(x) == "table" | class(x) == "matrix") {
+        n <- NULL
+    } else {
+        n <- rep(N, l)
+    }
+    if (is.null(pi0)) {
+        p <- NULL
+    } else {
+        p <- rep(pi0, l)
+    }
     if (exact) { ## Hypothesis Testing
-        BT <- stats::binom.test(x = p, n = N, p = pi0, ...)
-        }
+        BT <- stats::binom.test(x = x, n = n, p = pi0, ...)
+    }
         else {
-            BT <- stats::prop.test(x = p, n = N, p = pi0,
-                                   correct = correct, ...)
-        }
+            BT <- stats::prop.test(x = x, n = n, p = p,
+                                       correct = correct, ...)
+            }
     ## The rest deals with formatting the output ##
-        BT$data.name <- paste0(p, " out of ", N, " null probability ",
+        BT$data.name <- paste0(x, " out of ", N, " null probability ",
                                BT$null.value)
         ## Above, I modified the default output value for *.test$data.name
             ## to print the actual data values, rather than the object
             ## names the values are stored under (see output below) ##
-        BTCI <- paste0(round(BT$conf.int[[1]], digits = digits), ", ",
-                       round(BT$conf.int[[2]], digits = digits))
-        BT$p.value <- round(BT$p.value, digits = 7)
-        BT.df <- data.frame(c(BT[c("alternative",
-                                   "null.value",
-                                   "parameter",
-                                   "estimate",
-                                   "statistic",
-                                   "p.value")],
-                              BTCI))
-        names(BT.df)[ncol(BT.df)] <- "CI"
+        if (is.null(pi0)) {
+            BTCI <- paste0(round(BT$conf.int[[1]], digits = digits), ", ",
+                           round(BT$conf.int[[2]], digits = digits))
+            BT$p.value <- round(BT$p.value, digits = 7)
+            BT.df <- data.frame(c(BT[c("alternative",
+                                       "null.value",
+                                       "parameter",
+                                       "estimate",
+                                       "statistic",
+                                       "p.value")],
+                                  BTCI))
+            names(BT.df)[ncol(BT.df)] <- "CI"
+        } else {
+            BT$p.value <- round(BT$p.value, digits = 7)
+            BT.df <- data.frame(BT[c("alternative",
+                                       "null.value",
+                                       "parameter",
+                                       "estimate",
+                                       "statistic",
+                                       "p.value")])
+        }
         row.names(BT.df) <- NULL
         return(BT.df)
 }

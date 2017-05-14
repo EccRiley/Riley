@@ -1,6 +1,7 @@
 ggparset2 <- function (vars = list(), data, weight = NULL, method = "angle",
     alpha = 0.5, width = 0.25, order = 1, ratio = NULL, asp = NULL,
-    label = TRUE, label.size = 4, text.angle = 90, text.offset = NULL,
+    label = TRUE, label.size = 4, label.vjust = 0.5, label.hjust = 0.5,
+    text.angle = 90, text.offset = NULL,
     same.level = FALSE, lbl.clr = "black", ...)
 {
     require(plyr); require(reshape)
@@ -195,7 +196,7 @@ ggparset2 <- function (vars = list(), data, weight = NULL, method = "angle",
             "\\2", as.character(label.stats$Nodeset))
         llabels <- list(geom_text(aes(x = as.numeric(variable) + 0.01 + text.offset,
                 y = ypos - 0.01, label = labels), colour = lbl.clr,
-                data = label.stats, angle = text.angle, size = label.size))
+                data = label.stats, angle = text.angle, size = label.size, hjust = label.hjust, vjust = label.vjust))
     }
     theme.layer <- NULL
     if (!is.null(asp))
