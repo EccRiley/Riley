@@ -13,11 +13,6 @@ Rcite_r <-
         if (!require(tufte)) {
             stop("The 'tufte' package (https://cran.rstudio.com/web/packages/tufte/index.html) is required for LaTeX output")
         }
-        Rsearch <- function() {
-            s <- search()
-            s <- gsub("package:", "", s)
-            return(s)
-        }
         if (!is.null(file))
             r_version <- as.character(packageVersion("base"))
         cite_just_r <-
@@ -31,7 +26,7 @@ Rcite_r <-
                 )
             return(cite_just_r)
         }
-        pkgs <- Riley::Rsearch()
+        pkgs <- (.packages())
         r_bib <- readLines(file)
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]

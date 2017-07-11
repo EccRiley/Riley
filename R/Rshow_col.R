@@ -1,4 +1,4 @@
-#' ## **`show_colR()`**
+#' ## **`Rshow_col()`**
 #'
 Rshow_col <-
     function(colours,

@@ -77,6 +77,7 @@ Rdotchart <- function (x, labels = NULL, groups = NULL, gdata = NULL, gfont = pa
               col = color, las = 2, cex = cex, font = lfont, ...)
     }
     abline(h = y, lty = "dotted", col = lcolor, ...)
+    segments(x0 = 0, y0 = y, x1 = x, y1 = y, lty = "solid", col = lcolor, lwd = 2)
     points(x, y, pch = pch, col = color, bg = bg, cex = pt.cex/cex, ...)
     if (!is.null(groups)) {
         gpos <- rev(cumsum(rev(tapply(groups, groups, length)) +
