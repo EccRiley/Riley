@@ -1,6 +1,5 @@
 packrat/lib*/
 .Rproj.user
-
 Rplots.pdf
-
 .Rhistory
+.DS_Store
