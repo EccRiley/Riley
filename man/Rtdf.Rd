@@ -42,11 +42,4 @@ Rachel M. Smith
 \seealso{
 \code{\link{base::table}}, \code{\link{stats::ftable}} for multi-object tabulation.
 }
-\examples{
-x <- c("a", "a", "b", "c")
-Rtdf(x)
-Rtdf(x, names = NULL)
-Rtdf(x, names = c("new label", "Frequencies"))
-Rtdf(x, cls = "mat")
-Rtdf(x, cls = "ls")
-Rtdf(x, cls = "data.frame")}
+\examples{}
