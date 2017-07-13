@@ -1,7 +1,8 @@
 #'
 #' \name{Rdat}
+#' \alias{Rdat}
 #'
-#' \title{I'm lazy, so that's what this is...}
+#' \title{I'm lazy, so that's what this is \ldots} 
 #'
 #' A simple wrapper for `write.table()` (et al) `{Rpkg:utils}`, with the default for the "`row.names`" arg set to "`FALSE`", instead of the original FUN's default value of "`TRUE`", and for the "`sep`" arg set to "," (because I'm almost always saving tables as `.csv` files), rather than the original FUN's default value of `" ". Also added option to save as a `matrix` using `write.matrix()` from package **`MASS`**.
 #'
@@ -30,9 +31,9 @@ Rdat <- function(x, file, row.names = FALSE, sep = ",", mat = FALSE, blocksize =
 #' 
 #' \item{blocksize}{Numeric; optional size of row blocks (ignored if \code{mat = FALSE}; see \code{\link[MASS]{write.matrix}} in package \bold{\code{\link[=https://cran.r-project.org/package=MASS]{MASS}}}.}
 #' 
-#' \item{...}{Additional arguments to be passed to \code{\link[utils]{write.table}} in package \bold{\code{\link[=https://cran.r-project.org/package=R.utils]{utils}}}.}
+#' \item{\ldots}{Additional arguments to be passed to \code{\link[utils]{write.table}} in package \bold{\code{\link[=https://cran.r-project.org/package=R.utils]{utils}}}.}
 #'
-#' \value{NULL}
+#' \value{\code{NULL}}
 #' 
 #' \author{Rachel M. Smith}
 #'
