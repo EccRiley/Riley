@@ -15,15 +15,21 @@ thm_Rtft <-
              ytext = TRUE,
              xtitle = FALSE,
              ytitle = TRUE,
-             ptitle = FALSE) {
+             ptitle = FALSE,
+             psubtitle = TRUE) {
         require(grid); require(ggplot2); require(ggthemes)
         thm <- theme_grey(base_size, base_family) %+replace%
             theme(
                 plot.background = element_rect(colour = "transparent", fill = 'transparent'),
                 plot.title = element_text(
                     size = rel(1.25),
-                    face = "italic",
+                    face = "bold.italic",
                     colour = mypal[19]
+                ),
+                plot.subtitle = element_text(face = "italic",
+                                             size = rel(1.15),
+                                             hjust = 0.5,
+                                             colour = mypal[19]
                 ),
                 plot.margin = unit(rep(0.15, 4), "cm"),
                 panel.spacing = unit(0.15, "cm"),
@@ -95,6 +101,9 @@ thm_Rtft <-
         }
         if (!ptitle) {
             thm <- thm + theme(plot.title = element_blank())
+        }
+        if (!psubtitle) {
+            thm <- thm + theme(plot.subtitle = element_blank())
         }
         thm
     }
