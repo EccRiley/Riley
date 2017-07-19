@@ -5,14 +5,14 @@ Rretex <- function(txt, op = 1) { ## '`op`' = The output format for which
                                             ## `1 [DEFAULT] (LaTeX)` or
                                             ## `2 (HTML)` ##
     if (op == 1) {
-        TX <- gsub("\\*\\*(.*?)\\*\\*", "\\\\textbf\\{\\1\\}", txt, perl = TRUE)
-        TX <- gsub("_(.*?)_", "\\\\textit\\{\\1\\}", TX, perl = TRUE)
-        TX <- gsub("\`(.*?)\`", "\\\\texttt\\{\\1\\}", TX, perl = TRUE)
+        TX <- gsub("\\*\\*(.*?)\\*\\*", "\\+textbf\\{\\1\\}", txt, perl = TRUE)
+        TX <- gsub("_(.*?)_", "\\+textit\\{\\1\\}", TX, perl = TRUE)
+        TX <- gsub("\`(.*?)\`", "\\+texttt\\{\\1\\}", TX, perl = TRUE)
     }
         else {
-            TX <- gsub("\\\\textbf\\{(.*?)\\}", "\\*\\*\\1\\*\\*", txt, perl = TRUE)
-            TX <- gsub("\\\\textit\\{(.*?)\\}", "_\\1_", TX, perl = TRUE)
-            TX <- gsub("\\\\texttt\\{(.*?)\\}", "\`\\1\`", TX, perl = TRUE)
+            TX <- gsub("\\+textbf\\{(.*?)\\}", "\\*\\*\\1\\*\\*", txt, perl = TRUE)
+            TX <- gsub("\\+textit\\{(.*?)\\}", "_\\1_", TX, perl = TRUE)
+            TX <- gsub("\\+texttt\\{(.*?)\\}", "\`\\1\`", TX, perl = TRUE)
         }
     return(TX)
 }

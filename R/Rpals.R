@@ -31,13 +31,15 @@ pal_nord <- list( ## arctic palette based on the [Nord color palette](https://gi
 
 
 require(ggsci)
-pal_sci <- pal_aaas("default")(8)
+pal_sci <- pal_aaas()(8)
+pal_lz <- pal_locuszoom()(6)
 pal_lancet <- pal_lancet("lanonc")(7)[-6]
 
 
 # FUNS - colorRampPalette --------------------------------------------
 
 
+pal <- colorRampPalette(c(pal_sci, pal_lz, pal_lancet, pal_my[3:16]))
 mb <- colorRampPalette(pal_my[c(5, 16)])
 colsHC <- colorRampPalette(pal_HC, alpha = T)
 colsHCd <- colorRampPalette(pal_HCd, alpha = T)
