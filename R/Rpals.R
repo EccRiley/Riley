@@ -35,11 +35,12 @@ pal_sci <- pal_aaas()(8)
 pal_lz <- pal_locuszoom()(6)
 pal_lancet <- pal_lancet("lanonc")(7)[-6]
 
-
+ppal <- c(pal_sci, pal_lz, pal_lancet, pal_my[3:16])
+ppal <- p[c(20, 6, 2, 9, 10, 24, 25, 11, 17, 26, 3, 27, 29, 5, 31, 12, 18, 32, 33, 34, 13, 15, 1, 7, 19, 14, 21, 22, 23, 4, 8)]
 # FUNS - colorRampPalette --------------------------------------------
 
 
-pal <- colorRampPalette(c(pal_sci, pal_lz, pal_lancet, pal_my[3:16]))
+ppal <- colorRampPalette(p, alpha = TRUE)
 mb <- colorRampPalette(pal_my[c(5, 16)])
 colsHC <- colorRampPalette(pal_HC, alpha = T)
 colsHCd <- colorRampPalette(pal_HCd, alpha = T)
