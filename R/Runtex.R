@@ -1,3 +1,4 @@
+
 # file <- "MAP-v6 copy.Rmd"
 # ex <- data.frame(
 # 	a = c("`\\{\\! (.*?) \\!\\}`",
@@ -17,29 +18,41 @@
 # 		" ",
 # 		" "))
 
-Runtex <- function(file, addlexpr = NULL, cat = TRUE, catFile = NULL, ...) {
-	x <- readLines(file)
-	xnew <- gsub("\\\\\\\\", "\\\\", x, perl = TRUE)
-	xnew <- Rretex(x, op = 2)
-	xnew <- gsub("\\newpage", "", xnew, perl = TRUE)
-	# xnew <- gsub("\\", "\\", xnew, perl = TRUE)
-	xnew <- gsub("\\tiny\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\scriptsize\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\footnotesize\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\small\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\large\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\Large\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\LARGE\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\huge\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\Huge\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	xnew <- gsub("\\HUGE\\{(.*?)\\}", "\\1", xnew, perl = TRUE)
-	if (!is.null(addlexpr))
+Rpregex <- function(FUN, pattern, replacement, x, perl = TRUE, ...) {
+    if (FUN == "gsub" | FUN == "sub") {
+        do.call(FUN, list(pattern, replacement, x, perl, ...))
+    } else {
+        do.call(FUN, list(pattern, x, perl = perl, ...))
+    }
+}
+
+Runtex <- function(file, addlexpr = NULL, yml, ymlline, cat = TRUE, catFile = NULL, ...) {
+    x <- readLines(file)[-1:-ymlline]
+    xnew <- Rpregex("gsub", "\\\\\\\\", "\\", x)
+    xnew <- Rpregex("gsub", "\\\\", "\\", x)
+    xnew <- Rretex(x, op = 2)
+    xnew <- Rpregex("gsub", "\\\\newpage", "{NEWPAGE}", xnew)
+    xnew <- Rpregex("gsub", "\\\\tiny\\{(.*?)\\}", "\\1", xnew, ignore.case = TRUE)
+    xnew <- Rpregex("gsub", "\\\\scriptsize\\{(.*?)\\}", "\\1", xnew)
+    xnew <- Rpregex("gsub", "\\\\footnotesize\\{(.*?)\\}", "\\1", xnew)
+    xnew <- Rpregex("gsub", "\\\\small\\{(.*?)\\}", "\\1", xnew)
+    xnew <- Rpregex("gsub", "\\\\large\\{(.*?)\\}", "\\1", xnew, ignore.case = TRUE)
+    xnew <- Rpregex("gsub", "\\\\huge\\{(.*?)\\}", "\\1", xnew, ignore.case = TRUE)
+    xnew <- Rpregex("gsub", "\\\\singlespacing", "", xnew)
+    xnew <- Rpregex("gsub", "\\\\doublespacing", "", xnew)
+    xnew <- Rpregex("gsub", "\\\\onehalfspacing", "", xnew)
+    xnew <- Rpregex("gsub", "(\\\\)\\*", "*", x)
+    xnew <- Rpregex("gsub", "(\\\\)_", "_", x)
+    if (!is.null(addlexpr))
 		for (i in 1:nrow(addlexpr)) {
 			xnew <- gsub(addlexpr[i, 1], addlexpr[i, 2], xnew, perl = F)
-		    }
+		}
+    res0 <- ifelse(xnew == "", NA, xnew)
+    res1 <- na.omit(res0)
+    res <- c(yml, res1)
 	if (cat && !is.null(catFile))
-		cat(xnew, file = catFile, sep = "\n", ...)
-	else return(xnew)
+		cat(res, file = catFile, sep = "\n\n", ...)
+	else return(res)
 }
 
 # Runtex(file = file, addlexpr = ex, cat = TRUE, catFile = "test-untex.txt")
