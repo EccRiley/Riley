@@ -28,10 +28,9 @@ Rpregex <- function(FUN, pattern, replacement, x, perl = TRUE, ...) {
 
 Runtex <- function(file, addlexpr = NULL, yml, ymlline, cat = TRUE, catFile = NULL, ...) {
     x <- readLines(file)[-1:-ymlline]
-    xnew <- Rpregex("gsub", "\\\\\\\\", "\\", x)
-    xnew <- Rpregex("gsub", "\\\\", "\\", x)
-    xnew <- Rretex(x, op = 2)
-    xnew <- Rpregex("gsub", "\\\\newpage", "{NEWPAGE}", xnew)
+    xnew <- Rpregex("gsub", "\\\\\\\\", "\\\\", x)
+    xnew <- Rretex(xnew, op = 2)
+    xnew <- Rpregex("gsub", "\\\\newpage", "", xnew)
     xnew <- Rpregex("gsub", "\\\\tiny\\{(.*?)\\}", "\\1", xnew, ignore.case = TRUE)
     xnew <- Rpregex("gsub", "\\\\scriptsize\\{(.*?)\\}", "\\1", xnew)
     xnew <- Rpregex("gsub", "\\\\footnotesize\\{(.*?)\\}", "\\1", xnew)
@@ -41,8 +40,6 @@ Runtex <- function(file, addlexpr = NULL, yml, ymlline, cat = TRUE, catFile = NU
     xnew <- Rpregex("gsub", "\\\\singlespacing", "", xnew)
     xnew <- Rpregex("gsub", "\\\\doublespacing", "", xnew)
     xnew <- Rpregex("gsub", "\\\\onehalfspacing", "", xnew)
-    xnew <- Rpregex("gsub", "(\\\\)\\*", "*", x)
-    xnew <- Rpregex("gsub", "(\\\\)_", "_", x)
     if (!is.null(addlexpr))
 		for (i in 1:nrow(addlexpr)) {
 			xnew <- gsub(addlexpr[i, 1], addlexpr[i, 2], xnew, perl = F)
