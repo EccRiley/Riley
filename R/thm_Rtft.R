@@ -27,13 +27,20 @@ thm_Rtft <-
                 plot.title = element_text(
                     size = rel(1.25),
                     face = "bold.italic",
-                    colour = pal_my[19]
+                    colour = pal_my[19],
+                    margin = margin(0, 0, 5, 0)
                 ),
                 plot.subtitle = element_text(face = "italic",
                                              size = rel(1.15),
                                              hjust = 0.5,
-                                             colour = pal_my[19]
-                ),
+                                             colour = pal_my[19],
+                                             margin = margin(0, 0, 5, 0)
+                ),,
+                plot.caption = element_text(face = "italic",
+                                            size = rel(1),
+                                            hjust = 0.5,
+                                            colour = pal_my[19],
+                                            margin = margin(5, 0, 0, 0))
                 plot.margin = unit(rep(0.15, 4), "cm"),
                 panel.spacing = unit(0.15, "cm"),
                 panel.background = element_blank(),
