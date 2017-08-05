@@ -7,14 +7,14 @@ Rperc <- function(x, n = getOption("Rperc_n"), digits = getOption("digits")) {
     res <- round(p, digits = digits)
     if (knitr:::is_latex_output()) {
         apprx <- if (digits < nchar(d)) "\\approx " else ""
-        paste0("\\", apprx, comma(res), "\\%")
+        paste0("\\", apprx, scales::comma(res), "\\%")
     } else {
         if (knitr:::is_html_output()) {
             apprx <- if (digits < nchar(d)) "&asymp; " else ""
-            paste0(apprx, comma(res), "%")
+            paste0(apprx, scales::comma(res), "%")
         } else {
             apprx <- if (digits < nchar(d)) "~ " else ""
-            paste0(apprx, comma(res), "%")
-        }    	
+            paste0(apprx, scales::comma(res), "%")
+        }
     }
 }
