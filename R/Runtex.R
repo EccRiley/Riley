@@ -48,7 +48,7 @@ Runtex <- function(file, addlexpr = NULL, yml, ymlline, cat = TRUE, catFile = NU
     res1 <- na.omit(res0)
     res <- c(yml, res1)
 	if (cat && !is.null(catFile))
-		cat(res, file = catFile, sep = "\n\n", ...)
+		cat(res, file = catFile, sep = "\n", ...)
 	else return(res)
 }
 
