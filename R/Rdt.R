@@ -41,8 +41,24 @@ Rdt <-
 #'
 
 
-Rdt2 <- function(x, ...) {
+Rdt2 <- function(x, rownames = FALSE, caption = deparse(substitute(x)), 
+                 dt.options = NULL, kbl.format.args = NULL, kbl.colnames = NA, kbl.align = NA, ...) {
     if (knitr:::is_html_output() || interactive()) {
-        Rdt(x, ...)
-    } else { NULL }
+        if (!is.null(dt.options)) {
+            Rdt(x, rownames = rownames, caption = caption, 
+                options = dt.options, ...)
+        } else {
+            Rdt(x, rownames = rownames, caption = caption, ...)
+        }
+        
+    } else { 
+        if (!is.null(kbl.format.args)) {
+            kable(x, row.names = rownames, caption = caption, 
+              col.names = kbl.colnames, align = kbl.align,
+              format.args = kbl.format.args, ...)
+        } else {
+            kable(x, row.names = rownames, caption = caption, 
+              col.names = kbl.colnames, align = kbl.align, ...)
+        }
+    }
 }
