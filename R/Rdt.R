@@ -39,3 +39,10 @@ Rdt <-
         )
     }
 #'
+
+
+Rdt2 <- function(x, ...) {
+    if (knitr:::is_html_output() || interactive()) {
+        Rdt(x, ...)
+    } else { NULL }
+}
