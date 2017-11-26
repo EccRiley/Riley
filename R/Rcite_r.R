@@ -4,6 +4,7 @@
 #'
 Rcite_r <-
     function(file = NULL,
+    		 packages = (.packages()),
              prefix = "R-",
              tex = FALSE,
              footnote = TRUE,
@@ -26,7 +27,7 @@ Rcite_r <-
                 )
             return(cite_just_r)
         }
-        pkgs <- (.packages())
+        pkgs <- packages
         r_bib <- readLines(file)
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
