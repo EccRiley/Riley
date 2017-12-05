@@ -16,11 +16,14 @@ Rmsmm <- function(x, d = 2) {
         if (is.matrix(x)) {
             x <- as.data.frame(x)
         }
+	Risna <- function (x){ 
+		sum(is.na(x))
+	}
         xM <- dplyr::summarise_if(x, is.numeric, funs(mean(., na.rm = TRUE)))
         xSD <- dplyr::summarise_if(x, is.numeric, funs(sd(., na.rm = TRUE)))
         xMIN <- dplyr::summarise_if(x, is.numeric, funs(min(., na.rm = TRUE)))
         xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
-	xNA <- dplyr::summarise_if(x, is.numeric, funs(Riley::Risna(.)))
+	xNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(.)))
         #xNA <- sapply(x, Riley::Risna)
         summ <- rbind(xM, xSD, xMIN, xMAX, xNA)
         row.names(summ) <- c("M", "SD", "Min", "Max", "NAs")
