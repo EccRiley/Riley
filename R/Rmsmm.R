@@ -1,10 +1,3 @@
-#' ## **`R.msmm()`**
-#'
-#' A function for creating a quick, simple, mostly report-ready, summary table reporting `mean, sd, min, max` (hence "`msmm`") for the numeric columns in a given table, dataframe, or matrix. The returned value from `R.msmm()` can be passed to `knitr::kable()` for creating a report-ready output table.
-#'
-#'
-#' ## **`Rmsmm()`**
-#'
 Rmsmm <- function(x, d = 2) {
 	require(dplyr)#, quietly = TRUE, warn.conflicts = FALSE) ## tempted to make totally quiet, but worried this could cause users issues if not aware of dplyr package loading & corresponding potential conflicts ## 
     if (is.null(ncol(x))) {
@@ -27,7 +20,7 @@ Rmsmm <- function(x, d = 2) {
         xSD <- dplyr::summarise_if(x, is.numeric, funs(sd(., na.rm = TRUE)))
         xMIN <- dplyr::summarise_if(x, is.numeric, funs(min(., na.rm = TRUE)))
         xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
-	XNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(., na.rm = TRUE)))
+	xNA <- dplyr::summarise_if(x, is.numeric, funs(Riley::Risna(.)))
         #xNA <- sapply(x, Riley::Risna)
         summ <- rbind(xM, xSD, xMIN, xMAX, xNA)
         row.names(summ) <- c("M", "SD", "Min", "Max", "NAs")
@@ -37,6 +30,4 @@ Rmsmm <- function(x, d = 2) {
     }
 }
 
-x <- matrix(letters[1:9], nrow = 3) ## causes error ##
-x <- c(letters[1:9]) ## causes error ##
-x <- matrix(1:9, nrow = 3) ## runs just fine ##
+Rmsmm(mtcars)
