@@ -3,19 +3,18 @@
 #' Modified version of `papaja::cite_r()`.
 #'
 Rcite_r <-
-    function(file = NULL,
-    		 packages = (.packages()),
+    function(file = NULL, checksrc = FALSE, srcfile = NULL,
+    		pkgs = (.packages()),
              prefix = "R-",
              tex = FALSE,
              footnote = TRUE,
              Rnote = "This document was created using",
              pkgnote = "and the following _**R**-packages_:",
              ...) {
-        if (!require(tufte)) {
+        if (tex && !require(tufte)) {
             stop("The 'tufte' package (https://cran.rstudio.com/web/packages/tufte/index.html) is required for LaTeX output")
         }
-        if (!is.null(file))
-            r_version <- as.character(packageVersion("base"))
+        r_version <- as.character(packageVersion("base"))
         cite_just_r <-
             paste0("**R** [**v** ", r_version, ", @", prefix, "base]")
         if (is.null(file) || !file_test("-f", file)) {
@@ -23,12 +22,21 @@ Rcite_r <-
                 warning(
                     "File ",
                     file,
-                    " not found. Cannot cite R-packages. If knitting again does not solve the problem, please check file path."
+                    " not found. Cannot cite additional R-packages. If knitting again does not solve the problem, please check file path."
                 )
             return(cite_just_r)
         }
-        pkgs <- packages
-        r_bib <- readLines(file)
+	 if (checksrc && is.null(srcfile)) {
+		warning("Cannot check source file: no source file path provided ('srcfile = NULL')")
+	 }
+	 else if (checksrc && !is.null(srcfile)) {
+	 	src <- readLines(srcfile)
+		rgx <- "^.*?(\\w+)\\:\\:.*?$"
+	 	addpkgs <- grep(rgx, src, perl = TRUE, value = TRUE)
+		addpkgs <- gsub(rgx, "\\1", addpkgs, perl = TRUE)
+		pkgs <- unique(c(addpkgs, pkgs))
+	 }
+	 r_bib <- readLines(file)
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
         cite_keys <- gsub("\\@\\w+\\{", "", cite_keys)
