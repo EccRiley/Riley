@@ -8,7 +8,7 @@ mpal <- function(x, p = ppal, a = 1, ...) {
     else
         l <- length(x)
     # s <- sample(p(l), l, replace = F)
-    s <- sample(p(l*10), l, replace = FALSE)
+    s <- sample(p(l*2), l, replace = FALSE)
     adjustcolor(s, alpha.f = a)
 }
 #'
