@@ -1,16 +1,19 @@
-Ryoy <- function(x) { ## computes univariate year-over-year or month-over-month diff given single numeric data ##
+Ryoy <- function (x, n = 1) { ## computes univariate year-over-year or month-over-month diff given single numeric data ##
+    n2 <- n+1
     if (is.null(dim(x))) {
-        for (i in 1:length(x)) {
-            x.ind <- x[2:i]
-            z.ind <- x[1:i - 1]
+        for (i in n:length(x)) {
+            x.ind <- x[n2:i]
+            z.ind <- x[n:i - n]
         }
-      }
-    else {
-        for (i in 1:nrow(X)) {
-            x.ind <- X[2:i, ]
-            z.ind <- X[1:i - 1, ]
-        }
+        yoy <- c(rep(NA, n - 1), x.ind - z.ind)
     }
-    yoy <- x.ind - z.ind
+    else {
+        for (i in n:nrow(X)) {
+            x.ind <- X[n2:i, ]
+            z.ind <- X[n:i - n, ]
+        }
+        yoy <- rbind(rep(NA, n - 1), x.ind - z.ind)
+    }
+    #yoy <- x.ind - z.ind
     return(yoy)
 }
