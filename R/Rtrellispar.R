@@ -10,6 +10,9 @@ Rtrellispar <- function(...) {
     lattice::trellis.par.set("superpose.symbol", trellis.pts)
     trellis.strip <- lattice::trellis.par.get("strip.background")
     trellis.strip$col <- adjustcolor(Riley::grays(7), alpha.f = 0.35)
+    trellis.mtext <- lattice::trellis.par.get("par.main.text")
+    trellis.mtext$cex <- 0.85
+    lattice::trellis.par.set("par.main.text", trellis.mtext)
     lattice::trellis.par.set("strip.background", trellis.strip)
     trellis.shingle <- lattice::trellis.par.get("strip.shingle")
     trellis.shingle$col <- adjustcolor("black", alpha.f = 0.65)
