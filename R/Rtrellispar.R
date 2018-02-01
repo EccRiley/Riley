@@ -1,4 +1,4 @@
-Rtrellispar <- function() {
+Rtrellispar <- function(...) {
     trellis.lines <- lattice::trellis.par.get("superpose.line")
     trellis.lines$col <- Riley::lancet(7)
     trellis.lines$lwd <- rep(2, 7)
