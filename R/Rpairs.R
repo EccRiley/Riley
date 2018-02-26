@@ -173,7 +173,7 @@ Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = 
             ellipse[, 1] <- ellipse[, 1] * xs + x
             ellipse[, 2] <- ellipse[, 2] * ys + y
             if (show.points)
-                points(x, y, pch = 19, col = col.smooth, cex = 1.5, col = col.points, bg = bg.points, ...)
+                points(x, y, pch = 19, col = col.smooth, cex = 1.5, ...)
             lines(ellipse, ...)
         }
     }
@@ -212,7 +212,7 @@ Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = 
             ellipse <- unit.circle %*% shape
             ellipse[, 1] <- ellipse[, 1] * xs + xm
             ellipse[, 2] <- ellipse[, 2] * ys + ym
-            points(xm, ym, pch = 19, col = col.smooth, cex = 1.5, col = col.points, bg = bg.points)
+            points(xm, ym, pch = 19, col = col.smooth, cex = 1.5)
             if (ellipses)
                 lines(ellipse, ...)
         }
