@@ -2,7 +2,7 @@
 
 Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = TRUE,
     digits = 2, method = "pearson", pch = 20, lm = FALSE, cor = TRUE,
-    jiggle = FALSE, factor = 2, hist.col = "cyan", show.points = TRUE, col.points = "black", bg.points = NULL,
+    jiggle = FALSE, factor = 2, hist.col = "gray", hist.border = "darkgray", density.col = "black", density.lwd = 1, lwd.smooth = density.lwd, show.points = TRUE, col.points = "black", bg.points = NULL,
     rug = TRUE, breaks = "Sturges", cex.cor = 1, wt = NULL, smoother = FALSE, smoother.colramp = colorRampPalette(c("white", blues9)),
     stars = FALSE, ci = FALSE, alpha = 0.05, ...)
 {
@@ -17,7 +17,7 @@ Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = 
             interbreak <- min(diff(breaks)) * (length(tax) -
                 1)/41
             rect(breaks - interbreak, 0, breaks + interbreak,
-                y, col = hist.col)
+                y, col = hist.col, border = hist.border)
         }
         else {
             h <- hist(x, breaks = breaks, plot = FALSE)
@@ -25,14 +25,14 @@ Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = 
             nB <- length(breaks)
             y <- h$counts
             y <- y/max(y)
-            rect(breaks[-nB], 0, breaks[-1], y, col = hist.col)
+            rect(breaks[-nB], 0, breaks[-1], y, col = hist.col, border = hist.border)
         }
         if (density) {
             tryd <- try(d <- density(x, na.rm = TRUE, bw = "nrd",
                 adjust = 1.2), silent = TRUE)
             if (class(tryd) != "try-error") {
                 d$y <- d$y/max(d$y)
-                lines(d)
+                lines(d, col = density.col, lwd = density.lwd)
             }
         }
         if (rug)
@@ -101,16 +101,16 @@ Rpairs <- function (x, smooth = TRUE, scale = FALSE, density = TRUE, ellipses = 
                     rev(upperci)), col = adjustcolor("light grey",
                     alpha.f = 0.8), border = NA)
                 }
-                lines(tempx$x, pred$fit, col = col.smooth, ...)
+                lines(tempx$x, pred$fit, col = col.smooth, lwd = lwd.smooth, ...)
             }
             else {
                 if (smooth)
                   lines(stats::lowess(x[ok], y[ok], f = span,
-                    iter = iter), col = col.smooth)
+                    iter = iter), col = col.smooth, lwd = lwd.smooth)
             }
         }
         if (ellipses)
-            draw.ellipse(xm, ym, xs, ys, r, col.smooth = col.smooth,
+            draw.ellipse(xm, ym, xs, ys, r, col.smooth = col.smooth, lwd = lwd.smooth,
                 ...)
     }
     "panel.lm" <- function(x, y, pch = par("pch"), col.lm = "red",
