@@ -1,5 +1,5 @@
 Rabbr <- function(x, stopwords = c("a", "the", "to", "at", "in", "with", "and", "but", "or", "of", "&"), toupper = TRUE) {
-    s0 <- strsplit(x, " ")[[1]]
+    s0 <- strsplit(as.character(x), " ")[[1]]
     s1 <- s0[!s0 %in% stopwords]
     s2 <- substring(s1, 1, 1)
     s3 <- paste(s2, sep = "", collapse = "")
