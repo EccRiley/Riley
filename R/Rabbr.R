@@ -10,9 +10,9 @@ Rabbr <- function(x, stopwords = c("a", "the", "to", "at", "in", "with", "and", 
 #' Examples
 
 # x <- c("Journal of Interpersonal Violence",
-         "Violence Against Women",
-         "Violence and Victims",
-         "Journal of Family Violence")
+         # "Violence Against Women",
+         # "Violence and Victims",
+         # "Journal of Family Violence")
 # sapply(x, Rabbr)
 # sapply(x, Rabbr, USE.NAMES = FALSE)
 
