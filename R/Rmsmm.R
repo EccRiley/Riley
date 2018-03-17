@@ -35,4 +35,4 @@ Rmsmm <- function(x, d = 2) {
     }
 }
 
-Rmsmm(mtcars)
+#Rmsmm(mtcars)
