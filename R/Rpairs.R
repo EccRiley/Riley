@@ -191,7 +191,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             lines(ellipse, ...)
         }
     }
-    "panel.ellipse" <- function(x, y, pch = par("pch"), col.smooth = col.smooth,
+    "panel.ellipse" <- function(x, y, pch = par("pch"), col.smooth = pp[18],
                                 ...) {
         segments = 51
         usr <- par("usr")
