@@ -19,6 +19,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
                     col.smooth = pp[18], lwd.smooth = density.lwd, 
                     col.points = adjustcolor("black", alpha.f = .25), bg.points = NULL, 
                     smoother.colramp = colorRampPalette(c("white", blues9)), ...) {
+    
     "panel.hist.density" <- function(x, ...) {## ORIGINALLY FROM 'psych::pairs.panels()'
         usr <- par("usr")
         on.exit(par(usr))
@@ -65,7 +66,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
         txt <- format(c(round(r, digits), 0.123456789), digits = digits)[1]
         txt <- paste(prefix, txt, sep = "")
         if (stars) {
-            pval <- r.test(sum(!is.na(x * y)), r)$p
+            pval <- psych::r.test(sum(!is.na(x * y)), r)$p
             symp <- symnum(pval, corr = FALSE, cutpoints = c(0,
                                                              0.001, 0.01, 0.05, 1), symbols = c("***", "**",
                                                                                                 "*", " "), legend = FALSE)
