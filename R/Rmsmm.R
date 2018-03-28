@@ -24,7 +24,7 @@ Rmsmm <- function(x, d = 2) {
         xSD <- dplyr::summarise_if(x, is.numeric, funs(sd(., na.rm = TRUE)))
         xMIN <- dplyr::summarise_if(x, is.numeric, funs(min(., na.rm = TRUE)))
         xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
-        xunique <- summarise_all(x, funs(length(unique(.))))
+        xunique <- summarise_if(x, is.numeric, funs(length(unique(.))))
         xNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(.)))
         #xNA <- sapply(x, Riley::Risna)
         summ <- rbind(xM, xSD, xMIN, xMAX, xunique, xNA)
