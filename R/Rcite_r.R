@@ -106,7 +106,7 @@ Rcite_r <-
                         "_ [@",
                         bib$base,
                         "], ", pkgnote,
-                        "\n\n\\medskip\n\n",
+                        "\tuftebreak\noindent",
                         pkg_info
                     )
             } else {
