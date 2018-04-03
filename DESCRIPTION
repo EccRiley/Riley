@@ -8,3 +8,30 @@ Description: This is primarily an R-package built for personal reasons and is in
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+  pander,
+  grid,
+  ggplot2,
+  ggthemes,
+  ggsci,
+  gtable,
+  knitr,
+  scales,
+  plyr,
+  dplyr,
+  stringr,
+  tufte,
+  car,
+  rmarkdown
+Suggests:
+  MASS,
+  reshape,
+  VennDiagram,
+  venneuler,
+  htmltools,
+  DT,
+  lmtest,
+  pathdiagram,
+  bookdown,
+  RSQLite,
+  DBI
