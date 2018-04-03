@@ -106,7 +106,7 @@ Rcite_r <-
                         "_ [@",
                         bib$base,
                         "], ", pkgnote,
-                        "\n\n\\medskip\n\n",
+                        "\n\\noindent",
                         pkg_info
                     )
             } else {
@@ -119,7 +119,7 @@ Rcite_r <-
                         "_ [@",
                         bib$base,
                         "], ", pkgnote,
-                        "\n\n",
+                        "\n",
                         pkg_info
                     )
             }
