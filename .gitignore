@@ -5,3 +5,4 @@ Rplots.pdf
 .Rapp.history
 packrat/src/
 .DS_Store
+.R.out
