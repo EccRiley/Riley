@@ -1,3 +1,0 @@
-setwd("git/Riley/R")
-file.edit("Rpals.R")
-.Riley()
