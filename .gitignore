@@ -2,4 +2,6 @@ packrat/lib*/
 .Rproj.user
 Rplots.pdf
 .Rhistory
+.Rapp.history
 packrat/src/
+.DS_Store
