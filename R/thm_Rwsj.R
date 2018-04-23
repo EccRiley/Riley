@@ -11,6 +11,7 @@ thm_Rwsj <- function(base_size = 10, base_family = "serif", title_family = "seri
                      legend.key.size = unit(0.5, "cm"), 
                      strip.background = element_rect(fill = "#e3e3e6"),
                      strip.text = element_text(face = "bold"),
+                     rect = element_rect(fill = NA, size = 0.5, linetype = 1, colour = "#474747"),
                      ...) {
     require(ggplot2); require(ggthemes);
     thm <- theme_wsj(base_size, base_family, title_family, color = bgcolor) %+replace% 
@@ -25,7 +26,7 @@ thm_Rwsj <- function(base_size = 10, base_family = "serif", title_family = "seri
               legend.key.size = legend.key.size,
               strip.background = strip.background,
               strip.text = strip.text,
-              rect = element_rect(fill = NA, size = NA, linetype = 1, colour = "#474747"),
+              rect = rect,
               # panel.background = element_rect(color = "#474747", size = 1),
               ...)
     thm
