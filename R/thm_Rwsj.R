@@ -25,7 +25,7 @@ thm_Rwsj <- function(base_size = 10, base_family = "serif", title_family = "seri
               legend.key.size = legend.key.size,
               strip.background = strip.background,
               strip.text = strip.text,
-              rect = element_rect(linetype = 1, colour = "#474747"),
+              rect = element_rect(fill = NA, size = NA, linetype = 1, colour = "#474747"),
               # panel.background = element_rect(color = "#474747", size = 1),
               ...)
     thm
