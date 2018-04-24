@@ -2,11 +2,11 @@
 
 _Riley Smith_
 
-_18 November 2016_
+_24 April 2018_
 
 -----
 
-## `{Riley}` A Fledgling `R-Package`
+## `{Riley}`: A fledgling R library (or set of libraries)
 
 This is primarily an `R-package` built for personal reasons and is in the very early stages in terms of package development. I am primarily building this package as my personal starting point for learning the ins-and-outs of `R-package` development and version control with `Git`. However, in the interest of code-sharing and knowledge generation, I am making the development process public via this `Github` repository.
 
@@ -42,11 +42,18 @@ Any major updates to the package (i.e., changes that would prompt a revision to 
 - [x] `LICENSE` file (create)
     - [x] Add license to `LICENSE` file
 - [x] `DESCRIPTION` file (create)
-    - [ ] Add more descriptive description
-- [ ] Complete `RDocumentation` of package contents _[In progress]_
-    - [ ] With source credits where appropriate
-- [ ] Organize package contents _[In progress]_
-    - [ ] Pare-down to only include functions related to the package purpose
-    - [ ] Vectorization
-- [ ] Package name (actual - not the "Riley" placeholder)
-- [ ] Package Vignette/Tutorial(s)
+    - [x] Add more descriptive description
+- [-] Code Optimization (& pruning) _**`[IN PROGRESS]`**_
+    - [-] effficiency (vectorization, dependency reduction) _**`[IN PROGRESS]`**_
+    - [-] usability (& _usefulness_)
+    - [-] versatility _**`[IN PROGRESS]`**_
+    - [~] _consistency & reproducibility `[PERPETUALLY IN PROGRESS]`_
+- [-] `R`Documentation _**`[IN PROGRESS]`**_
+    - [ ] examples
+    - [ ] intra-library linkages
+    - [ ] inter-library linkages
+    - [ ] vignettes
+    - [ ] statistical/mathematical explanations & justifications where appropriate 
+    - [ ] citations/credits throughout
+- [ ] Library/Library Set Design & Nomenclature:
+    - "`Rsmithing`"? (for a sub-library focused on _coding-specific utilities and linting_ (kind of like _"word-smithing"_, but for R)?)
