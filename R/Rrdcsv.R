@@ -1,4 +1,4 @@
-Rrdcsv <- function(x, ext = "csv", namecase = "lower", ...) {
+Rrdcsv <- function(x, ext = "csv", namecase = "lower", asDT = TRUE, ...) {
     if (ext == "feather") {
         y <- feather::read_feather(x, ...)
     } else {
@@ -17,5 +17,9 @@ Rrdcsv <- function(x, ext = "csv", namecase = "lower", ...) {
     } else if (namescase == "upper") {
         names(y) <- toupper(names(y))
     }
-    return(y)
+    if (asDT) {
+        return(as.data.table(y))
+    } else {
+        return(y)
+    }
 }
