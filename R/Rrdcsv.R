@@ -18,7 +18,7 @@ Rrdcsv <- function(x, ext = "csv", namecase = "lower", asDT = TRUE, ...) {
         names(y) <- toupper(names(y))
     }
     if (asDT) {
-        return(as.data.table(y))
+        return(data.table::as.data.table(y))
     } else {
         return(y)
     }
