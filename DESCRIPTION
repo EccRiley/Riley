@@ -9,6 +9,7 @@ License: file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+  data.table,
   pander,
   grid,
   ggplot2,
