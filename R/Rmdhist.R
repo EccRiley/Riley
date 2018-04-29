@@ -4,5 +4,5 @@ Rmdhist <- function(x, width = ceiling(sqrt(ncol(x))), length = ceiling(ncol(x)/
         hist(x[, i], col = pal[i], freq = FALSE, main = main[i], xlab = xlab[i], ...);
         lines(density(x[, i], na.rm = TRUE), lwd = 1, lty = "dotted", ...)
     }
-    on.exit(par(mfrow = c(1, 1)) ## NEED TO FIX THIS ##
+    on.exit(par(mfrow = c(1, 1))) ## NEED TO FIX THIS ##
 }
