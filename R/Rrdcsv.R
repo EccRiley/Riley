@@ -1,4 +1,4 @@
-Rrdcsv <- function(x, ext = "csv", namecase = "lower", asDT = TRUE, ...) {
+Rrdcsv <- function(x, ext = "csv", namecase = "lower", asDT = FALSE, ...) {
     if (ext == "feather") {
         y <- feather::read_feather(x, ...)
     } else {
