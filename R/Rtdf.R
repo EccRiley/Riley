@@ -7,7 +7,7 @@
 #'
 
 Rtdf <- function(x, ..., names = c(deparse(substitute(x)), "Freq"), cls = "dt", 
-                 exclude = if (useNA == "no") c(NA, NaN), useNA = c("no", "ifany", "always")) {
+                 exclude = if (useNA == "no") c(NA, NaN), useNA = "no") {
     d <- c("dt", "data.table", "data.frame", "df")
     m <- c("matrix", "mat")
     l <- c("list", "ls")
