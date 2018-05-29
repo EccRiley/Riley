@@ -10,18 +10,18 @@ Rdt <-
              filter = 'none',
              extensions = 'KeyTable',
              selection = list(target = 'row'),
+             columnDefs = NULL, #EXAMPLE: columnDefs = list(list(className = 'dt-center', targets = 0:4)
              options = list(
                  pageLength = 300,
                  lengthMenu = c(200, 500, 1000, 1500),
                  info = TRUE,
                  keys = 'true',
-                 # columnDefs = list(list(className = 'dt-center')),
+                 columnDefs = columnDefs,
                  dom = 'tip',
                  initComplete = DT::JS(
                      "function(settings, json) {",
                      "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff', 'font-family': 'serif'});",
-                     "}"),
-                 ...
+                     "}")
              ),
              ...) {
         cap <-
