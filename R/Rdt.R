@@ -40,25 +40,31 @@ Rdt <-
     }
 #'
 
-
-Rdt2 <- function(x, rownames = FALSE, colnames = NA, caption = deparse(substitute(x)), 
-                 dt.options = NULL, kbl.format.args = NULL, kbl.align = NA, ...) {
-    if (knitr:::is_html_output() || interactive()) {
-        if (!is.null(dt.options)) {
-            Rdt(x, rownames = rownames, colnames = colnames, caption = caption, 
-                options = dt.options, ...)
-        } else {
-            Rdt(x, rownames = rownames, colnames = colnames, caption = caption, ...)
-        }
-        
-    } else { 
-        if (!is.null(kbl.format.args)) {
-            kable(x, row.names = rownames, caption = caption, 
-              col.names = colnames, align = kbl.align,
-              format.args = kbl.format.args, ...)
-        } else {
-            kable(x, row.names = rownames, caption = caption, 
-              col.names = colnames, align = kbl.align, ...)
-        }
-    }
+Rdt2 <- function(x, cnames = NULL, rnames = FALSE, align = NULL, digits = 2, format.args = list(), escape = TRUE, table.attr = NULL, columnDefs = NULL, ...) {
+    if (knitr:::is_html_output()) {
+        Rdt(x, colnames = cnames, rownames = rnames, escape = escape, columnDefs = columnDefs, ...)
+    } else
+        kable(x, col.names = cnames, row.names = rnames, align = align, digits = digits, 
+              format.args = format.args, escape = escape, table.attr = table.attr, ...)
 }
+# Rdt2 <- function(x, rownames = FALSE, colnames = NA, caption = deparse(substitute(x)), 
+#                  dt.options = NULL, kbl.format.args = NULL, kbl.align = NA, ...) {
+#     if (knitr:::is_html_output() || interactive()) {
+#         if (!is.null(dt.options)) {
+#             Rdt(x, rownames = rownames, colnames = colnames, caption = caption, 
+#                 options = dt.options, ...)
+#         } else {
+#             Rdt(x, rownames = rownames, colnames = colnames, caption = caption, ...)
+#         }
+#         
+#     } else { 
+#         if (!is.null(kbl.format.args)) {
+#             kable(x, row.names = rownames, caption = caption, 
+#               col.names = colnames, align = kbl.align,
+#               format.args = kbl.format.args, ...)
+#         } else {
+#             kable(x, row.names = rownames, caption = caption, 
+#               col.names = colnames, align = kbl.align, ...)
+#         }
+#     }
+# }
