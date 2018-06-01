@@ -40,7 +40,7 @@ Rdt <-
     }
 #'
 
-Rdt2 <- function(x, cnames = NULL, rnames = FALSE, align = NULL, digits = 2, format.args = list(), escape = TRUE, table.attr = NULL, columnDefs = NULL, ...) {
+Rdt2 <- function(x, cnames = colnames(x), rnames = FALSE, align = NULL, digits = 2, format.args = list(), escape = TRUE, table.attr = NULL, columnDefs = NULL, ...) {
     if (knitr:::is_html_output()) {
         Rdt(x, colnames = cnames, rownames = rnames, escape = escape, columnDefs = columnDefs, ...)
     } else
