@@ -87,7 +87,7 @@ Rdt2 <- function(x,
                  opts.other = list(), 
                  ...) { ## '...' CURRENTLY ONLY IMPLEMENTED AS ADDL ARGS PASSED TO Rdt() TO AVOID POTENTIAL 'UNUSED ARGUMENT' ERRORS WITH 'knitr::kable()' ##
     
-    kable.format.args <- as.list(c(zero.print = zero.print,
+    format.args <- as.list(c(zero.print = zero.print,
                                    digits = digits,
                                    nsmall = nsmall,
                                    unlist(kable.other.f.args)))
