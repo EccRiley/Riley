@@ -87,10 +87,10 @@ Rdt2 <- function(x,
                  opts.other = list(), 
                  ...) { ## '...' CURRENTLY ONLY IMPLEMENTED AS ADDL ARGS PASSED TO Rdt() TO AVOID POTENTIAL 'UNUSED ARGUMENT' ERRORS WITH 'knitr::kable()' ##
     
-    kable.format.args <- as.list(c(zero.print = kable.zero.print,
-                                digits = kable.digits,
-                                nsmall = kable.nsmall,
-                                unlist(kable.other.f.args)))
+    kable.format.args <- as.list(c(zero.print = zero.print,
+                                   digits = digits,
+                                   nsmall = nsmall,
+                                   unlist(kable.other.f.args)))
     if (knitr:::is_html_output()) {
         Rdt(x, colnames = cnames, rownames = rnames, escape = escape, caption = caption,
             height = height,
@@ -108,10 +108,10 @@ Rdt2 <- function(x,
             ...)
     } else
         knitr::kable(x, col.names = cnames, row.names = rnames, escape = escape, caption = caption,
-              format = format,
-              format.args = format.args,
-              align = align, 
-              table.attr = table.attr)
+                     format = format,
+                     format.args = format.args,
+                     align = align, 
+                     table.attr = table.attr)
 }
 
 
