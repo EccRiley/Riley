@@ -11,7 +11,7 @@ Rdt <-
              filter = "top",
              extensions = "KeyTable",
              selection = list(target = "row"),
-             opts.columnDefs = NULL, #EXAMPLE: columnDefs = list(list(className = "dt-center", targets = 0:4)
+             opts.columnDefs = NULL, 
              opts.pageLength = 10,
              opts.lengthMenu = c(10, 25, 50, 100, 200, 500, 1000, 1500),
              opts.info = TRUE,
@@ -116,7 +116,7 @@ Rdt2 <- function(x,
 
 
 # CODEDUMP (Rdt() & Rdt2()) -----------------------------------------------
-
+# EXAMPLE COLUMNDEFS: columnDefs = list(list(className = "dt-center", targets = 0:4)
 # Rdt2 <- function(x, rownames = FALSE, colnames = NA, caption = deparse(substitute(x)), 
 #                  dt.options = NULL, kbl.format.args = NULL, kbl.align = NA, ...) {
 #     if (knitr:::is_html_output() || interactive()) {
