@@ -52,7 +52,7 @@ pp <- c(pal_sci, pal_lz, pal_lancet, pal_rye[3:16])
 pp <- pp[c(20, 6, 2, 9, 10, 24, 25, 11, 17, 26, 3, 27, 29, 5, 31, 12, 18, 32, 33, 34, 13, 15, 1, 7, 19, 14, 21, 22, 23, 4, 8)]
 
 # COLOR RAMPS --------------------------------------------
-ppal <- colorRampPalette(pp, alpha = TRUE)
+ppal <- colorRampPalette(pp, alpha = TRUE, interpolate = "spline")
 mb <- colorRampPalette(pal_rye[c(5, 16)])
 colsHC <- colorRampPalette(pal_HC, alpha = T)
 colsHCd <- colorRampPalette(pal_HCd, alpha = T)
