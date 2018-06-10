@@ -12,7 +12,7 @@ thm_Rtft <-
              xline = FALSE,
              yline = FALSE,
              frame = FALSE,
-             framecol = pal_my[19],
+             framecol = pal_rye[19],
              framefill = "transparent",
              xtext = TRUE,
              ytext = TRUE,
@@ -27,54 +27,54 @@ thm_Rtft <-
                 plot.title = element_text(
                     size = rel(1.25),
                     face = "bold.italic",
-                    colour = pal_my[19],
+                    colour = pal_rye[19],
                     margin = margin(0, 0, 5, 0)),
                 plot.subtitle = element_text(face = "italic",
                                              size = rel(1.15),
                                              hjust = 0.5,
-                                             colour = pal_my[19],
+                                             colour = pal_rye[19],
                                              margin = margin(0, 0, 5, 0)),
                 plot.caption = element_text(face = "italic",
                                             size = rel(1),
                                             hjust = 0.5,
-                                            colour = pal_my[19],
+                                            colour = pal_rye[19],
                                             margin = margin(5, 0, 0, 0)),
                 plot.margin = unit(rep(0.15, 4), "cm"),
                 panel.spacing = unit(0.15, "cm"),
                 panel.background = element_blank(),
                 panel.border = element_blank(),
-                strip.text = element_text(size = rel(0.7), colour = pal_my[20]),
+                strip.text = element_text(size = rel(0.7), colour = pal_rye[20]),
                 legend.position = lpos,
                 legend.direction = ldir,
                 legend.key.width = unit(0.15, "cm"),
                 legend.key.height = unit(0.25, "cm"),
-                legend.text = element_text(size = rel(0.75), colour = pal_my[20]),
-                legend.title = element_text(face = "italic", colour = pal_my[19]),
-                axis.ticks = element_line(size = 0.25, colour = pal_my[20]),
+                legend.text = element_text(size = rel(0.75), colour = pal_rye[20]),
+                legend.title = element_text(face = "italic", colour = pal_rye[19]),
+                axis.ticks = element_line(size = 0.25, colour = pal_rye[20]),
                 axis.title.x = element_text(
                     size = rel(1),
                     face = "italic",
                     margin = margin(t = 10),
-                    colour = pal_my[20]
+                    colour = pal_rye[20]
                 ),
                 axis.title.y = element_text(
                     size = rel(1),
                     face = "italic",
                     angle = 90,
                     margin = margin(r = 10),
-                    colour = pal_my[20],
+                    colour = pal_rye[20],
                     vjust = 1
                 ),
                 axis.text.y = element_text(
                     size = rel(1),
                     hjust = 1,
                     margin = margin(r = 2),
-                    colour = pal_my[20]
+                    colour = pal_rye[20]
                 ),
-                axis.text.x = element_text(size = rel(1), colour = pal_my[20]),
+                axis.text.x = element_text(size = rel(1), colour = pal_rye[20]),
                 #, margin = margin(t = 2)
-                axis.line.x = element_line(size = 0.1, colour = pal_my[20]),
-                axis.line.y = element_line(size = 0.1, colour = pal_my[20]),
+                axis.line.x = element_line(size = 0.1, colour = pal_rye[20]),
+                axis.line.y = element_line(size = 0.1, colour = pal_rye[20]),
                 complete = TRUE
             )
         if (frame) {
