@@ -203,7 +203,7 @@ ggparset2 <- function (vars = list(), data, weight = NULL, method = "angle",
         theme.layer <- theme(aspect.ratio = asp)
     dfm$Nodeset <- factor(dfm$Nodeset, levels = rev(levels(dfm$Nodeset)))
     ggplot() + xlab("") + gr + theme.layer + geom_bar(aes(weight = weight,
-        x = variable, fill = Nodeset, colour = Nodeset), width = width,
+        x = variable, fill = Nodeset, colour = Nodeset, ...), width = width,
         data = dfm) + llabels + scale_x_discrete(expand = c(0.1,
         0.1))
 }
