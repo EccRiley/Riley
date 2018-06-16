@@ -1,4 +1,4 @@
-RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", "#74006f"), ...) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
+RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, horiz = TRUE, ...) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
     ## multi-plot setup ##
     op <- par("mfrow")
     if (grid) {
@@ -15,14 +15,20 @@ RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", 
     for (i in d) {
         bi.bars(p[, g], p[, i], 
                 main = paste0(labs[i]), 
-                ylab = "Cluster", 
-                xlab = substitute(lbl1 %<-% bold(n[x]) %->% lbl2, 
-                                  list(x = labs[i], 
-                                       lbl1 = lbl[1], 
-                                       lbl2 = lbl[2])), 
-                color = sci) 
+                horiz = horiz,
+                xlab = if (horiz) {substitute(lbl1 %<-% bold(n[x]) %->% lbl2, 
+                                              list(x = labs[i], 
+                                                   lbl1 = lbl[1], 
+                                                   lbl2 = lbl[2])) 
+                } else { NULL },
+                ylab = if (!horiz) {substitute(lbl1 %<-% bold(n[x]) %->% lbl2, 
+                                               list(x = labs[i], 
+                                                    lbl1 = lbl[1], 
+                                                    lbl2 = lbl[2])) 
+                } else { NULL }, 
+                ...) 
     }
-    par(mfrow = c(op))
+    par(op)
 }
 
 ## Test of "`RbiBars()`":
