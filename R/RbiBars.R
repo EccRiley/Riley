@@ -1,4 +1,4 @@
-RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", "#74006f")) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
+RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", "#74006f"), ...) { ## x = a dataframe or matrix; g = the grouping variable (supplied as either the column name or the appropriate column's numeric index value (e.g., '`g = "ColA"`' or '`g = 1`')); lbl = group labels ##
     ## multi-plot setup ##
     op <- par("mfrow")
     if (grid) {
@@ -22,7 +22,7 @@ RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, sci = c("#7a8998", 
                                        lbl2 = lbl[2])), 
                 color = sci) 
     }
-    on.exit(par(mfrow = c(op)))
+    par(mfrow = c(op))
 }
 
 ## Test of "`RbiBars()`":
