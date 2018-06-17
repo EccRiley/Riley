@@ -21,9 +21,8 @@ RbiBars <- function(x, g, lbl = c("No", "Yes"), grid = TRUE, horiz = TRUE, ...) 
                                                    lbl1 = lbl[1], 
                                                    lbl2 = lbl[2])) 
                 } else { NULL },
-                ylab = if (!horiz) {substitute(lbl1 %<-% bold(n[x]) %->% lbl2, 
-                                               list(x = labs[i], 
-                                                    lbl1 = lbl[1], 
+                ylab = if (!horiz) {substitute(lbl1 %<-% bold(N) %->% lbl2, 
+                                               list(lbl1 = lbl[1], 
                                                     lbl2 = lbl[2])) 
                 } else { NULL }, 
                 ...) 
