@@ -18,7 +18,7 @@ Imports:
   knitr,
   scales,
   tufte,
-  car,
+  car
 Suggests:
   MASS,
   reshape,
@@ -30,7 +30,7 @@ Suggests:
   pathdiagram,
   bookdown,
   RSQLite,
-  DBI
+  DBI,
   plyr,
   dplyr,
   stringr,
