@@ -15,15 +15,10 @@ Imports:
   ggplot2,
   ggthemes,
   ggsci,
-  gtable,
   knitr,
   scales,
-  plyr,
-  dplyr,
-  stringr,
   tufte,
   car,
-  rmarkdown
 Suggests:
   MASS,
   reshape,
@@ -36,3 +31,8 @@ Suggests:
   bookdown,
   RSQLite,
   DBI
+  plyr,
+  dplyr,
+  stringr,
+  gtable,
+  rmarkdown
