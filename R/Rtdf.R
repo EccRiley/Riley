@@ -6,21 +6,25 @@
 #' "..." == additional vectors to table against 'x'
 #'
 
-Rtdf <- function(x, ..., names = c(deparse(substitute(x)), "Freq"), cls = "dt", 
+Rtdf <- function(x, ..., names = c(deparse(substitute(x)), "Freq"), outclass = "dt", 
                  exclude = if (useNA == "no") c(NA, NaN), useNA = "no") {
-    d <- c("dt", "data.table", "data.frame", "df")
+    dt <- c("dt", "data.table")
+    df <- c("data.frame", "df")
     m <- c("matrix", "mat")
     l <- c("list", "ls")
-    if (cls %in% d) {
+    if (outclass %in% dt) {
         require(data.table)
         t <- as.data.table(table(x, ..., exclude = exclude, useNA = useNA))
         names(t) <- names
-    } else if (cls %in% m) {
+    } else if (outclass %in% df) {
+        t <- as.data.frame(table(x, ..., exclude = exclude, useNA = useNA))
+        names(t) <- names
+    } else if (outclass %in% m) {
         t <- as.matrix(table(x, ..., exclude = exclude, useNA = useNA))
         colnames(t) <- names
-    } else if (cls %in% l) {
+    } else if (outclass %in% l) {
         t <- as.list(table(x, ..., exclude = exclude, useNA = useNA))
     } else 
-        stop("cls must be either 'data.table'/'data.frame'/'dt'/'df', 'matrix'/'mat', or 'list'/'ls'")
+        stop("'outclass' must be either 'data.table'/'data.frame'/'dt'/'df', 'matrix'/'mat', or 'list'/'ls'")
     return(t)
 }
