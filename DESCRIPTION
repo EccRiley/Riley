@@ -5,6 +5,10 @@ Version: 0.1.1.9000
 Authors@R: person("Riley", "Smith-Hunter", email = "rileymsmith19@gmail.com",
   role = c("aut", "cre"))
 Description: This is primarily a 'catch-all' repository of functions, data, and color palettes that I intend to include in one or more 'formal' R libraries (i.e., fully documented and subsequently published on CRAN).
+Depends: R (>= 3.1.0)
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
+IMPORTS
+  magrittr,
+  car
