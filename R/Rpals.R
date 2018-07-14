@@ -82,3 +82,20 @@ nord_snow <- colorRampPalette(pal_nord$snow, alpha = TRUE)
 nord_frost <- colorRampPalette(pal_nord$frost, alpha = TRUE)
 nord_aurora <- colorRampPalette(pal_nord$aurora, alpha = TRUE)
 grays_nord <- colorRampPalette(pal_nord$polar[c(8, 1)])
+
+# FUNCTIONS FOR DARKENING/LIGHTENING COLORS -----------------------------------------
+## ORIGINAL SOURCE: https://gist.github.com/Jfortin1/72ef064469d1703c6b30 ##
+
+darken <- function(color, factor=1.4){
+    col <- col2rgb(color)
+    col <- col/factor
+    col <- rgb(t(col), maxColorValue=255)
+    col
+}
+
+lighten <- function(color, factor=1.4){
+    col <- col2rgb(color)
+    col <- col*factor
+    col <- rgb(t(col), maxColorValue=255)
+    col
+}
