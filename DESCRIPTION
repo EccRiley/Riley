@@ -8,6 +8,3 @@ Description: This is primarily a 'catch-all' repository of functions, data, and 
 License: file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-  magrittr,
-  car
