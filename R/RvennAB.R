@@ -3,10 +3,6 @@
 #' This is a slightly more complex version of **`RvennA()`**, but is still a transferable/skeletal version of the euler venn diagram function I use specifically for my stuff (see **`REvennA()`**)
 #'
 #'
-library(VennDiagram)
-library(venneuler)
-
-
 RvennAB <- function(x,
                     vcol,
                     labs = rev(names(x)),
@@ -14,6 +10,8 @@ RvennAB <- function(x,
                     lcex = 1,
                     adj = NULL,
                     ...) {
+  library(VennDiagram)
+  library(venneuler)
     A <- x[[2]]
     AB <- x[[1]]
     evenn <- venneuler(c(A = A, "A&B" = AB))
