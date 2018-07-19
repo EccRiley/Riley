@@ -2,9 +2,6 @@
 #'
 #' This one is the most complex of the venn diagram functions I've written thus far (see **`RvennA()`** \& **`RvennAB()`**). Its defaults are highly specific to my own needs and personal style conventions.
 #'
-library(VennDiagram)
-library(venneuler)
-
 REvennA <-
     function(x,
              ffamily = "serif",
@@ -21,6 +18,8 @@ REvennA <-
              pmfont = 3,
              keep = FALSE,
              ...) {
+        library(VennDiagram)
+        library(venneuler)
         palette(mypal)
         par(family = ffamily, mar = (c(0.5, 0.5, 2, 0.5) + 0.1))
         A <- x[[2]]
