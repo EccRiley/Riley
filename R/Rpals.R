@@ -15,7 +15,7 @@ pal_fivecats <- c(orange = "#EA8A1A", yellow = "#D7C700", purple = "#B090B0", li
     ### THESE ARE PRIMARILY SPECIFIC TO ORGS THAT I CURRENTLY OR PREVIOUSLY WORKED IN/WITH ##
 pal_gsu <- c(blue = "#0039A6", red = "#CC0000", darkgray = "#666666") ## GEORGIA STATE UNIVERSITY ##
 pal_pdx <- c(green = "#8b9535", white = "#ffffff", darkgray = "#373737") ## PORTLAND STATE UNIV. (dark/hunter green, white, very dark gray) ##
-pal_dl <- c(deltablue = "#003366", deltared = "#C01933", white = "#ffffff") ## DELTA AIR LINES ##
+pal_dl <- c(deltablue = "#003366", deltared = "#C01933", deltaplum = "#5A315D", white = "#ffffff") ## DELTA AIR LINES (ADDED 'PASSPORT PLUM' ON 20180804) ## 
 pal_dl_reds <- c(deltared = pal_dl[2], lightred = "#E01933", darkred = "#991933") ## DELTA AIR LINES - RED VARIATIONS ##
 pal_dl_grays <- c(warmgray = "#625231", lightgray="#AB9C85", darkgray="#4C3B10") ## DELTA AIR LINES - GRAY VARIATIONS ##
 pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), gold = rgb(187, 152, 4, maxColorValue = 255), red = rgb(146, 42, 70, maxColorValue = 255), blue = rgb(0, 56, 118, maxColorValue = 255)) ## FULTON COUNTY SCHOOLS (GA) ##
