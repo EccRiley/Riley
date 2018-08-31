@@ -1,11 +1,12 @@
 Rpretty_plot <- function(x, y = NULL, xaxt = 'n', yaxt = 'n',
-                         comma.axis = c("x", "y"), currency.axis = NULL,
+                         comma.axis = c("x", "y"),
+                         currency.axis = NULL,
                          date.axis = NULL,
                          currency.symbol = "$",
                          date.format.in = NULL,
                          date.format.out = NULL,
                          axis.values.x = if (is.null(y)) pretty(1:length(x)) else pretty(x),
-                         axis.values.y = if (is.null(y)) pretty(x) else NULL,
+                         axis.values.y = if (is.null(y)) pretty(x) else pretty(y),
                          ...) {
     plot(x, xaxt = xaxt, yaxt = yaxt, ...)
     # formattable <- c(comma.axis, currency.axis, date.axis)
