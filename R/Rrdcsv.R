@@ -3,7 +3,7 @@ Rrdcsv <- function(x, ext = "csv", namecase = "lower", asDT = FALSE, ...) {
         y <- feather::read_feather(x, ...)
     } else {
         if (ext == "xlsx") {
-            y <- xlsx::read_feather(x, ...)
+            y <- readxl::read_xlsx(x, ...)
         } else {
             if (ext == "csv") {
                 y <- read.csv(x, ...)
