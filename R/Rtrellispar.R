@@ -17,4 +17,13 @@ Rtrellispar <- function(...) {
     trellis.shingle <- lattice::trellis.par.get("strip.shingle")
     trellis.shingle$col <- adjustcolor("black", alpha.f = 0.65)
     lattice::trellis.par.set("strip.shingle", trellis.shingle)
+    trl.plot.polygon <- trellis.par.get("plot.polygon")
+    trl.plot.polygon$col <- pp[20]
+    trellis.par.set("plot.polygon", trl.plot.polygon)
+    trl.box.rect <- trellis.par.get("box.rectangle")
+    trl.box.rect$col <- "#000000"
+    trellis.par.set("box.rectangle", trl.box.rect)
+    trl.umbrella <- trellis.par.get("box.umbrella")
+    trl.umbrella$col <- adjustcolor("#000000", alpha.f = 0.95)
+    trellis.par.set("box.umbrella", trl.umbrella)
 }
