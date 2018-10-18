@@ -27,7 +27,7 @@ Rfmt.currency <- function(x, currency_symbol = "$", digits = 2, nsmall = digits,
 ## BASED ON https://gist.github.com/RadGH/84edff0cc81e6326029c#gistcomment-2095834 ##
 
 ## BASED ON https://gist.github.com/RadGH/84edff0cc81e6326029c#gistcomment-2095834 ##
-Rfmt_abbr <- function(n) {
+Rfmt.abbr <- function(n) {
     ifelse(n < 1000, 
            floor(n),
            ifelse (n >= 1000 & n < 1000000, 
