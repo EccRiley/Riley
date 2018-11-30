@@ -11,7 +11,8 @@ Rmsmm <- function(x, d = 2) {
         summ <- data.frame(xM, xSD, xMIN, xMAX, xunique, xNA)
         names(summ) <- c("M", "SD", "Min", "Max", "N_Unique", "NAs")
         summ <- apply(summ, 2, round, digits = d)
-        return(summ)
+        res <- as.data.frame(summ)
+        return(res)
     } else {
         if (all(sapply(x, is.numeric) == FALSE)) stop("No numeric columns in the data.");
         if (is.matrix(x)) {
@@ -31,7 +32,8 @@ Rmsmm <- function(x, d = 2) {
         row.names(summ) <- c("M", "SD", "Min", "Max", "N_Unique", "NAs")
         summ <- as.data.frame(t(summ))
         summ <- apply(summ, 2, round, digits = d)
-        return(summ)
+        res <- as.data.frame(summ)
+        return(res)
     }
 }
 
