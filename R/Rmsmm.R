@@ -11,7 +11,7 @@ Rmsmm <- function(x, d = 2) {
         summ <- data.frame(xM, xSD, xMIN, xMAX, xunique, xNA)
         names(summ) <- c("M", "SD", "Min", "Max", "N_Unique", "NAs")
         summ <- apply(summ, 2, round, digits = d)
-        res <- as.data.frame(summ)
+        res <- as.data.frame(t(summ))
         return(res)
     } else {
         if (all(sapply(x, is.numeric) == FALSE)) stop("No numeric columns in the data.");
