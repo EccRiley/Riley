@@ -1,4 +1,4 @@
-Rdbq <- function(dbpath, tables = c("freecode", "treecode", "codecat", "cases", "caselinkage", "source", "coding")) {
+Rdbq.rqda <- function(dbpath, tables = c("freecode", "treecode", "codecat", "cases", "caselinkage", "source", "coding")) {
 	require(RSQLite); require(DBI)
 	db <- dbConnect(SQLite(), dbpath)
 	tbls <- list(mode = "list", length = length(tables))
