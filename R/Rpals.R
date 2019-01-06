@@ -33,7 +33,7 @@ pal_fivecats <- c(orange = "#EA8A1A", yellow = "#D7C700", purple = "#B090B0", li
 pal_gsu <- c(blue = "#0039A6", red = "#CC0000", darkgray = "#666666") ## GEORGIA STATE UNIVERSITY ##
 pal_pdx <- c(green = "#8b9535", white = "#ffffff", darkgray = "#373737") ## PORTLAND STATE UNIV. (dark/hunter green, white, very dark gray) ##
 pal_dl <- c(deltablue = "#003366", deltared = "#C01933", passportplum = "#2E1A47", white = "#ffffff") ## DELTA AIR LINES ## 
-pal_dl2 <- c(pal_dl[[1]], 
+pal_dl2 <- c(pal_dl[[1]], ## PAL_DL COMBINED WITH MY VERSION OF DELTA'S ANCILLARY COLOR PALETTES ##
              lightwidgetred = "#E01933",
              pal_dl[[3]],
              deltayellow = "#EAAA00",
