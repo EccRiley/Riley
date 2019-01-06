@@ -83,7 +83,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             text(0.5, 0.5, txt, cex = cex)
         }
     }
-    "panel.smoother" <- function(x, y, pch = par("pch"), col.smooth = pp[18],
+    "panel.smoother" <- function(x, y, pch = par("pch"), col.smooth = col.smooth,
                                  span = 2/3, iter = 3, ...) {
         xm <- mean(x, na.rm = TRUE)
         ym <- mean(y, na.rm = TRUE)
@@ -127,7 +127,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             draw.ellipse(xm, ym, xs, ys, r, col.smooth = col.smooth, lwd = lwd.smooth,
                          ...)
     }
-    "panel.lm" <- function(x, y, pch = par("pch"), col.lm = pp[18],
+    "panel.lm" <- function(x, y, pch = par("pch"), col.lm = col.smooth,
                            ...) {
         ymin <- min(y)
         ymax <- max(y)
@@ -191,7 +191,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             lines(ellipse, ...)
         }
     }
-    "panel.ellipse" <- function(x, y, pch = par("pch"), col.smooth = pp[18],
+    "panel.ellipse" <- function(x, y, pch = par("pch"), col.smooth = col.smooth,
                                 ...) {
         segments = 51
         usr <- par("usr")
