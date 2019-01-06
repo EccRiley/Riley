@@ -1,3 +1,20 @@
+# FUNCTIONS FOR DARKENING/LIGHTENING COLORS -----------------------------------------
+## ORIGINAL SOURCE: https://gist.github.com/Jfortin1/72ef064469d1703c6b30 ##
+
+darken <- function(color, factor=1.4){
+    col <- col2rgb(color)
+    col <- col/factor
+    col <- rgb(t(col), maxColorValue=255)
+    col
+}
+
+lighten <- function(color, factor=1.4){
+    col <- col2rgb(color)
+    col <- col*factor
+    col <- rgb(t(col), maxColorValue=255)
+    col
+}
+
 ## 'Rpals': A 'LIVING' (I.E., LIKELY TO GROW/CHANGE) COLLECTION OF COLOR PALETTES. THESE WILL BE VECTORIZED IN ANY 'OFFICIAL' PACKAGE DEPLOYMENTS/PUBLICATIONS BEYOND THIS GIT REPO ## 
 ### MOST OF THESE WERE ORIGINALLY COMPILED FOR USE WITH USED WITH `colorRampPalette(...)`
 
@@ -112,22 +129,6 @@ palramp_dl2 <- colorRampPalette(pal_dl2, interpolate = "linear",
 palramp_dl_base <- colorRampPalette(pal_dl2, interpolate = "linear",
                                     alpha = TRUE, bias = 0.5)
 
-# FUNCTIONS FOR DARKENING/LIGHTENING COLORS -----------------------------------------
-## ORIGINAL SOURCE: https://gist.github.com/Jfortin1/72ef064469d1703c6b30 ##
-
-darken <- function(color, factor=1.4){
-    col <- col2rgb(color)
-    col <- col/factor
-    col <- rgb(t(col), maxColorValue=255)
-    col
-}
-
-lighten <- function(color, factor=1.4){
-    col <- col2rgb(color)
-    col <- col*factor
-    col <- rgb(t(col), maxColorValue=255)
-    col
-}
 palramp_dl <- colorRampPalette(c(
     darken(pal_dl[[1]], 2),
     lighten(pal_cat7[c(-1, -2, -8)]), darken(pal_dl[c(3, 2)], 2)),
