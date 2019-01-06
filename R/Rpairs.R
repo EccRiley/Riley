@@ -1,13 +1,13 @@
 ## THIS IS A CONVENIENCE WRAPPER FOR 'psych::pairs.panels()', WITH A FEW ADDED OPTIONS FOR BETTER PLOT CUSTOMIZATION ##
 
 ## MODIFIED DEFAULTS: 
-    ## scale = TRUE, 
-    ## ellipses = FALSE,
-    ## pch = "."
-    ## stars = TRUE 
-        ## ALSO: WTF ARE 'MAGIC' ASTERICKS ??
-        ## I LIKE TO THINK THIS IS W. REVELLE SHARING A LITTLE SIDE-COMMENTARY 
-        ## ON ACADEMIC PUBLICATIONS' OBSESSION OVER SIGNIFICANCE STARS, MAYBE ? :) ##
+## scale = TRUE, 
+## ellipses = FALSE,
+## pch = "."
+## stars = TRUE 
+## ALSO: WTF ARE 'MAGIC' ASTERICKS ??
+## I LIKE TO THINK THIS IS W. REVELLE SHARING A LITTLE SIDE-COMMENTARY 
+## ON ACADEMIC PUBLICATIONS' OBSESSION OVER SIGNIFICANCE STARS, MAYBE ? :) ##
 
 Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = FALSE, 
                     digits = 2, method = "pearson", pch = ".", lm = FALSE, cor = TRUE, 
@@ -83,7 +83,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             text(0.5, 0.5, txt, cex = cex)
         }
     }
-    "panel.smoother" <- function(x, y, pch = par("pch"), col.smooth = col.smooth,
+    "panel.smoother" <- function(x, y, pch = par("pch"), #col.smooth = col.smooth,
                                  span = 2/3, iter = 3, ...) {
         xm <- mean(x, na.rm = TRUE)
         ym <- mean(y, na.rm = TRUE)
@@ -124,7 +124,8 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             }
         }
         if (ellipses)
-            draw.ellipse(xm, ym, xs, ys, r, col.smooth = col.smooth, lwd = lwd.smooth,
+            draw.ellipse(xm, ym, xs, ys, r, #col.smooth = col.smooth, 
+                         lwd = lwd.smooth,
                          ...)
     }
     "panel.lm" <- function(x, y, pch = par("pch"), col.lm = col.smooth,
@@ -167,14 +168,15 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
                 xs <- sd(x, na.rm = TRUE)
                 ys <- sd(y, na.rm = TRUE)
                 r = cor(x, y, use = "pairwise", method = method)
-                draw.ellipse(xm, ym, xs, ys, r, col.smooth = col.lm,
+                draw.ellipse(xm, ym, xs, ys, r, #col.smooth = col.lm,
                              ...)
             }
             abline(lml, col = col.lm, ...)
         }
     }
     "draw.ellipse" <- function(x = 0, y = 0, xs = 1, ys = 1,
-                               r = 0, col.smooth, add = TRUE, segments = 51, ...) {
+                               r = 0, #col.smooth, 
+                               add = TRUE, segments = 51, ...) {
         angles <- (0:segments) * 2 * pi/segments
         unit.circle <- cbind(cos(angles), sin(angles))
         if (!is.na(r)) {
@@ -191,7 +193,7 @@ Rpairs <- function (x, smooth = TRUE, scale = TRUE, density = TRUE, ellipses = F
             lines(ellipse, ...)
         }
     }
-    "panel.ellipse" <- function(x, y, pch = par("pch"), col.smooth = col.smooth,
+    "panel.ellipse" <- function(x, y, pch = par("pch"),# col.smooth = col.smooth,
                                 ...) {
         segments = 51
         usr <- par("usr")
