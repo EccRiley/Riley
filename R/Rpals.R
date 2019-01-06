@@ -12,13 +12,26 @@ pal_rye.a50 <- sapply(pal_rye, adjustcolor, alpha.f = 0.50)
 pal_fivecats <- c(orange = "#EA8A1A", yellow = "#D7C700", purple = "#B090B0", lightblue = "#7799CC", green = "#85991E")
 
 ## BRAND-SPECIFIC PALETTES ==============================================
-    ### THESE ARE PRIMARILY SPECIFIC TO ORGS THAT I CURRENTLY OR PREVIOUSLY WORKED IN/WITH ##
+### THESE ARE PRIMARILY SPECIFIC TO ORGS THAT I CURRENTLY OR PREVIOUSLY WORKED IN/WITH ##
 pal_gsu <- c(blue = "#0039A6", red = "#CC0000", darkgray = "#666666") ## GEORGIA STATE UNIVERSITY ##
 pal_pdx <- c(green = "#8b9535", white = "#ffffff", darkgray = "#373737") ## PORTLAND STATE UNIV. (dark/hunter green, white, very dark gray) ##
-pal_dl <- c(deltablue = "#003366", deltared = "#C01933", deltaplum = "#5A315D", white = "#ffffff") ## DELTA AIR LINES (ADDED 'PASSPORT PLUM' ON 20180804) ## 
-pal_dl_reds <- c(deltared = pal_dl[2], lightred = "#E01933", darkred = "#991933") ## DELTA AIR LINES - RED VARIATIONS ##
-pal_dl_grays <- c(warmgray = "#625231", lightgray="#AB9C85", darkgray="#4C3B10") ## DELTA AIR LINES - GRAY VARIATIONS ##
-pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), gold = rgb(187, 152, 4, maxColorValue = 255), red = rgb(146, 42, 70, maxColorValue = 255), blue = rgb(0, 56, 118, maxColorValue = 255)) ## FULTON COUNTY SCHOOLS (GA) ##
+pal_dl <- c(deltablue = "#003366", deltared = "#C01933", passportplum = "#2E1A47", white = "#ffffff") ## DELTA AIR LINES ## 
+pal_dl2 <- c(pal_dl[[1]], 
+             lightwidgetred = "#E01933",
+             pal_dl[[3]],
+             deltayellow = "#EAAA00",
+             deltalightblue = "#7D9BC1", 
+             deltaorange = "#FF6900", 
+             lightplum = "#5A315D",
+             darkdarkgray = pal_rye[20], 
+             diamond = "#5a829b",
+             platinum = "#35333e", silver = "#8b9191", 
+             darkbcrfpink = "#d7006f", safetygreen = "#8f9a3e",
+             darkwidgetred = "#991933")
+pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), ## FULTON COUNTY SCHOOLS (GA) ##
+             gold = rgb(187, 152, 4, maxColorValue = 255), 
+             red = rgb(146, 42, 70, maxColorValue = 255), 
+             blue = rgb(0, 56, 118, maxColorValue = 255)) 
 
 ## CATEGORICAL-2-CONTINUOUS-2-CATEGORICAL PALETTES ==============================================
 ## (ORIG. CREATED FOR THE GENDER & VIOLENCE INTERVENTIONS RESEARCH TEAM'S (PORTLAND STATE UNIV.), NATIONAL BIP STANDARDS AND MONITORING STUDY (2014:2018) ##
@@ -51,7 +64,18 @@ pal_lancet <- pal_lancet("lanonc")(7)[-6]
 pp <- c(pal_sci, pal_lz, pal_lancet, pal_rye[3:16])
 pp <- pp[c(20, 6, 2, 9, 10, 24, 25, 11, 17, 26, 3, 27, 29, 5, 31, 12, 18, 32, 33, 34, 13, 15, 1, 7, 19, 14, 21, 22, 23, 4, 8)]
 
+pal_cat7 <- c("black",
+              darken("darkgray", factor = 2),
+              darken(pp[30]),
+              darken(pp[2]),
+              darken(pp[21], factor = 2),
+              darken(pp[24], factor = 2),
+              darken(pp[6]),
+              darken(pp[14], factor = 1.7))
+
+
 # COLOR RAMPS --------------------------------------------
+
 ppal <- colorRampPalette(pp, alpha = TRUE, interpolate = "spline")
 mb <- colorRampPalette(pal_rye[c(5, 16)])
 colsHC <- colorRampPalette(pal_HC, alpha = T)
@@ -83,6 +107,11 @@ nord_frost <- colorRampPalette(pal_nord$frost, alpha = TRUE)
 nord_aurora <- colorRampPalette(pal_nord$aurora, alpha = TRUE)
 grays_nord <- colorRampPalette(pal_nord$polar[c(8, 1)])
 
+palramp_dl2 <- colorRampPalette(pal_dl2, interpolate = "linear",
+                                alpha = TRUE, bias = 0.5)
+palramp_dl_base <- colorRampPalette(pal_dl2, interpolate = "linear",
+                                    alpha = TRUE, bias = 0.5)
+
 # FUNCTIONS FOR DARKENING/LIGHTENING COLORS -----------------------------------------
 ## ORIGINAL SOURCE: https://gist.github.com/Jfortin1/72ef064469d1703c6b30 ##
 
@@ -99,3 +128,8 @@ lighten <- function(color, factor=1.4){
     col <- rgb(t(col), maxColorValue=255)
     col
 }
+palramp_dl <- colorRampPalette(c(
+    darken(pal_dl[[1]], 2),
+    lighten(pal_cat7[c(-1, -2, -8)]), darken(pal_dl[c(3, 2)], 2)),
+    interpolate = "linear",
+    alpha = TRUE, bias = 1.25)
