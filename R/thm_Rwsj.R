@@ -36,7 +36,7 @@ thm_Rwsj2 <- function() {
     thm <- thm_Rwsj(base_family = "sans", title_family = "sans", 
                     bgcolor = "transparent",
                     plot.title = element_text(color = "#252525", size = rel(1.25),
-                                              face = "bold", hjust = 0.5, vjust = 0),
+                                              face = "bold", hjust = 0.5, vjust = 1),
                     legend.title = element_text(size = rel(1), color = "#252525"),
                     legend.text = element_text(size = 12, color = "#252525"),
                     legend.key.size = unit(0.5, "cm"),
