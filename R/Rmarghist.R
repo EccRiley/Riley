@@ -7,6 +7,7 @@ Rmarghist <- function(x, y,
                       type.main = "p", col.symbol = par("col"),
                       col.hist = list(x = par("col"),
                                       y = adjustcolor(par("col"), alpha.f = 0.5)),
+                      border.hist = par("col"),
                       mar.main = c(5.1, 4.1, 1, 1),
                       mar.xhist = c(0, 4.1, 1, 1),
                       mar.yhist = c(5.1, 0, 1, 1),
@@ -33,25 +34,33 @@ Rmarghist <- function(x, y,
     yhist <- hist(y, plot = FALSE)
     top <- max(c(xhist$counts, yhist$counts))
 
+    if (length(col.hist == 1)) {
+        col.hist <- rep(col.hist, 2)
+    }
+    border.hist <- if (length(border.hist == 1)) {
+        border.hist <- rep(border.hist, 2)
+    }
+
     ### TOP (X) MARGINAL HIST ###
     par(mar = mar.xhist)
     barplot(xhist$counts, axes = FALSE, ylim = c(0, top), space = 0,
-            col = ifelse("x" %in% tolower(names(col.hist)), col.hist$x, col.hist))
+            col = col.hist[[1]],
+            border = border.hist[[1]])
 
     ### RIGHT (Y) MARGINAL HIST ###
     par(mar = mar.yhist)
     barplot(yhist$counts, axes = FALSE, xlim = c(0, top), space = 0,
-            col = ifelse("y" %in% tolower(names(col.hist)), col.hist$y, col.hist),
-            horiz = TRUE)
+            col = col.hist[[2]], border = border.hist[[2]], horiz = TRUE)
 
     ## RESTORE USER'S ORIG PLOT PARAMS ##
     on.exit(par(opar))
 }
 
 
+
 # EXAMPLES -----------------------------------------------------------
 
-# ## TEST DATA ##
+# # ## TEST DATA ##
 # y <- runif(100000, min = 0.0, max = 0.2)
 # x <- rbinom(100000, size = 100, prob = y)
 #
@@ -64,9 +73,9 @@ Rmarghist <- function(x, y,
 # col.symbol2 <- adjustcolor(mpal(1:100), alpha.f = 0.25)
 #
 # col.hist1 <- list(x = darken(pal_dl[[1]]), y = darken("darkgray"))
-# col.hist2 <- mpal(1:100)
-#
+# col.hist2 <- mpal(1:2)
+# #
 # Rmarghist(x, y, col.hist = col.hist1,
 #           col.symbol = col.symbol1)
-# Rmarghist(x, y, col.hist = col.hist1,
+# Rmarghist(x, y, col.hist = col.hist2,
 #           col.symbol = col.symbol2)
