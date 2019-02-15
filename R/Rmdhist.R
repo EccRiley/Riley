@@ -5,8 +5,8 @@ Rmdhist <- function(x, plot = TRUE, freq = FALSE, return.res = FALSE, width = ce
     x <- as.data.frame(x)
     res <- apply(x, 2, function(x) hist(x, plot = FALSE))
     if (plot) {
-        opar <- par(no.readonly = TRUE)
-        par(mfrow = c(height, width))
+        opar <- par(mfrow = c(height, width))
+        # par(mfrow = c(height, width))
         for (i in 1:ncol(x)) {
             hist(x[, i], col = pal[i], border = border[i], freq = freq, main = main[i],
                  xlab = xlab[i], ylab = ylab[i], ...);
