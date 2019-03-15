@@ -134,3 +134,9 @@ palramp_dl <- colorRampPalette(c(
     lighten(pal_cat7[c(-1, -2, -8)]), darken(pal_dl[c(3, 2)], 2)),
     interpolate = "linear",
     alpha = TRUE, bias = 1.25)
+
+## REVERSE RAINBOW PALETTE BASED ON PAL_DL ##
+palramp_dl3 <- c(lighten(pal_dl[[3]]), darken(pal_dl[[1]]), "#0099B4",
+                 lighten(pal_dl2[[13]]), pal_dl2[[13]], "#EAAA00", "#FF6900", "#B30126") %>%
+    colorRampPalette(alpha = TRUE, interpolate = "spline")
+
