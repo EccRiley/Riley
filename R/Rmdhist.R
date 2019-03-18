@@ -31,7 +31,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                     pch = rep(19, ncol(x)), cex = rep(0.5, ncol(x)),
                     labs = colnames(x), xlab = labs, main = NULL,
                     ylab = rep("Density", ncol(x)), plotTitle = NULL, outerTitle = TRUE,
-                    human_numbers = TRUE, human_numbers_symbol = "\\$",
+                    human_numbers = TRUE, human_numbers_symbol = "$",
                     human_numbers_scale = "m", human_numbers_signif = 1,
                     ...) {
 
