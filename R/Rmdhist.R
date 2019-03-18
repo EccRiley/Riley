@@ -59,7 +59,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                      labels = human_numbers(pretty(x[, i]),
                                             smbl = human_numbers_symbol,
                                             scale = human_numbers_scale,
-                                            signif = human_numberes_signif))
+                                            signif = human_numbers_signif))
             } else {
                 axis(1, at = pretty(x[, i]), labels = pretty(x[, i]))
             }
