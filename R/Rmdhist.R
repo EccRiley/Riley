@@ -28,7 +28,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                     width = ceiling(sqrt(ncol(x))), height = ceiling(ncol(x)/width),
                     pal = mpal(seq(1:ncol(x)), p = ppal), pal.points = pal,
                     lwd = rep(1, ncol(x)), lty = rep("solid", ncol(x)),
-                    pch = rep(19, ncol(x)), cex = rep(0.5, ncol(x)),
+                    pch = rep(19, ncol(x)), cex.points = rep(0.5, ncol(x)),
                     labs = colnames(x), xlab = labs, main = NULL,
                     ylab = rep("Density", ncol(x)), plotTitle = NULL, outerTitle = TRUE,
                     human_numbers = TRUE, human_numbers_symbol = "$",
@@ -53,6 +53,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
 
         for (i in 1:ncol(x)) {
             plot.ecdf(ecdf(x[, i]), col = pal[i], col.points = pal.points[i],
+                      lwd = lwd, lty = lty, cex.points = cex.points,
                       main = main[i], xlab = xlab[i], xaxt = "n", ...);
             if (human_numbers) {
                 axis(1, at = pretty(x[, i]),
