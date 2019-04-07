@@ -30,8 +30,9 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                     lwd = rep(1, ncol(x)), lty = rep("solid", ncol(x)),
                     pch = rep(19, ncol(x)), cex.points = rep(0.5, ncol(x)),
                     labs = colnames(x), xlab = labs, main = NULL,
-                    ylab = rep("Density", ncol(x)), plotTitle = NULL, outerTitle = TRUE,
-                    adjTitle = 0, cexTitle = 1, fontTitle = 1,
+                    ylab = rep("Density", ncol(x)), plotTitle = NULL, plotSubTitle = NULL, 
+                    outerTitle = TRUE, adjTitle = 0, cexTitle = par("cex.main"), 
+                    fontTitle = par("font.main"), 
                     mar = c(4.1, 2.1, 1.5, 1.1), oma = c(0, 0, 3, 0),
                     human_numbers = TRUE, human_numbers_symbol = "$",
                     human_numbers_scale = "m", human_numbers_signif = 1,
@@ -42,29 +43,32 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
     xq <- apply(x, 2, function(y) quantile(ecdf(y)))
     xs <- apply(x, 2, function(y) summary(ecdf(y)))
     ## PLOTTING ##
-    if (plot) {
-        if (!is.null(plotTitle)) {
-            opar <- par(mfrow = c(height, width), mar = mar, oma = oma)
-        } else {
-            opar <- par(mfrow = c(height, width), mar = mar)
-        }
-
-        for (i in 1:ncol(x)) {
-            plot.ecdf(ecdf(x[, i]), col = pal[i], col.points = pal.points[i],
-                      lwd = lwd, lty = lty, cex.points = cex.points,
-                      main = main[i], xlab = xlab[i], xaxt = "n", ...);
-            if (human_numbers) {
-                axis(1, at = pretty(x[, i]),
-                     labels = human_numbers(pretty(x[, i]),
-                                            smbl = human_numbers_symbol,
-                                            scale = human_numbers_scale,
-                                            signif = human_numbers_signif))
-            } else {
-                axis(1, at = pretty(x[, i]), labels = pretty(x[, i]))
-            }
-            if (!is.null(plotTitle)) mtext(3, plotTitle, outer = outerTitle, adj = adjTitle,
-                                          cex = cexTitle, font = fontTitle)
-        }
-        on.exit(par(opar))
+    if (!is.null(plotTitle)) {
+        opar <- par(mfrow = c(height, width), mar = mar, oma = oma)
+    } else {
+        opar <- par(mfrow = c(height, width), mar = mar)
     }
+
+    if (plot) {
+            
+            for (i in 1:ncol(x)) {
+                plot.ecdf(ecdf(x[, i]), col = pal[i], col.points = pal.points[i],
+                          lwd = lwd, lty = lty, cex.points = cex.points,
+                          main = main[i], xlab = xlab[i], xaxt = "n", ...);
+                if (human_numbers) {
+                    axis(1, at = pretty(x[, i]),
+                         labels = human_numbers(pretty(x[, i]),
+                                                smbl = human_numbers_symbol,
+                                                scale = human_numbers_scale,
+                                                signif = human_numbers_signif))
+                } else {
+                    axis(1, at = pretty(x[, i]), labels = pretty(x[, i]))
+                }
+            }
+            if (!is.null(plotTitle)) {
+                title(main = plotTitle, sub = plotSubTitle, outer = outerTitle, 
+                      cex.main = cexTitle, font.main = fontTitle)
+            }
+        }
+    on.exit(par(opar))
 }
