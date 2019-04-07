@@ -31,6 +31,8 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                     pch = rep(19, ncol(x)), cex.points = rep(0.5, ncol(x)),
                     labs = colnames(x), xlab = labs, main = NULL,
                     ylab = rep("Density", ncol(x)), plotTitle = NULL, outerTitle = TRUE,
+                    adjTitle = 0, cexTitle = 1, fontTitle = 1,
+                    mar = c(4.1, 2.1, 1.5, 1.1), oma = c(0, 0, 3, 0)
                     human_numbers = TRUE, human_numbers_symbol = "$",
                     human_numbers_scale = "m", human_numbers_signif = 1,
                     ...) {
@@ -41,14 +43,10 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
     xs <- apply(x, 2, function(y) summary(ecdf(y)))
     ## PLOTTING ##
     if (plot) {
-        mar.mdhist <- c(4.1, 2.1, 1.5, 1.1)
-        oma.ptitle <- c(0, 0, 3, 0)
-        # opar <- par(no.readonly = TRUE)
-
         if (!is.null(plotTitle)) {
-            opar <- par(mfrow = c(height, width), mar = mar.mdhist, oma = oma.ptitle)
+            opar <- par(mfrow = c(height, width), mar = mar, oma = oma)
         } else {
-            opar <- par(mfrow = c(height, width), mar = mar.mdhist)
+            opar <- par(mfrow = c(height, width), mar = mar)
         }
 
         for (i in 1:ncol(x)) {
@@ -64,7 +62,8 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
             } else {
                 axis(1, at = pretty(x[, i]), labels = pretty(x[, i]))
             }
-            if (!is.null(plotTitle)) title(plotTitle, outer = outerTitle)
+            if (!is.null(plotTitle)) mtext(3, plotTitle, outer = outerTitle, adj = adjTitle,
+                                          cex = cexTitle, font = fontTitle)
         }
         on.exit(par(opar))
     }
