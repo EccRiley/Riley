@@ -54,7 +54,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
             for (i in 1:ncol(x)) {
                 plot.ecdf(ecdf(x[, i]), col = pal[i], col.points = pal.points[i],
                           lwd = lwd, lty = lty, cex.points = cex.points,
-                          main = main[i], xlab = xlab[i], xaxt = "n", ...);
+                          main = main[i], xlab = xlab[i], xaxt = "n", ylab = ylab[i], ...);
                 if (human_numbers) {
                     axis(1, at = pretty(x[, i]),
                          labels = human_numbers(pretty(x[, i]),
