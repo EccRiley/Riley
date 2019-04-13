@@ -1,5 +1,6 @@
 ## requires "lmtest" package ##
 Rcoeftest <- function(x) { ## 'x' = a model fit object ##
+    require(lmtest)
 	x <- lmtest::coeftest(x)
     rn <- dimnames(x)[[1]] ## rownames ##
     cn <- c("Estimate", "_SE_", "_z-value_", "p") ## colnames ##

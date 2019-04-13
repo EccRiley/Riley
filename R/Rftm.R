@@ -1,4 +1,11 @@
-Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
+## Rftm(): TOPIC FREQUENCY TABULATION (FOR QUALITATIVE DATA ANALYSIS) ##
+
+Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.quote = FALSE,
+                 names.out = c(paste0("Tabulation of ",
+                                      deparse(substitute(x1))),
+                               paste0("Cross-Tabulation of ",
+                                      deparse(substitute(x1)), " & ",
+                                      deparse(substitute(x2))))) {
     if (!is.null(dnn)) {
         tx <- Rtdf(x1, names = dnn[[1]])
         ftm <- ftable(x1, x2, row.vars = 1) %>% matrix(nrow = nrow(tx), byrow = FALSE)
@@ -9,22 +16,14 @@ Rftm <- function(x1, x2, dnn = NULL, zero.action = NA, zero.qt = FALSE) {
         dimnames(ftm) <- list(levels(x1))
     }
     if (!is.null(zero.action)) {
-        if (zero.qt == 0 | zero.qt == 1) {
-            zero.qt <- as.logical(zero.qt)
-        } else {
-            if (!is.logical(zero.qt)) {
-                stop("'zero.qt' must be either logical ('TRUE'/'FALSE') or interpretable as logical ('0'/'1'")
-            }
-        }
-        if (zero.qt == TRUE) {
+        if (zero.quote == 1) {
             ftm <- ifelse(ftm == 0, quote(zero.action), ftm)
         } else {
             ftm <- ifelse(ftm == 0, noquote(zero.action), ftm)
         }
     }
     y <- list(tx, ftm)
-    names(y) <- c(paste0("Tabulation of ", deparse(substitute(x1))), paste0("Cross-Tabulation of ",
-        deparse(substitute(x1)), " & ", deparse(substitute(x2))))
+    names(y) <- names.out
     return(y)
 }
 

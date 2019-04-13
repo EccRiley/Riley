@@ -15,7 +15,7 @@ Rmdhist <- function(x, plot = TRUE, freq = FALSE, return.res = FALSE, width = ce
                       lwd = lwd[i], lty = lty[i], col = pal.lines[i])
             }
         }
-        if (!is.null(title)) title(plotTitle, outer = outerTitle)
+        if (!is.null(plotTitle)) title(main = plotTitle, outer = outerTitle)
         on.exit(par(opar))
     }
     if (return.res) return(res)
@@ -30,9 +30,9 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                     lwd = rep(1, ncol(x)), lty = rep("solid", ncol(x)),
                     pch = rep(19, ncol(x)), cex.points = rep(0.5, ncol(x)),
                     labs = colnames(x), xlab = labs, main = NULL,
-                    ylab = rep("Density", ncol(x)), plotTitle = NULL, plotSubTitle = NULL, 
-                    outerTitle = TRUE, adjTitle = 0, cexTitle = par("cex.main"), 
-                    fontTitle = par("font.main"), 
+                    ylab = rep("Density", ncol(x)), plotTitle = NULL, plotSubTitle = NULL,
+                    outerTitle = TRUE, adjTitle = 0, cexTitle = par("cex.main"),
+                    fontTitle = par("font.main"),
                     mar = c(4.1, 2.1, 1.5, 1.1), oma = c(0, 0, 3, 0),
                     human_numbers = TRUE, human_numbers_symbol = "$",
                     human_numbers_scale = "m", human_numbers_signif = 1,
@@ -50,7 +50,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
     }
 
     if (plot) {
-            
+
             for (i in 1:ncol(x)) {
                 plot.ecdf(ecdf(x[, i]), col = pal[i], col.points = pal.points[i],
                           lwd = lwd, lty = lty, cex.points = cex.points,
@@ -66,7 +66,7 @@ Rmdecdf <- function(x, plot = TRUE, return.res = TRUE,
                 }
             }
             if (!is.null(plotTitle)) {
-                title(main = plotTitle, sub = plotSubTitle, outer = outerTitle, 
+                title(main = plotTitle, sub = plotSubTitle, outer = outerTitle,
                       cex.main = cexTitle, font.main = fontTitle)
             }
         }
