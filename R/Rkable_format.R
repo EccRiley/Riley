@@ -1,11 +1,11 @@
 
 Rkable_format <- function(interactive_format = "html") {
-    if (interactive()) {
-        res <- interactive_format
-    } else if (is_html_output()) {
+    if (is_html_output()) {
         res <- "html"
     } else if (is_latex_output()) {
         res <- "latex"
+    } else if (interactive()) {
+        res <- interactive_format
     } else {
         res <- getOption("knitr.table.format")
     }
