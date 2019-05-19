@@ -36,10 +36,11 @@ RbiBars <- function(x, g, lbl = c("No", "Yes"),
 }
 
 ## Test of "`RbiBars()`":
-set.seed(42)
-x <- matrix(c(runif(484), runif(44, min = 1, max = 4)), nrow = 44) %>% round(0)
-colnames(x) <- LETTERS[1:ncol(x)]
-RbiBars(x, g = 12)
-RbiBars(x, g = 12, height = 1, width = 1)
-RbiBars(x, g = 12, labs = LETTERS[1:3])
-RbiBars(x, g = 12, labs = "")
+# library(psych)
+# set.seed(42)
+# x <- matrix(c(runif(484), runif(44, min = 1, max = 4)), nrow = 44) %>% round(0)
+# colnames(x) <- LETTERS[1:ncol(x)]
+# RbiBars(x, g = 12)
+# RbiBars(x, g = 12, height = 1, width = 1)
+# RbiBars(x, g = 12, labs = LETTERS[1:3])
+# RbiBars(x, g = 12, labs = "")
