@@ -47,14 +47,15 @@ Rmsmm <- function(x, d = 2) {
 #Rmsmm(mtcars)
 
 Rmsmm.currency <-
-    function(x, currency_symbol = "$", vars_lab = "", kable = TRUE, caption = NULL,
-             outnames = c(vars_lab, "M", "SD", "Median", "Skewness", "Kurtosis",
+    function(x, currency_symbol = "$", varlabs = paste0("`", names(which(sapply(x, is.numeric))), "`"), 
+             varlabs_name = "", kable = TRUE, caption = NULL,
+             outnames = c(varlabs_name, "M", "SD", "Median", "Skewness", "Kurtosis",
                           "Min", "Max", "$N_{Unique Values}$", "$N_{Missing}$"), ...) {
         ## '...' = ADD'L ARGS PASSED TO KABLE() (IF KABLE == TRUE) ##
         require(data.table); require(magrittr)
         res <- Rmsmm(x) %>%
             as.data.table() %>%
-            transform("x" = paste0("`", names(which(sapply(x, is.numeric))), "`"),
+            transform("x" = varlabs,
                       M = ifelse(M < 0, paste0("-", currency_symbol, scales::comma(abs(M))),
                                  paste0(currency_symbol, scales::comma(M))),
                       SD = ifelse(SD < 0, paste0("-", currency_symbol, scales::comma(abs(SD))),
