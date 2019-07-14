@@ -2,5 +2,5 @@
 
 Ryearmo <- function(x) {
     library(data.table)
-    return(as.integer(paste0(year(x), month(x))))
+    return(as.integer(format(x, "%Y%m")))
 }
