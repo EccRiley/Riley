@@ -34,7 +34,7 @@ Rmsmm <- function(x, d = 2) {
         xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
         xunique <- summarise_if(x, is.numeric, funs(length(unique(.))))
         xNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(.)))
-        #xNA <- sapply(x, Riley::Risna)
+        #xNA <- sapply(x, Risna)
         summ <- rbind(xM, xSD, xMED, xSKEW, xKURT, xMIN, xMAX, xunique, xNA)
         row.names(summ) <- c("M", "SD", "Median", "Skew", "Kurtosis", "Min", "Max", "N_Unique", "NAs")
         summ <- as.data.frame(t(summ))

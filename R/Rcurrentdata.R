@@ -12,7 +12,7 @@ Rcurrentdata <-  function(pattern, path = "data", perl = TRUE, readData = TRUE, 
     inpath <- paste0(path, "/", infile)
     if (readData) {
         if (infile %in% grep("\\.csv", infile, value = TRUE)) {
-            currentdata <- Riley::Rrdcsv(inpath, ...)
+            currentdata <- Rrdcsv(inpath, ...)
         } else if (infile %in% grep("\\.xl", infile, value = TRUE)) {
             currentdata <- readxl::read_xlsx(inpath, ...)
         } else stop("Unable to read data")
@@ -24,4 +24,4 @@ Rcurrentdata <-  function(pattern, path = "data", perl = TRUE, readData = TRUE, 
 }
 
 #' # Arguments
-#' "...": ADDITIONAL ARGUMENTS PASSED TO 'Riley::Rrdcsv()' OR 'read.csv()'
+#' "...": ADDITIONAL ARGUMENTS PASSED TO 'Rrdcsv()' OR 'read.csv()'

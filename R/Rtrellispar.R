@@ -1,6 +1,6 @@
 Rtrellispar <- function(...) {
     trellis.lines <- lattice::trellis.par.get("superpose.line")
-    trellis.lines$col <- Riley::lancet(7)
+    trellis.lines$col <- lancet(7)
     trellis.lines$lwd <- rep(2, 7)
     lattice::trellis.par.set("superpose.line", trellis.lines)
     trellis.pts <- lattice::trellis.par.get("superpose.symbol")
@@ -9,7 +9,7 @@ Rtrellispar <- function(...) {
     trellis.pts$cex <- 1
     lattice::trellis.par.set("superpose.symbol", trellis.pts)
     trellis.strip <- lattice::trellis.par.get("strip.background")
-    trellis.strip$col <- adjustcolor(Riley::grays(7), alpha.f = 0.35)
+    trellis.strip$col <- adjustcolor(grays(7), alpha.f = 0.35)
     trellis.mtext <- lattice::trellis.par.get("par.main.text")
     trellis.mtext$cex <- 0.85
     lattice::trellis.par.set("par.main.text", trellis.mtext)
