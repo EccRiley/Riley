@@ -1,19 +1,25 @@
 # FUNCTIONS FOR DARKENING/LIGHTENING COLORS -----------------------------------------
 ## ORIGINAL SOURCE: https://gist.github.com/Jfortin1/72ef064469d1703c6b30 ##
 
-darken <- function(color, factor=1.4){
+darken <- function(color, factor = 1.4){
     col <- col2rgb(color)
     col <- col/factor
-    col <- rgb(t(col), maxColorValue=255)
+    col <- rgb(t(col), maxColorValue = 255)
     col
 }
 
-lighten <- function(color, factor=1.4){
-    col <- col2rgb(color)
-    col <- col*factor
-    col <- rgb(t(col), maxColorValue=255)
-    col
+lighten <- function(color, lfactor = 1.4){
+    clr0 <- col2rgb(color)
+    clr_check <- any(sapply(clr0*lfactor, function(x) x > 255))
+    if (clr_check) { 
+        clr <- clr0
+    } else {
+        clr <- clr0*lfactor
+        }
+    clr <- rgb(t(clr), maxColorValue = 255)
+    return(clr)
 }
+
 
 ## 'Rpals': A 'LIVING' (I.E., LIKELY TO GROW/CHANGE) COLLECTION OF COLOR PALETTES. THESE WILL BE VECTORIZED IN ANY 'OFFICIAL' PACKAGE DEPLOYMENTS/PUBLICATIONS BEYOND THIS GIT REPO ## 
 ### MOST OF THESE WERE ORIGINALLY COMPILED FOR USE WITH USED WITH `colorRampPalette(...)`
