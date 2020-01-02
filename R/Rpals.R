@@ -79,6 +79,9 @@ pal_nord <- list(
     aurora = c("#bf606b", "#d08674", "#ebca93", "#a3be91", "#b48eab")
 )
 
+## [TWITTER NIGHT MODE PALETTE](https://www.color-hex.com/color-palette/55334) ##
+pal_twitter_night <- c("#ffffff", "#c51f5d", "#243447","#141d26", "#0E141B")
+
 # PALETTES VIA THE ['ggsci' PKG](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) ==============================================
 require(ggsci)
 pal_sci <- pal_aaas()(8)
