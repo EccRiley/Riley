@@ -11,10 +11,11 @@ RreadAlteryx <- function(input_id = "#1", inmode = "data.frame",
     str(dat0)
 
     vars_chr <- c(names(which(sapply(dat0, is.factor))))
+    vars_chr
+    str(dat0[, .SD, .SDcols = vars_chr])
+    
     dat0[, (vars_chr) := lapply(.SD, as.character), .SDcols = c(vars_chr)]
 
-    str(dat0[, .SD, .SDcols = c(vars_chr)])
-    str(dat0[, .SD, .SDcols = c(vars_chr)])
 
     if (trimchars == TRUE) {
         dat0[, (vars_chr) := lapply(.SD, stringr::str_trim), .SDcols = c(vars_chr)]
