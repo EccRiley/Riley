@@ -1,5 +1,4 @@
-RreadAlteryx <- function(input_id = "#1", inmode = "data.frame",
-    outmode = "data.table", trimchr = TRUE) {
+RreadAlteryx <- function(input_id = "#1", inmode = "data.frame") {
     library(AlteryxRDataX)
     library(data.table)
 
@@ -13,15 +12,28 @@ RreadAlteryx <- function(input_id = "#1", inmode = "data.frame",
     vars_chr <- c(names(which(sapply(dat0, is.factor))))
     vars_chr
     str(dat0[, .SD, .SDcols = vars_chr])
-    
+
     dat0[, (vars_chr) := lapply(.SD, as.character), .SDcols = c(vars_chr)]
+    dat0[, (vars_chr) := lapply(.SD, stringr::str_trim), .SDcols = c(vars_chr)]
+    dat0[, (vars_chr) := lapply(.SD, function(x) ifelse(x == "", NA, as.character(x))),
+        .SDcols = c(vars_chr)]
 
-
-    if (trimchars == TRUE) {
-        dat0[, (vars_chr) := lapply(.SD, stringr::str_trim), .SDcols = c(vars_chr)]
-        dat0[, (vars_chr) := lapply(.SD, function(x) ifelse(x == "", NA, as.character(x))),
-            .SDcols = c(vars_chr)]
-    }
     return(dat0)
 }
 
+RreadAlteryx2 <- function(dat) {
+    dat0 <- as.data.table(dat)
+    str(dat0)
+
+    vars_chr <- c(names(which(sapply(dat0, is.factor))))
+    vars_chr
+    str(dat0[, .SD, .SDcols = vars_chr])
+
+    dat0[, (vars_chr) := lapply(.SD, as.character), .SDcols = c(vars_chr)]
+    dat0[, (vars_chr) := lapply(.SD, stringr::str_trim), .SDcols = c(vars_chr)]
+    dat0[, (vars_chr) := lapply(.SD, function(x) ifelse(x == "", NA, as.character(x))),
+        .SDcols = c(vars_chr)]
+    str(dat0)
+
+    return(dat0)
+}
