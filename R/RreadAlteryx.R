@@ -3,9 +3,7 @@ RreadAlteryx <- function(input_id = "#1", inmode = "data.frame") {
     library(data.table)
 
     dat0 <- read.Alteryx(input_id, mode = inmode)
-
-    names(dat0) <- tolower(names(dat0))
-
+    
     setDT(dat0)
     str(dat0)
 
