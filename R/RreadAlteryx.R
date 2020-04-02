@@ -22,6 +22,7 @@ RreadAlteryx <- function(input_id = "#1", inmode = "data.frame") {
 }
 
 RreadAlteryx2 <- function(dat) {
+    library(data.table)
     dat0 <- as.data.table(dat)
     str(dat0)
 
