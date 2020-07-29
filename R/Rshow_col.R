@@ -1,6 +1,6 @@
 #' ## **`Rshow_col()`**
 #'
-function (colours, labels = TRUE, 
+Rshow_col <- function (colours, labels = TRUE, 
     labels_text = colours, 
     borders = NULL, ...) 
 {
