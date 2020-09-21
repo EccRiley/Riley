@@ -1,9 +1,12 @@
 #' ## **`Rshow_col()`**
 #'
-Rshow_col <- function (colours, labels = TRUE, 
-    labels_text = colours, 
-    borders = NULL, ...) 
-{
+Rshow_col <- function(colours, labels = TRUE, borders = NULL,  ...) {
+    if (is.null(names(colours))) {
+        labels_text <- toupper(colours)
+    } else {
+        labels_text <- paste0(toupper(colours), "\n(", names(colours), ")")
+    }
+    col_text <- ifelse(colours == "#FFFFFF", "#000000", "#FFFFFF")
     n <- length(colours)
     ncol <- ceiling(sqrt(n))
     nrow <- ceiling(n/ncol)
@@ -20,11 +23,11 @@ Rshow_col <- function (colours, labels = TRUE,
     rect(col(colours) - 1, -row(colours) + 1, col(colours), -row(colours), 
         col = colours, border = borders, ...)
     if (labels) {
-        text(col(colours) - 0.5, -row(colours) + 0.75, matrix(seq(1:length(colours)), 
-            nrow = nrow, byrow = TRUE), cex = t.size, ...)
-        text(col(colours) - 0.5, -row(colours) + 0.25, labels_text, 
-            cex = t.size, ...)
+        text(col(colours) - 0.5, -row(colours) + 0.75, 
+            matrix(seq(1:length(colours)), nrow = nrow, byrow = TRUE),
+            cex = t.size, col = col_text, ...)
+        text(col(colours) - 0.5, -row(colours) + 0.25, 
+            matrix(labels_text,  nrow = nrow, byrow = TRUE),
+            cex = t.size, col = col_text, ...)
     }
 }
-
-#'
