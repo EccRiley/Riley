@@ -52,7 +52,12 @@ pal_dl2 <- c(deltablue = pal_dl[[1]], ## PAL_DL2 = PAL_DL COMBINED WITH MY VERSI
              darkbcrfpink = "#d7006f", safetygreen = "#8f9a3e",
              widgetreddark = "#991933",
              basicecon = "#3b4864",
-             deltabluebrite = "#0A85FF")
+             deltabluebrite = "#0A85FF",
+             bluegraymed = "#AAADB8",
+             bluegraydark = "#515460",
+             bluegraylite = "#CCCED4",
+             bluegraylitest = "#EEEFF1")
+
 pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), ## FULTON COUNTY SCHOOLS (GA) ##
              gold = rgb(187, 152, 4, maxColorValue = 255), 
              red = rgb(146, 42, 70, maxColorValue = 255), 
