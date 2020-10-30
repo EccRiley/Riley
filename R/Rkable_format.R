@@ -12,11 +12,20 @@ Rkable_format <- function(interactive_format = "html") {
     return(res)
 }
 
-Rkable <- function(..., format = Rkable_format(), kable_styling_args = NULL) {
-    require(knitr); require(kableExtra)
-    if (format == "html") {
-        kable(..., format = format) %>% kable_styling(unlist(kable_styling_args))
-    }
+Rkable <- function(x, format = Rkable_format(), ...,
+    full_width = FALSE,
+    bootstrap_options = c("condensed", "responsive"),
+    latex_options = NULL,
+    fixed_thead = list(enabled = T/F,
+        background = pal_dl2[["bluegraylitest"]]),
+    protect_latex = TRUE) {
+    library(knitr); library(kableExtra)
+    kable_styling(kable(x, format = format, ...),
+        full_width = full_width,
+        bootstrap_options = bootstrap_options,
+        latex_options = latex_options,
+        fixed_thead = fixed_thead,
+        protect_latex = protect_latex)
 }
 
 #' # Examples
