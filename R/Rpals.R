@@ -88,10 +88,10 @@ pal_nord <- list(
 pal_twitter_night <- c("#ffffff", "#c51f5d", "#243447","#141d26", "#0E141B")
 
 # PALETTES VIA THE ['ggsci' PKG](https://cran.r-project.org/web/packages/ggsci/vignettes/ggsci.html) ==============================================
-require(ggsci)
-pal_sci <- pal_aaas()(8)
-pal_lz <- pal_locuszoom()(6)
-pal_lancet <- pal_lancet("lanonc")(7)[-6]
+# require(ggsci)
+pal_sci <- c('#3B4992FF', '#EE0000FF', '#008B45FF', '#631879FF', '#008280FF', '#BB0021FF', '#5F559BFF', '#A20056FF') # pal_aaas()(8)
+pal_lz <- c('#D43F3AFF', '#EEA236FF', '#5CB85CFF', '#46B8DAFF', '#357EBDFF', '#9632B8FF') # pal_locuszoom()(6)
+pal_lancet <- c('#00468BFF', '#ED0000FF', '#42B540FF', '#0099B4FF', '#925E9FFF', '#AD002AFF') # pal_lancet("lanonc")(7)[-6]
 
 ## '`PP`' <- (A PALETTE FROM PALETTES) ==============================================
 pp <- c(pal_sci, pal_lz, pal_lancet, pal_rye[3:16])
