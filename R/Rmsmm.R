@@ -141,9 +141,10 @@ Rmsmm2 <- function (x, d = 2)
     }
 }
 
-Rkable.Rmsmm2 <- function(msmm, ...) {
+Rkable.Rmsmm2 <- function(x, ...) {
     Rkable(
-        transform(msmm, Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
-            Pct_NA = Ras.percent(round(100*Pct_NA, 1), smbl = "%"))
+        transform(Rmsmm2(x), Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
+            Pct_NA = Ras.percent(round(100*Pct_NA, 1), smbl = "%")),
         align = "r", ...)
 }
+
