@@ -12,22 +12,29 @@ Rkable_format <- function(interactive_format = "html") {
     return(res)
 }
 
-Rkable <- function(x, format = Rkable_format(), ...,
-    full_width = FALSE,
-    bootstrap_options = c("condensed", "responsive"),
-    latex_options = NULL,
-    fixed_thead = list(enabled = T/F,
-        background = pal_dl2[["bluegraylitest"]]),
-    protect_latex = TRUE) {
-    library(knitr); library(kableExtra)
-    kable_styling(kable(x, format = format, ...),
-        full_width = full_width,
-        bootstrap_options = bootstrap_options,
-        latex_options = latex_options,
-        fixed_thead = fixed_thead,
-        protect_latex = protect_latex)
+Rkable <- function (x, format = Rkable_format(), ..., full_width = FALSE, 
+    condensed = TRUE, 
+    responsive = TRUE, 
+    hover = FALSE,
+    # bootstrap_options = c("condensed", "responsive", "hover"), 
+    latex_options = NULL, 
+    fixed_thead = list(enabled = T/F, background = pal_dl2[["bluegraylitest"]]), 
+    protect_latex = TRUE) 
+{
+    library(knitr)
+    library(kableExtra)
+    bo <- names(which(
+        c("condensed" = condensed, "responsive" = responsive, "hover" = hover)
+    ))
+    
+    kable_styling(kable(x, format = format, ...), full_width = full_width, 
+        bootstrap_options = bo, 
+        latex_options = latex_options, 
+        fixed_thead = fixed_thead, protect_latex = protect_latex)
 }
+
 
 #' # Examples
 #' 
-# Rkable(mtcars, kable_styling_args = alist(bootstrap_options = "striped"))
+# Rkable(mtcars, condensed = FALSE)
+# Rkable(mtcars, hover = TRUE)
