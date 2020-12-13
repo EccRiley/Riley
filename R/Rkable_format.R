@@ -15,8 +15,7 @@ Rkable_format <- function(interactive_format = "html") {
 Rkable <- function (x, format = Rkable_format(), ..., full_width = FALSE, 
     condensed = TRUE, 
     responsive = TRUE, 
-    hover = FALSE,
-    # bootstrap_options = c("condensed", "responsive", "hover"), 
+    hover = TRUE,
     latex_options = NULL, 
     fixed_thead = list(enabled = T/F, background = pal_dl2[["bluegraylitest"]]), 
     protect_latex = TRUE) 
