@@ -18,7 +18,7 @@ Ryearmo_display <- function(d, month_style = month.abb, year_style = 4,
     return(res)
 }
 
-#' `x`: Date class object
+#' `d`: Date class object
 #' `month_style`: can be one of `month.abb` or `month.name`
 #' `year_style`: can be one of `2` or `4` (default = `4`).
 #' `...`: Not yet implemented.
