@@ -1,6 +1,7 @@
 Ryearmo_display <- function(d, month_style = month.abb, year_style = 4,
     sep = "'", ...) {
 
+    x <- d
     library(lubridate)
         # month.abb[month(seq(.mdf_start_date, .mdf_end_date, by = "months"))]
 
