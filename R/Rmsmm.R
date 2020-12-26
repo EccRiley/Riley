@@ -1,14 +1,14 @@
-Rmsmm <- function(x, d = 2) {
+Rmsmm <- function(x, d = 2, na.rm = TRUE) {
     require(dplyr); require(e1071)
     if (is.null(ncol(x))) {
         if (!is.numeric(x)) stop("x must be numeric.");
-        xM <- mean(x, na.rm = TRUE)
-        xSD <- sd(x, na.rm = TRUE)
-        xMED <- median(x, na.rm = TRUE)
-        xSKEW <- skewness(x, na.rm = TRUE)
-        xKURT <- kurtosis(x, na.rm = TRUE)
-        xMIN <- min(x, na.rm = TRUE)
-        xMAX <- max(x, na.rm = TRUE)
+        xM <- mean(x, na.rm = na.rm)
+        xSD <- sd(x, na.rm = na.rm)
+        xMED <- median(x, na.rm = na.rm)
+        xSKEW <- skewness(x, na.rm = na.rm)
+        xKURT <- kurtosis(x, na.rm = na.rm)
+        xMIN <- min(x, na.rm = na.rm)
+        xMAX <- max(x, na.rm = na.rm)
         xunique <- length(unique(x))
         xNA <- sum(is.na(x))
         summ <- data.frame(xM, xSD, xMED, xSKEW, xKURT, xMIN, xMAX, xunique, xNA)
@@ -24,17 +24,17 @@ Rmsmm <- function(x, d = 2) {
         Risna <- function (x){
             sum(is.na(x))
         }
-        xM <- dplyr::summarise_if(x, is.numeric, funs(mean(., na.rm = TRUE)))
-        xSD <- dplyr::summarise_if(x, is.numeric, funs(sd(., na.rm = TRUE)))
-        xMED <- dplyr::summarise_if(x, is.numeric, funs(median(., na.rm = TRUE)))
-        xSKEW <- dplyr::summarise_if(x, is.numeric, funs(skewness(., na.rm = TRUE)))
-        xKURT <- dplyr::summarise_if(x, is.numeric, funs(kurtosis(., na.rm = TRUE)))
-        xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
-        xMIN <- dplyr::summarise_if(x, is.numeric, funs(min(., na.rm = TRUE)))
-        xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., na.rm = TRUE)))
-        xunique <- summarise_if(x, is.numeric, funs(length(unique(.))))
-        xNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(.)))
-        #xNA <- sapply(x, Risna)
+        xM <- dplyr::summarise_if(x, is.numeric, ~ mean(., na.rm = na.rm))
+        xSD <- dplyr::summarise_if(x, is.numeric, ~sd(., na.rm = na.rm))
+        xMED <- dplyr::summarise_if(x, is.numeric, ~median(., na.rm = na.rm))
+        xSKEW <- dplyr::summarise_if(x, is.numeric, ~skewness(., na.rm = na.rm))
+        xKURT <- dplyr::summarise_if(x, is.numeric, ~kurtosis(., na.rm = na.rm))
+        xMAX <- dplyr::summarise_if(x, is.numeric, ~max(., na.rm = na.rm))
+        xMIN <- dplyr::summarise_if(x, is.numeric, ~min(., na.rm = na.rm))
+        xMAX <- dplyr::summarise_if(x, is.numeric, ~max(., na.rm = na.rm))
+        xunique <- summarise_if(x, is.numeric, ~length(unique(.)))
+        xNA <- dplyr::summarise_if(x, is.numeric, ~Risna(.))
+                #xNA <- sapply(x, Risna)
         summ <- rbind(xM, xSD, xMED, xSKEW, xKURT, xMIN, xMAX, xunique, xNA)
         row.names(summ) <- c("M", "SD", "Median", "Skew", "Kurtosis", "Min", "Max", "N_Unique", "NAs")
         summ <- as.data.frame(t(summ))
@@ -47,13 +47,13 @@ Rmsmm <- function(x, d = 2) {
 #Rmsmm(mtcars)
 
 Rmsmm.currency <-
-    function(x, currency_symbol = "$", varlabs = paste0("`", names(which(sapply(x, is.numeric))), "`"), 
+    function(x, na.rm = TRUE, currency_symbol = "$", varlabs = paste0("`", names(which(sapply(x, is.numeric))), "`"), 
              varlabs_name = "", kable = TRUE, caption = NULL,
              outnames = c(varlabs_name, "M", "SD", "Median", "Skewness", "Kurtosis",
                           "Min", "Max", "$N_{Unique Values}$", "$N_{Missing}$"), ...) {
         ## '...' = ADD'L ARGS PASSED TO KABLE() (IF KABLE == TRUE) ##
         require(data.table); require(magrittr)
-        res <- Rmsmm(x) %>%
+        res <- Rmsmm(x, na.rm = na.rm) %>%
             as.data.table() %>%
             transform("x" = varlabs,
                       M = ifelse(M < 0, paste0("-", currency_symbol, scales::comma(abs(M))),
@@ -76,20 +76,20 @@ Rmsmm.currency <-
         } else return(res)
     }
 
-Rmsmm2 <- function (x, d = 2) 
+Rmsmm2 <- function (x, d = 2, na.rm = TRUE) 
 {
     require(dplyr)
     require(e1071)
     if (is.null(ncol(x))) {
         if (!is.numeric(x)) 
             stop("x must be numeric.")
-        xM <- mean(x, na.rm = TRUE)
-        xSD <- sd(x, na.rm = TRUE)
-        xMED <- median(x, na.rm = TRUE)
-        xSKEW <- skewness(x, na.rm = TRUE)
-        xKURT <- kurtosis(x, na.rm = TRUE)
-        xMIN <- min(x, na.rm = TRUE)
-        xMAX <- max(x, na.rm = TRUE)
+        xM <- mean(x, na.rm = na.rm)
+        xSD <- sd(x, na.rm = na.rm)
+        xMED <- median(x, na.rm = na.rm)
+        xSKEW <- skewness(x, na.rm = na.rm)
+        xKURT <- kurtosis(x, na.rm = na.rm)
+        xMIN <- min(x, na.rm = na.rm)
+        xMAX <- max(x, na.rm = na.rm)
         xunique <- length(unique(x))
         xNA <- sum(is.na(x))
         summ <- data.frame(xM, xSD, xMED, xSKEW, xKURT, xMIN, 
@@ -110,24 +110,16 @@ Rmsmm2 <- function (x, d = 2)
             sum(is.na(x))
         }
         xNrows <- nrow(x)
-        xM <- dplyr::summarise_if(x, is.numeric, funs(mean(., 
-            na.rm = TRUE)))
-        xSD <- dplyr::summarise_if(x, is.numeric, funs(sd(., 
-            na.rm = TRUE)))
-        xMED <- dplyr::summarise_if(x, is.numeric, funs(median(., 
-            na.rm = TRUE)))
-        xSKEW <- dplyr::summarise_if(x, is.numeric, funs(skewness(., 
-            na.rm = TRUE)))
-        xKURT <- dplyr::summarise_if(x, is.numeric, funs(kurtosis(., 
-            na.rm = TRUE)))
-        xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., 
-            na.rm = TRUE)))
-        xMIN <- dplyr::summarise_if(x, is.numeric, funs(min(., 
-            na.rm = TRUE)))
-        xMAX <- dplyr::summarise_if(x, is.numeric, funs(max(., 
-            na.rm = TRUE)))
-        xunique <- summarise_if(x, is.numeric, funs(length(unique(.))))
-        xNA <- dplyr::summarise_if(x, is.numeric, funs(Risna(.)))
+        xM <- dplyr::summarise_if(x, is.numeric, ~ mean(., na.rm = na.rm))
+        xSD <- dplyr::summarise_if(x, is.numeric, ~sd(., na.rm = na.rm))
+        xMED <- dplyr::summarise_if(x, is.numeric, ~median(., na.rm = na.rm))
+        xSKEW <- dplyr::summarise_if(x, is.numeric, ~skewness(., na.rm = na.rm))
+        xKURT <- dplyr::summarise_if(x, is.numeric, ~kurtosis(., na.rm = na.rm))
+        xMAX <- dplyr::summarise_if(x, is.numeric, ~max(., na.rm = na.rm))
+        xMIN <- dplyr::summarise_if(x, is.numeric, ~min(., na.rm = na.rm))
+        xMAX <- dplyr::summarise_if(x, is.numeric, ~max(., na.rm = na.rm))
+        xunique <- summarise_if(x, is.numeric, ~length(unique(.)))
+        xNA <- dplyr::summarise_if(x, is.numeric, ~Risna(.))
         xNA_pct <- xNA/xNrows
         xunique_pct <- xunique/xNrows
         summ <- rbind(xM, xSD, xMED, xSKEW, xKURT, xMIN, xMAX, 
@@ -141,9 +133,9 @@ Rmsmm2 <- function (x, d = 2)
     }
 }
 
-Rkable.Rmsmm2 <- function(x, ...) {
+Rkable.Rmsmm2 <- function(x, na.rm = TRUE, ...) {
     Rkable(
-        transform(Rmsmm2(x), Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
+        transform(Rmsmm2(x, na.rm = na.rm), Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
             Pct_NA = Ras.percent(round(100*Pct_NA, 1), smbl = "%")),
         align = "r", ...)
 }
