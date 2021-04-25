@@ -11,9 +11,7 @@ Rpostread <- function(x) {
         purrr::map_if(is.character,
             function(x) ifelse(
                 x %in% c(getOption("datatable.na.strings"), ""), 
-                NA_character_,
-                toupper(gsub("[_]+", "_",
-                    gsub("([ ]+)|([\\-]+)", "_", x))))) %>%
+                NA_character_, x)) %>%
         as.data.table() %>%
         unique() %>%
         setnames(., names(.), tolower(names(.)))
