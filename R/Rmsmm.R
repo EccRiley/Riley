@@ -133,7 +133,7 @@ Rmsmm2 <- function (x, d = 2, na.rm = TRUE)
     }
 }
 
-Rkable.Rmsm2 <- function(x, 
+Rkable.Rmsmm2 <- function(x, 
     caption = deparse(substitute(x)), na.rm = TRUE, ...) {
     Rkable(
         transform(Rmsmm2(x, na.rm = na.rm), 
