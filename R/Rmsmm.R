@@ -133,10 +133,14 @@ Rmsmm2 <- function (x, d = 2, na.rm = TRUE)
     }
 }
 
-Rkable.Rmsmm2 <- function(x, na.rm = TRUE, ...) {
+Rkable.Rmsm2 <- function(x, 
+    caption = deparse(substitute(x)), na.rm = TRUE, ...) {
     Rkable(
-        transform(Rmsmm2(x, na.rm = na.rm), Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
+        transform(Rmsmm2(x, na.rm = na.rm), 
+            Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), 
+            smbl = "%"), 
             Pct_NA = Ras.percent(round(100*Pct_NA, 1), smbl = "%")),
-        align = "r", ...)
+        align = "r", caption = caption, ...)
 }
+
 
