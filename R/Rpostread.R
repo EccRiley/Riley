@@ -1,4 +1,4 @@
-Rpostread <- function(x) {
+Rpostread <- function(x, lower_names = TRUE) {
     library(magrittr); library(purrr); library(data.table)
     
     y <- x %>%
@@ -12,8 +12,11 @@ Rpostread <- function(x) {
             function(x) ifelse(
                 x %in% c(getOption("datatable.na.strings"), ""), 
                 NA_character_, x)) %>%
-        as.data.table() %>%
-        unique() %>%
-        setnames(., names(.), tolower(names(.)))
+        as.data.frame() %>%
+        unique()
+    setDT(y)
+    if (lower_names == TRUE) {
+        setnames(y, names(y), tolower(names(y)))
+    }
     return(y)
 }
