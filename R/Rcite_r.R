@@ -3,14 +3,14 @@
 #' Modified version of `papaja::cite_r()`.
 #'
 Rcite_r <-
-    function(file = NULL, checksrc = FALSE, srcfile = NULL,
-    		pkgs = (.packages()),
-             prefix = "R-",
-             tex = FALSE,
-             footnote = TRUE,
-             Rnote = "This document was created using",
-             pkgnote = "and the following _**R**-packages_:",
-             ...) {
+    function(file, checksrc = FALSE, srcfile = NULL,
+        pkgs = devtools::session_info()$packages$package,
+        prefix = "R-",
+        tex = FALSE,
+        footnote = TRUE,
+        Rnote = "This document was created using",
+        pkgnote = "and the following _**R**-packages_:",
+        ...) {
         if (tex && !require(tufte)) {
             stop("The 'tufte' package (https://cran.rstudio.com/web/packages/tufte/index.html) is required for LaTeX output")
         }
@@ -26,17 +26,40 @@ Rcite_r <-
                 )
             return(cite_just_r)
         }
-	 if (checksrc && is.null(srcfile)) {
-		warning("Cannot check source file: no source file path provided ('srcfile = NULL')")
-	 }
-	 else if (checksrc && !is.null(srcfile)) {
-	 	src <- readLines(srcfile)
-		rgx <- "^.*?(\\w+)\\:\\:.*?$"
-	 	addpkgs <- grep(rgx, src, perl = TRUE, value = TRUE)
-		addpkgs <- gsub(rgx, "\\1", addpkgs, perl = TRUE)
-		pkgs <- unique(c(addpkgs, pkgs))
-	 }
-	 r_bib <- readLines(file)
+        if (checksrc && is.null(srcfile)) {
+            warning("Cannot check source file: no source file path provided ('srcfile = NULL')")
+        } else if (checksrc && !is.null(srcfile)) {
+            src <- readLines(srcfile)
+            rgx <- "^.*?(\\w+)\\:\\:.*?$"
+            addpkgs <- grep(rgx, src, perl = TRUE, value = TRUE)
+            addpkgs <- gsub(rgx, "\\1", addpkgs, perl = TRUE)
+            pkgs <- unique(c(addpkgs, pkgs))
+        }
+        
+
+        orig_bib_file <- file
+        new_bib_file <- "zTEMP.bib"
+        y <- sapply(pkgs,
+            function(x) {
+                res0 <- toBibtex(citation(x))
+                res0[[1]] <- gsub("^(@[A-Za-z]+)\\{,$", paste0("\\1{R-", x, ","), res0[[1]])
+                return(res0)
+            })
+        
+        ycat <- paste0(unlist(y), sep = "\n")
+        # cat(unlist(ycat))
+        cat(ycat, file = new_bib_file, sep = "")
+        
+        bib0 <- readLines(orig_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
+        bib1 <- readLines(new_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
+        
+        file_new <- "zTEMP.bib"
+        bib_new <- paste0(bib0, "\n\n", bib1)
+        cat(bib_new, file = file_new)
+        
+        
+        r_bib <- readLines(file_new)
+        
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
         cite_keys <- gsub("\\@\\w+\\{", "", cite_keys)
@@ -48,19 +71,20 @@ Rcite_r <-
         }, USE.NAMES = FALSE)
         if (length(pkgs) > 1 && pkgs != "all") {
             pkg_citations <- bib[names(bib) %in% pkgs]
-        }
-        else {
-            pkg_citations <- bib[!names(bib) == "base"]
+        } else {
+            pkg_citations <- bib[!names(bib) == "R-base"]
         }
         if (length(pkg_citations) == 0) {
             return(cite_just_r)
         }
         vers1 <-
-            function(x)
+            function(x) {
                 as.data.frame(strsplit(as.character(packageVersion(x)), split = "\\."))[1,]
+        }
         vers2 <-
-            function(x)
+            function(x) {
                 as.data.frame(strsplit(as.character(packageVersion(x)), split = "\\."))[2,]
+        }
         pkg_texts <- paste0(
             "_",
             names(pkg_citations),
@@ -75,11 +99,10 @@ Rcite_r <-
         )
         if (length(pkg_texts) > 1) {
             pkg_info <- paste(pkg_texts[1:(length(pkg_texts) - 1)],
-                              collapse = ", ")
+                collapse = ", ")
             pkg_info <- paste0(pkg_info, ", and ", tail(pkg_texts,
-                                                        1))
-        }
-        else {
+                1))
+        } else {
             pkg_info <- pkg_texts
         }
         if (footnote) {
@@ -94,8 +117,7 @@ Rcite_r <-
                     pkg_info,
                     "]"
                 )
-        }
-        else {
+        } else {
             if (tex) {
                 res <-
                     paste0(
