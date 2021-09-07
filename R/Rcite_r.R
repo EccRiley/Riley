@@ -55,7 +55,7 @@ Rcite_r <-
         
         file_new <- "zTEMP.bib"
         bib_new <- paste0(bib0, "\n\n", bib1)
-        cat(bib_new, file = file_new)
+        cat(bib_new, file = file, append = TRUE)
         
         
         r_bib <- readLines(file_new)
