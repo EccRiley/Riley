@@ -23,7 +23,6 @@ Rcite_r2 <-
 
         r_bib <- paste0(ycat, collapse = "")
         r_bib <- gsub("\\}\n@", "\\}\n\n@", r_bib)
-        cat(r_bib)
 
         cite_keys <-
             ycat[grepl(paste0("\\@\\w+\\{", prefix), ycat)]
