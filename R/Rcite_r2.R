@@ -1,6 +1,5 @@
 Rcite_r2 <-
-    function(file,
-        pkgs = devtools::session_info()$packages$package,
+    function(pkgs = devtools::session_info()$packages$package,
         prefix = "R-",
         tex = FALSE,
         footnote = TRUE,
