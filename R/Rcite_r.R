@@ -53,11 +53,12 @@ Rcite_r <-
         bib0 <- readLines(orig_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
         bib1 <- readLines(new_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
         
+        file_new <- "zTEMP.bib"
         bib_new <- paste0(bib0, "\n\n", bib1)
-        cat(bib_new, file = new_bib_file)
-        cat(bib_new, file = file, append = TRUE)
-
-        r_bib <- readLines(new_bib_file)
+        cat(bib_new, file = file_new)
+        
+        
+        r_bib <- readLines(file_new)
         
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
