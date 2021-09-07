@@ -35,7 +35,7 @@ Rcite_r <-
             addpkgs <- gsub(rgx, "\\1", addpkgs, perl = TRUE)
             pkgs <- unique(c(addpkgs, pkgs))
         }
-        
+
 
         orig_bib_file <- file
         new_bib_file <- "zTEMP.bib"
@@ -45,21 +45,19 @@ Rcite_r <-
                 res0[[1]] <- gsub("^(@[A-Za-z]+)\\{,$", paste0("\\1{R-", x, ","), res0[[1]])
                 return(res0)
             })
-        
+
         ycat <- paste0(unlist(y), sep = "\n")
         # cat(unlist(ycat))
         cat(ycat, file = new_bib_file, sep = "")
-        
+
         bib0 <- readLines(orig_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
         bib1 <- readLines(new_bib_file, skipNul = TRUE) %>% paste0(collapse = "\n")
-        
-        file_new <- "zTEMP.bib"
-        bib_new <- paste0(bib0, "\n\n", bib1)
-        cat(bib_new, file = file_new)
-        
-        
-        r_bib <- readLines(file_new)
-        
+
+        r_bib <- paste0(bib0, "\n\n", bib1)
+        # cat(bib_new, file = new_bib_file)
+        # cat(bib_new, file = file, append = TRUE)
+
+
         cite_keys <-
             r_bib[grepl(paste0("\\@\\w+\\{", prefix), r_bib)]
         cite_keys <- gsub("\\@\\w+\\{", "", cite_keys)
@@ -80,11 +78,11 @@ Rcite_r <-
         vers1 <-
             function(x) {
                 as.data.frame(strsplit(as.character(packageVersion(x)), split = "\\."))[1,]
-        }
+            }
         vers2 <-
             function(x) {
                 as.data.frame(strsplit(as.character(packageVersion(x)), split = "\\."))[2,]
-        }
+            }
         pkg_texts <- paste0(
             "_",
             names(pkg_citations),
