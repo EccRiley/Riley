@@ -12,12 +12,13 @@ Rkable_format <- function(interactive_format = "html") {
     return(res)
 }
 
-Rkable <- function (x, format = Rkable_format(), ..., full_width = FALSE, 
+Rkable <- function (x, format = Rkable_format(), 
+    fixed_thead_enabled = TRUE, fixed_thead_bg = "#EEEFF1", ..., 
+    full_width = FALSE, 
     condensed = TRUE, 
     responsive = TRUE, 
     hover = TRUE,
     latex_options = NULL, 
-    fixed_thead = list(enabled = T/F, background = pal_dl2[["bluegraylitest"]]), 
     protect_latex = TRUE) 
 {
     library(knitr)
@@ -29,8 +30,10 @@ Rkable <- function (x, format = Rkable_format(), ..., full_width = FALSE,
     kable_styling(kable(x, format = format, ...), full_width = full_width, 
         bootstrap_options = bo, 
         latex_options = latex_options, 
-        fixed_thead = fixed_thead, protect_latex = protect_latex)
+        fixed_thead = list(enabled = fixed_thead_enabled, background = fixed_thead_bg), 
+        protect_latex = protect_latex)
 }
+
 
 
 #' # Examples
