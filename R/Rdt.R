@@ -8,7 +8,7 @@ Rdt <-
              rownames = FALSE,
              class = c("display"),
              height = 300,
-             filter = "none",
+             filter = list(position = 'top', clear = TRUE, plain = TRUE),
              extensions = "KeyTable",
              selection = list(target = "row"),
              opts.columnDefs = NULL, 
