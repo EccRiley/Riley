@@ -7,7 +7,7 @@ Rdt <-
         caption = deparse(substitute(x)),
         rownames = FALSE,
         class = c("caption","display"),
-        width = 600,
+        width = 700,
         height = 500,
         filter = list(position = 'top', clear = FALSE, plain = FALSE),
         autoHideNavigation = TRUE,
@@ -18,6 +18,7 @@ Rdt <-
         opts.lengthMenu = c(10, seq(25, 100, by = 25)),
         opts.info = TRUE,
         opts.keys = "true",
+        opts.scrollX = TRUE,
         #opts.dom = "tip", 
         opts.initComplete = DT::JS(
             "function(settings, json) {",
@@ -27,7 +28,7 @@ Rdt <-
         ...) {
         
         cap <- htmltools::tags$caption(
-            style = 'caption-side: top; text-align: center; font-size: 1.5em; font-family: monospace; font-weight: bold;',
+            style = 'caption-side: top; text-align: left; font-size: 1.5em; font-family: monospace; font-weight: bold;',
             htmltools::strong(paste(caption))
         )
         
@@ -38,7 +39,8 @@ Rdt <-
             keys = opts.keys,
             columnDefs = opts.columnDefs,
             #dom = opts.dom,
-            initComplete = opts.initComplete
+            initComplete = opts.initComplete,
+            scrollX = opts.scrollX
         )
         
         DT::datatable(
