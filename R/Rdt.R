@@ -7,8 +7,10 @@ Rdt <-
              caption = deparse(substitute(x)),
              rownames = FALSE,
              class = c("display"),
+             width = 600,
              height = 300,
-             filter = list(position = 'top', clear = TRUE, plain = TRUE),
+             filter = list(position = 'top', clear = FALSE, plain = FALSE),
+             autoHideNavigation = TRUE,
              extensions = "KeyTable",
              selection = list(target = "row"),
              opts.columnDefs = NULL, 
@@ -48,6 +50,7 @@ Rdt <-
             class = class,
             options = opts,
             extensions = extensions,
+            autoHideNavigation = autoHideNavigation,
             ...
         )
     }
