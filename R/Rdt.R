@@ -19,6 +19,7 @@ Rdt <-
         opts.info = TRUE,
         opts.keys = "true",
         opts.scrollX = TRUE,
+        opts.scrollY = TRUE,
         #opts.dom = "tip", 
         opts.initComplete = DT::JS(
             "function(settings, json) {",
@@ -40,7 +41,8 @@ Rdt <-
             columnDefs = opts.columnDefs,
             #dom = opts.dom,
             initComplete = opts.initComplete,
-            scrollX = opts.scrollX
+            scrollX = opts.scrollX,
+            scrollY = opts.scrollY
         )
         
         DT::datatable(
