@@ -4,47 +4,48 @@
 #'
 Rdt <-
     function(x,
-             caption = deparse(substitute(x)),
-             rownames = FALSE,
-             class = c("display"),
-             width = 600,
-             height = 500,
-             filter = list(position = 'top', clear = FALSE, plain = FALSE),
-             autoHideNavigation = TRUE,
-             extensions = "KeyTable",
-             selection = list(target = "row"),
-             opts.columnDefs = NULL, 
-             opts.pageLength = 10,
-             opts.lengthMenu = c(10, seq(25, 100, by = 25)),
-             opts.info = TRUE,
-             opts.keys = "true",
-             opts.dom = "tip", 
-             opts.initComplete = DT::JS(
-                 "function(settings, json) {",
-                 "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff', 'font-family': 'consolas'});",
-                 "}"),
-             opts.other = list(), 
-             ...) {
+        caption = deparse(substitute(x)),
+        rownames = FALSE,
+        class = c("caption","display"),
+        width = 600,
+        height = 500,
+        filter = list(position = 'top', clear = FALSE, plain = FALSE),
+        autoHideNavigation = TRUE,
+        extensions = "KeyTable",
+        selection = list(target = "row"),
+        opts.columnDefs = NULL, 
+        opts.pageLength = 10,
+        opts.lengthMenu = c(10, seq(25, 100, by = 25)),
+        opts.info = TRUE,
+        opts.keys = "true",
+        #opts.dom = "tip", 
+        opts.initComplete = DT::JS(
+            "function(settings, json) {",
+            "$(this.api().table().header()).css({'font-size': '1.15em', 'background-color': '#000000', 'color': '#fff', 'font-family':'monospace'});
+            $(this.api().table().body()).css({'font-size': '1em', 'background-color': '#FFFFFF', 'color': '#000000', 'font-family':'monospace'});", 
+            "}"),
+        ...) {
         
-        cap <- htmltools::tags$caption(style = 'caption-side: top; text-align: left; font-size: 1.25em;',
-                                       htmltools::strong(htmltools::em(paste(caption)))
+        cap <- htmltools::tags$caption(
+            style = 'caption-side: top; text-align: center; font-size: 1.5em; font-family: monospace; font-weight: bold;',
+            htmltools::strong(paste(caption))
         )
         
-        opts <- as.list(c(
+        opts <- list(
             pageLength = opts.pageLength,
             lengthMenu = opts.lengthMenu,
             info = opts.info,
             keys = opts.keys,
             columnDefs = opts.columnDefs,
-            dom = opts.dom,
-            initComplete = opts.initComplete, 
-            unlist(opts.other))
+            #dom = opts.dom,
+            initComplete = opts.initComplete
         )
         
         DT::datatable(
             x,
             rownames = rownames,
             caption = cap,
+            width = width,
             height = height,
             filter = filter,
             class = class,
@@ -54,6 +55,7 @@ Rdt <-
             ...
         )
     }
+
 #'
 #' 
 #' 
@@ -102,11 +104,11 @@ Rdt2 <- function(x,
             extensions = extensions,
             selection = selection,
             opts.columnDefs = opts.columnDefs,
-#             opts.pageLength = opts.pageLength,
-            # opts.lengthMenu = opts.lengthMenu,
+            opts.pageLength = opts.pageLength,
+            opts.lengthMenu = opts.lengthMenu,
             opts.info = opts.info,
             opts.keys = opts.keys,
-#             opts.dom = opts.dom,
+            opts.dom = opts.dom,
             opts.initComplete = opts.initComplete,
             opts.other,
             ...)
