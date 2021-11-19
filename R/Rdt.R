@@ -8,7 +8,7 @@ Rdt <-
              rownames = FALSE,
              class = c("display"),
              width = 600,
-             height = 300,
+             height = 500,
              filter = list(position = 'top', clear = FALSE, plain = FALSE),
              autoHideNavigation = TRUE,
              extensions = "KeyTable",
@@ -18,7 +18,7 @@ Rdt <-
              opts.lengthMenu = c(10, seq(25, 100, by = 25)),
              opts.info = TRUE,
              opts.keys = "true",
-             # opts.dom = "tip", 
+             opts.dom = "tip", 
              opts.initComplete = DT::JS(
                  "function(settings, json) {",
                  "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff', 'font-family': 'consolas'});",
@@ -31,12 +31,12 @@ Rdt <-
         )
         
         opts <- as.list(c(
-#             pageLength = opts.pageLength,
-            # lengthMenu = opts.lengthMenu,
+            pageLength = opts.pageLength,
+            lengthMenu = opts.lengthMenu,
             info = opts.info,
             keys = opts.keys,
             columnDefs = opts.columnDefs,
-#             dom = opts.dom,
+            dom = opts.dom,
             initComplete = opts.initComplete, 
             unlist(opts.other))
         )
@@ -73,13 +73,14 @@ Rdt2 <- function(x,
                  table.attr = NULL,
                  
                  ## ARGS FOR Rdt() OUTPUT ##
+                 width = 600,
                  height = 300,
-                 filter = "top",
+                 filter = list(position = 'top', clear = FALSE, plain = FALSE),
                  extensions = "KeyTable",
                  selection = list(target = "row"),
                  opts.columnDefs = NULL, 
-#                  opts.pageLength = 10,
-                 # opts.lengthMenu = c(10, 25, 50, 100, 200, 500, 1000, 1500),
+                 opts.pageLength = 10,
+                 opts.lengthMenu = c(10, seq(25, 100, by = 25)),
                  opts.info = TRUE,
                  opts.keys = "true",
                  opts.dom = "tip", 
