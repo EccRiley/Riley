@@ -7,11 +7,11 @@ Rdt <-
         caption = deparse(substitute(x)),
         rownames = FALSE,
         class = c("caption","display"),
-        width = 700,
+        width = 900,
         height = 500,
         filter = list(position = 'top', clear = FALSE, plain = FALSE),
         autoHideNavigation = TRUE,
-        extensions = "KeyTable",
+        extensions = c("KeyTable", "FixedHeader"),
         selection = list(target = "row"),
         opts.columnDefs = NULL, 
         opts.pageLength = 10,
@@ -20,11 +20,10 @@ Rdt <-
         opts.keys = "true",
         opts.scrollX = TRUE,
         opts.scrollY = TRUE,
-        #opts.dom = "tip", 
         opts.initComplete = DT::JS(
             "function(settings, json) {",
             "$(this.api().table().header()).css({'font-size': '1.15em', 'background-color': '#000000', 'color': '#fff', 'font-family':'monospace'});
-            $(this.api().table().body()).css({'font-size': '1em', 'background-color': '#FFFFFF', 'color': '#000000', 'font-family':'monospace'});", 
+            $(this.api().table().body()).css({'font-size': '1em', 'background-color': '#FFFFFF', 'color': '#000000', 'font-family':'monospace','overflow-x':'auto','overflow-y':'auto'});", 
             "}"),
         ...) {
         
@@ -39,10 +38,10 @@ Rdt <-
             info = opts.info,
             keys = opts.keys,
             columnDefs = opts.columnDefs,
-            #dom = opts.dom,
             initComplete = opts.initComplete,
             scrollX = opts.scrollX,
-            scrollY = opts.scrollY
+            scrollY = opts.scrollY,
+            fixedHeader = TRUE
         )
         
         DT::datatable(
