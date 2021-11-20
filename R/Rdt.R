@@ -19,7 +19,7 @@ Rdt <-
         opts.info = TRUE,
         opts.keys = "true",
         opts.scrollX = TRUE,
-        opts.scrollY = TRUE,
+        opts.scrollY = FALSE,
         opts.initComplete = DT::JS(
             "function(settings, json) {",
             "$(this.api().table().header()).css({'font-size': '1.15em', 'background-color': '#000000', 'color': '#fff', 'font-family':'monospace'});
@@ -40,8 +40,7 @@ Rdt <-
             columnDefs = opts.columnDefs,
             initComplete = opts.initComplete,
             scrollX = opts.scrollX,
-            scrollY = opts.scrollY,
-            fixedHeader = TRUE
+            scrollY = opts.scrollY
         )
         
         DT::datatable(
@@ -79,7 +78,7 @@ Rdt2 <- function(x,
                  
                  ## ARGS FOR Rdt() OUTPUT ##
                  width = 600,
-                 height = 300,
+                 height = NULL,
                  filter = list(position = 'top', clear = FALSE, plain = FALSE),
                  extensions = "KeyTable",
                  selection = list(target = "row"),
