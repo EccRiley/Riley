@@ -135,14 +135,14 @@ Rmsmm2 <- function (x, d = 2, na.rm = TRUE)
 
 Rkable.Rmsmm2 <- function(x, 
     caption = paste0("<code style='color:#C01933'>Rmsmm2(", 
-        deparse(substitute(x)), ")</code>"),
+        deparse1(substitute(x), width.cutoff = 500L), ")</code>"),
     na.rm = TRUE, escape = FALSE, ...) {
     
     Rkable(transform(
         Rmsmm2(x, na.rm = na.rm), 
         Pct_Unique = Ras.percent(round(100*Pct_Unique, 1), smbl = "%"), 
         Pct_NA = Ras.percent(round(100*Pct_NA, 1), smbl = "%")
-        ),
+    ),
         align = "r", caption = caption, escape = escape, ...)
 }
 
