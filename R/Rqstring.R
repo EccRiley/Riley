@@ -1,6 +1,6 @@
 ## SIMPLE UTIL FOR QUERY BUILDING ##
 Rqstring <- function(x, field, substring_side = NULL, substring_n = NULL, ...) {
-    if (!is.null(substring_n) & substring_side %in% c("LEFT", "RIGHT")) {
+    if (!is.null(substring_n) & !is.null(substring_side)) {
         qstring <- paste0("AND ", substring_side, "(LTRIM(RTRIM(", field, ")), ", 
             substring_n, ") IN ('",
             paste0(unique(c(as.character(unique(x)))), collapse = "','"), "')",
