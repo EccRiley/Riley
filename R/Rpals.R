@@ -39,24 +39,35 @@ pal_fivecats <- c(orange = "#EA8A1A", yellow = "#D7C700", purple = "#B090B0", li
 pal_gsu <- c(blue = "#0039A6", red = "#CC0000", darkgray = "#666666") ## GEORGIA STATE UNIVERSITY ##
 pal_pdx <- c(green = "#8b9535", white = "#ffffff", darkgray = "#373737") ## PORTLAND STATE UNIV. (dark/hunter green, white, very dark gray) ##
 pal_dl <- c(deltablue = "#003366", deltared = "#C01933", passportplum = "#2E1A47", white = "#ffffff") ## DELTA AIR LINES ## 
-pal_dl2 <- c(deltablue = pal_dl[[1]], ## PAL_DL2 = PAL_DL COMBINED WITH MY VERSION OF DELTA'S ANCILLARY COLOR PALETTES ##
+pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WITH MY VERSION OF DELTA'S ANCILLARY COLOR PALETTES ##
+             deltared = pal_dl[["deltared"]],
+             passportplum = pal_dl[["passportplum"]]
+             widgetreddark = "#991933",
              widgetredlite = "#E01933",
              passportplum = pal_dl[[3]],
              deltayellow = "#EAAA00",
              deltabluelite = "#7D9BC1", 
              deltaorange = "#FF6900", 
-             passportplumlite = "#5A315D",
-             darkdarkgray = pal_rye[20], 
-             diamond = "#5a829b",
-             platinum = "#35333e", silver = "#8b9191", 
-             darkbcrfpink = "#d7006f", safetygreen = "#8f9a3e",
-             widgetreddark = "#991933",
+             diamond = "#67899C",
+             platinum = "#2F303A", 
+             gold = "#866d4B",
+             silver = "#8A8D8F", 
+             darkbcrfpink = "#d7006f", 
+             lightbcrfpink = "#F04E98", 
+             safetygreen = "#8f9a3e",
              basicecon = "#3b4864",
+             groundspeed = "#888B8D"
+             coolgray10 = "#63666A",
+             coolgray6 = "#A7A8AA",
+             coolgray2 = "#D0D0CE"
              deltabluebrite = "#0A85FF",
+             passportplumlite = "#5A315D",
              bluegraymed = "#AAADB8",
+             darkdarkgray = "#181C20", 
              bluegraydark = "#515460",
              bluegraylite = "#CCCED4",
-             bluegraylitest = "#EEEFF1")
+             bluegraylitest = "#EEEFF1",
+)
 
 pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), ## FULTON COUNTY SCHOOLS (GA) ##
              gold = rgb(187, 152, 4, maxColorValue = 255), 
