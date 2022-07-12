@@ -44,7 +44,6 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              passportplum = pal_dl[["passportplum"]]
              widgetreddark = "#991933",
              widgetredlite = "#E01933",
-             passportplum = pal_dl[[3]],
              deltayellow = "#EAAA00",
              deltabluelite = "#7D9BC1", 
              deltaorange = "#FF6900", 
@@ -66,7 +65,7 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              darkdarkgray = "#181C20", 
              bluegraydark = "#515460",
              bluegraylite = "#CCCED4",
-             bluegraylitest = "#EEEFF1",
+             bluegraylitest = "#EEEFF1"
 )
 
 pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), ## FULTON COUNTY SCHOOLS (GA) ##
