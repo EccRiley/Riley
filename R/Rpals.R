@@ -41,7 +41,7 @@ pal_pdx <- c(green = "#8b9535", white = "#ffffff", darkgray = "#373737") ## PORT
 pal_dl <- c(deltablue = "#003366", deltared = "#C01933", passportplum = "#2E1A47", white = "#ffffff") ## DELTA AIR LINES ## 
 pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WITH MY VERSION OF DELTA'S ANCILLARY COLOR PALETTES ##
              deltared = pal_dl[["deltared"]],
-             passportplum = pal_dl[["passportplum"]]
+             passportplum = pal_dl[["passportplum"]],
              widgetreddark = "#991933",
              widgetredlite = "#E01933",
              deltayellow = "#EAAA00",
@@ -58,7 +58,7 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              groundspeed = "#888B8D"
              coolgray10 = "#63666A",
              coolgray6 = "#A7A8AA",
-             coolgray2 = "#D0D0CE"
+             coolgray2 = "#D0D0CE",
              deltabluebrite = "#0A85FF",
              passportplumlite = "#5A315D",
              bluegraymed = "#AAADB8",
