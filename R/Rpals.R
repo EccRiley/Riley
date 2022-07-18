@@ -55,7 +55,7 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              lightbcrfpink = "#F04E98", 
              safetygreen = "#8f9a3e",
              basicecon = "#3b4864",
-             groundspeed = "#888B8D"
+             groundspeed = "#888B8D",
              coolgray10 = "#63666A",
              coolgray6 = "#A7A8AA",
              coolgray2 = "#D0D0CE",
