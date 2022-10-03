@@ -65,7 +65,10 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              darkdarkgray = "#181C20", 
              bluegraydark = "#515460",
              bluegraylite = "#CCCED4",
-             bluegraylitest = "#EEEFF1"
+             bluegraylitest = "#EEEFF1",
+             apexpink = "#A81A42",
+             apexplum = "#652474"
+             
 )
 
 pal_fcs <- c(green = rgb(0, 88, 64, maxColorValue = 255), ## FULTON COUNTY SCHOOLS (GA) ##
