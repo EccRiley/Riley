@@ -73,7 +73,7 @@ human_numbers <- function(x = NULL, smbl ="", scale = "m", signif = 1, ...){
 
 #' Human versions of large currency numbers - extensible via smbl
 
-human_usd   <- function(x){human_numbers(x, smbl = "$", ...}
+human_usd   <- function(x){human_numbers(x, smbl = "$", ...)}
 human_usd_k <- function(x){human_numbers(x, smbl = "$", scale = "k", ...)}
 human_num   <- function(x){human_numbers(x, smbl = "", ...)}
 human_num_k   <- function(x){human_numbers(x, smbl = "", scale = "k", ...)}
