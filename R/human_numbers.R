@@ -32,44 +32,30 @@ require(scales)
 ## (ADDED 'SCALE' ARG & CORRESPONDING FUNCTIONALITY) ##
 
 human_numbers <- function(x = NULL, smbl ="", scale = "m", signif = 1, ...){
-
+    
     humanity <- function(y) {
-
+        s <- switch (scale,
+            "t" = 1e12,
+            "b" = 1e9,
+            "m" = 1e6,
+            "k" = 1e3,
+            "n" = 1
+        )
         if (!is.na(y) & y >= 0) {
             y_is_positive <- ""
         } else {
             y_is_positive <- "-"
         }
-
-        if (scale == "t") {
-            tn <- abs(y) / 1e12
-            res <- paste0(y_is_positive, smbl,
-                          format(tn, digits = signif,
-                                 nsmall = signif, ...), scale)
-        } else if (scale == "b") {
-            b <- abs(y) / 1e9
-            res <- paste0(y_is_positive, smbl,
-                          format(b, digits = signif,
-                                 nsmall = signif, ...), scale)
-        } else if (scale == "m") {
-            m <- abs(y) / 1e6
-            res <- paste0(y_is_positive, smbl,
-                          format(m, digits = signif,
-                                 nsmall = signif, ...), scale)
-        } else if (scale == "k") {
-            k <- abs(y) / 1e3
-            res <- paste0(y_is_positive, smbl,
-                          format(k, digits = signif,
-                                 nsmall = signif, ...), scale)
-        } else {
-            res <- paste0(y_is_positive, smbl,
-                          format(abs(y), digits = signif,
-                                 nsmall = signif, ...))
-        }
+        z <- abs(y) / s
+        z <- round(z, signif)
+        res <- paste0(y_is_positive, smbl,
+            format(z, nsmall = signif, ...), toupper(scale))
         return(res)
     }
     sapply(x, humanity)
 }
+
+
 
 #' Human versions of large currency numbers - extensible via smbl
 
