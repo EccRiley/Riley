@@ -1,5 +1,5 @@
 Rmsmm <- function(x, d = 2, na.rm = TRUE) {
-    require(dplyr); require(e1071)
+    require(dplyr); require(PerformanceAnalytics)
     if (is.null(ncol(x))) {
         if (!is.numeric(x)) stop("x must be numeric.");
         xM <- mean(x, na.rm = na.rm)
@@ -79,7 +79,7 @@ Rmsmm.currency <-
 Rmsmm2 <- function (x, d = 2, na.rm = TRUE) 
 {
     require(dplyr)
-    require(e1071)
+    require(PerformanceAnalytics)
     if (is.null(ncol(x))) {
         if (!is.numeric(x)) 
             stop("x must be numeric.")
