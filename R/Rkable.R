@@ -6,7 +6,9 @@ Rkable <- function (x, ..., format = Rkable_format(),
     hover = TRUE,
     latex_options = NULL, 
     protect_latex = TRUE,
-    htmltable_class = "lightable-classic") 
+    htmltable_class = "lightable-classic",
+    html_font = "\"Trebuchet MS\"",
+    lightable_options = c("hover")) 
 {
     library(knitr)
     library(kableExtra)
@@ -14,10 +16,11 @@ Rkable <- function (x, ..., format = Rkable_format(),
         c("condensed" = condensed, "responsive" = responsive, "hover" = hover)
     ))
     
-    kable_styling(kbl(x, format = format, ...), full_width = full_width, 
+kable_paper(kable_styling(kbl(x, format = format, ...), full_width = full_width, 
         bootstrap_options = bo, 
         latex_options = latex_options, 
         fixed_thead = list(enabled = fixed_thead_enabled, background = fixed_thead_bg), 
         protect_latex = protect_latex,
-        htmltable_class = htmltable_class)
+        htmltable_class = htmltable_class), 
+        html_font = html_font)
 }
