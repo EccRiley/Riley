@@ -45,7 +45,7 @@ pal_dl2 <- c(deltablue = pal_dl[["deltablue"]], ## PAL_DL2 = PAL_DL COMBINED WIT
              widgetreddark = "#991933",
              widgetredlite = "#E01933",
              deltayellow = "#EAAA00",
-             deltabluelite = "#7D9BC1", 
+             deltabluelite = "#7799CC", #"#7D9BC1", 
              deltaorange = "#FF6900", 
              diamond = "#67899C",
              platinum = "#2F303A", 
