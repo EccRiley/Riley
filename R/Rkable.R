@@ -7,7 +7,7 @@ Rkable <- function (x, ..., format = Rkable_format(),
     latex_options = NULL, 
     protect_latex = TRUE,
     htmltable_class = "lightable-classic",
-    html_font = "\"Trebuchet MS\"",
+    html_font = "\"Lato\"",
     lightable_options = c("hover")) 
 {
     library(knitr)
